@@ -1,4 +1,98 @@
 
+// src/components/Forms/NewsletterSubscribe.jsx
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button'; // Importe Button do shadcn/ui
+import { Input } from '@/components/ui/input';   // Importe Input do shadcn/ui
+import { Mail } from 'lucide-react'; // Ícone para o título, se quiser
+
+function NewsletterSubscribe() {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [isError, setIsError] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage('');
+    setIsError(false);
+
+    try {
+      // ATENÇÃO: Verifique o URL do seu backend.
+      // Se você está rodando localmente, 'http://localhost:3001/api/newsletter/subscribe' está ok.
+      // Para produção, isso precisará ser alterado para o URL do seu servidor real.
+      const response = await fetch('http://localhost:3001/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(data.message || 'Inscrição realizada com sucesso!');
+        setEmail('');
+      } else {
+        setIsError(true);
+        setMessage(data.error || 'Erro ao processar sua inscrição. Tente novamente.');
+      }
+    } catch (error) {
+      console.error('Erro na requisição de inscrição:', error);
+      setIsError(true);
+      setMessage('Não foi possível conectar ao servidor. Verifique sua conexão.');
+    }
+  };
+
+  return (
+    <section className="py-12 px-4 bg-gray-900 text-white"> {/* Fundo escuro igual ao v0.dev */}
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="mb-8">
+          <Mail className="h-16 w-16 text-amber-400 mx-auto mb-6" /> {/* Ícone */}
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Fique Conectado!</h2>
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Receba as últimas atualizações sobre exposições, workshops e eventos da comunidade.
+            Junte-se à nossa newsletter e faça parte da conversa criativa.
+          </p>
+        </div>
+        <div className="max-w-md mx-auto">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
+            <Input
+              type="email"
+              placeholder="Seu e-mail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="flex-1 bg-white text-gray-900 border-0 focus:ring-amber-500 focus:border-amber-500" // Estilo Shadcn/Tailwind
+            />
+            <Button
+              type="submit"
+              className="bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8" // Estilo Shadcn/Tailwind
+            >
+              Inscrever
+            </Button>
+          </form>
+          {message && (
+            <p className={`mt-4 text-sm ${isError ? 'text-red-400' : 'text-green-400'} font-bold`}>
+              {message}
+            </p>
+          )}
+          <p className="text-sm text-gray-400 mt-4">
+            Seu email será usado apenas para o envio da newsletter.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default NewsletterSubscribe;
+
+
+
+/*
+
+V1.2 SEM TAILWIND/SHADCN
+
 import React, { useState } from 'react';
 
 function NewsletterSubscribe() {
@@ -66,3 +160,5 @@ function NewsletterSubscribe() {
 }
 
 export default NewsletterSubscribe;
+
+*/

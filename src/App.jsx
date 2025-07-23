@@ -80,7 +80,7 @@ function AppContent() {
 
             <main style={{ flexGrow: 1, padding: '20px' }}>
                 <Routes>
-                    <Route path="/" element={<NewsletterSubscribe />} />
+                    <Route path="/" element={<HomePage />} />
                     <Route path="/subscribe" element={<NewsletterSubscribe />} />
 
                     <Route

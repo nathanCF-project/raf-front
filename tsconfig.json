@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "jsx": "react-jsx", // Importante: isso permite que o TypeScript entenda JSX
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Adicione libs essenciais para o browser
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler", // Ou "node" dependendo da sua versão do Vite/Node
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src", "src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"], // Inclua também arquivos TS para o shadcn/ui
+}
