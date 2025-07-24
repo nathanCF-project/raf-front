@@ -2,168 +2,132 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NewsletterSubscribe from '../components/Forms/NewsletterSubscribe';
 import heroImage from '../assets/hero1.jpg'; 
-import '../components/Styles/Custom.css'; 
+//import '../components/Styles/Custom.css'; 
 
-import { Button } from "../components/ui/button"
-import { Input } from "../components/ui/input"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
-import { Palette, Users, Calendar, BookOpen, ArrowRight, Mail } from "lucide-react"
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input"; // Pode ser removido se a Newsletter for o único lugar que usa Input
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
+import { Palette, Users, Calendar, BookOpen, ArrowRight, Mail } from "lucide-react";
+
 
 const HomePage = () => {
   return (
-     <> {/* Use um fragmento React */}
+    <> {/* Fragmento React para englobar todo o conteúdo */}
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-white">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            // ATENÇÃO: Corrija o caminho da imagem. Se 'hero1.jpg' estiver em src/assets, use `url(${heroImage})`
-            backgroundImage: `url('${heroImage}')`, // Exemplo: se heroImage estiver em src/assets
-          }}
+          style={{ backgroundImage: `url(${heroImage})` }} // Usa sua imagem hero
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/70" /> {/* Escurece mais para destaque do texto */}
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          {/* Conteúdo da Hero Section Antiga */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Create. Connect. <span className="text-amber-400">Inspire.</span>
+            A Rafeira – Estrutura de Criação
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
-            Join our vibrant community of artists, creators, and cultural enthusiasts shaping the future of creative
-            expression.
+            Criar. Pensar. Agir. Democratizar o acesso à cultura.
           </p>
-          <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8 py-3 text-lg">
-            Explore Our World
-          </Button>
+          <Link to="/about">
+            <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8 py-3 text-lg">
+              Saber mais
+            </Button>
+          </Link>
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Sobre Nós Section (adaptada) */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900">About Our Collective</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900">Sobre Nós</h2>
           <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto">
-            We are a dynamic community of artists, educators, and cultural advocates dedicated to fostering creativity,
-            preserving cultural heritage, and building bridges between diverse artistic traditions. Our collective
-            serves as a catalyst for innovation while honoring the rich tapestry of human expression.
+            Fundada por Andreia Galvão e Clara Passarinho em 2025, A Rafeira nasce da urgência de criar, questionar e partilhar. Promovemos a criação artística, a reflexão crítica sobre o setor cultural e a defesa do seu futuro sustentável.
           </p>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-amber-500 text-amber-600 hover:bg-amber-50 bg-transparent"
-          >
-            Learn More About Us
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          <Link to="/who-we-are">
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-amber-500 text-amber-600 hover:bg-amber-50 bg-transparent"
+            >
+              Conhecer a Estrutura
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
       </section>
 
-      {/* Core Activities Section */}
+      {/* O que fazemos Section (mantido do novo design com suas informações) */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">Our Core Activities</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">O que fazemos</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="mx-auto w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                  <Palette className="h-8 w-8 text-amber-600" />
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900">Artistic Creation</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600">
-                  Supporting artists in developing their craft through collaborative projects, studio spaces, and
-                  creative residencies.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <BookOpen className="h-8 w-8 text-blue-600" />
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900">Training & Workshops</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600">
-                  Comprehensive educational programs designed to nurture talent and share knowledge across artistic
-                  disciplines.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <Users className="h-8 w-8 text-green-600" />
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900">Community Engagement</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600">
-                  Building connections between artists and communities through outreach programs and collaborative
-                  initiatives.
-                </CardDescription>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="mx-auto w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                  <Calendar className="h-8 w-8 text-purple-600" />
-                </div>
-                <CardTitle className="text-xl font-bold text-gray-900">Cultural Events</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-gray-600">
-                  Curating exhibitions, performances, and festivals that celebrate diverse cultural expressions and
-                  artistic innovation.
-                </CardDescription>
-              </CardContent>
-            </Card>
+            {[
+              { title: 'Criação Artística', icon: Palette, description: 'Apoio a artistas no desenvolvimento de sua arte através de projetos colaborativos, espaços de estúdio e residências criativas.' },
+              { title: 'Formação', icon: BookOpen, description: 'Programas educacionais abrangentes para nutrir talentos e compartilhar conhecimento em diversas disciplinas artísticas.' },
+              { title: 'Intercâmbios Culturais', icon: Users, description: 'Construindo pontes entre artistas e comunidades através de programas de extensão e iniciativas colaborativas.' },
+              { title: 'Defesa da Cultura', icon: Calendar, description: 'Curadoria de exposições, performances e festivais que celebram diversas expressões culturais e inovação artística.' }
+            ].map((item, i) => (
+              <Link to={`/what-we-do/${item.title.toLowerCase().replace(/á/g, 'a').replace(/ç/g, 'c').replace(/ /g, '-')}`} className="text-decoration-none text-dark" key={i}>
+                <Card className="text-center hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-between">
+                  <CardHeader>
+                    <div className="mx-auto w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                      <item.icon className="h-8 w-8 text-amber-600" /> {/* Usa o ícone dinamicamente */}
+                    </div>
+                    <CardTitle className="text-xl font-bold text-gray-900">{item.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-gray-600">
+                      {item.description}
+                    </CardDescription>
+                    <p className="mt-4 text-amber-600 font-semibold">Saber mais <ArrowRight className="inline-block ml-1 h-4 w-4" /></p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Course Section */}
+      {/* Em Destaque (Featured Course) Section (adaptada) */}
       <section className="py-20 px-4 bg-gradient-to-r from-amber-50 to-orange-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Featured Course</h2>
-              <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-amber-600">Contemporary Mixed Media Arts</h3>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Em Destaque</h2>
+              <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-amber-600">Curso: Rakugo – A Arte Japonesa de Contar Histórias</h3>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Explore the intersection of traditional and digital art forms in this comprehensive 8-week course. Learn
-                from renowned artists and develop your unique voice through hands-on projects, critiques, and
-                collaborative workshops.
+                Curso online com Clara Passarinho. 5 sessões, de maio a outubro. Técnicas narrativas, práticas e performance final.
               </p>
               <div className="space-y-2 mb-8">
                 <p className="text-gray-600">
-                  <strong>Duration:</strong> 8 weeks
+                  <strong>Duração:</strong> 5 sessões
                 </p>
                 <p className="text-gray-600">
-                  <strong>Schedule:</strong> Saturdays, 10 AM - 2 PM
+                  <strong>Horário:</strong> Maio a Outubro
                 </p>
-                <p className="text-gray-600">
-                  <strong>Investment:</strong> $450
-                </p>
+                {/* Removido o campo "Investment" pois não estava no conteúdo original */}
               </div>
-              <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-black font-semibold">
-                Register Now
-              </Button>
+              <a href="https://www.bol.pt/Comprar/Bilhetes/159761-rakugo_a_arte_japonesa_de_contar_historias_curso-museu_do_oriente/" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-black font-semibold">
+                  Inscreva-se aqui
+                </Button>
+              </a>
             </div>
             <div className="relative">
               <img
-                src="/placeholder.svg?height=400&width=600" // ATENÇÃO: Ajuste este caminho de imagem também
-                alt="Mixed Media Arts Course"
-                className="rounded-lg shadow-xl w-full h-auto"
+                src={heroImage} // Usando a mesma heroImage como placeholder, ou substitua por uma imagem específica do curso
+                alt="Curso Rakugo - A Arte Japonesa de Contar Histórias"
+                className="rounded-lg shadow-xl w-full h-auto object-cover" // object-cover para garantir que a imagem preencha o espaço sem distorcer
+                style={{ maxHeight: '400px' }} // Altura máxima para a imagem do curso
               />
             </div>
           </div>
         </div>
       </section>
 
-      <NewsletterSubscribe/>
-    </> // Feche o fragmento React aqui
+      {/* Newsletter Section (importada do seu componente) */}
+      <NewsletterSubscribe />
+    </>
   );
 };
 

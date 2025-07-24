@@ -54,7 +54,7 @@ const ArtisticCreationPage = () => {
     <br />
 
       <div className="bg-light p-4 mt-5 rounded">
-        <h4 className="mb-3">Receba novidades da Rafeira</h4>
+        
         <NewsletterSubscribe/>
       </div>
     </div>

@@ -2,6 +2,151 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import ContactList from './ContactList'; // Presume que ContactList também será atualizado com Tailwind
+import ContactForm from '../Forms/ContactForm'; // Presume que ContactForm também será atualizado com Tailwind
+import { useAuth } from '../Auth/AuthContext';
+
+// Componentes Shadcn UI
+import { Button } from '../ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Separator } from '../ui/separator'; // Importar Separator para as linhas horizontais
+
+function AdminDashboard() {
+    const navigate = useNavigate();
+    const { user, isAuthenticated, loading, logout } = useAuth();
+
+    const [showContactForm, setShowContactForm] = useState(false);
+    const [editingContact, setEditingContact] = useState(null);
+    const [refreshContactList, setRefreshContactList] = useState(false);
+
+    const handleLogout = () => {
+        logout(); // Usa a função logout do AuthContext
+        navigate('/admin/login'); // Redireciona para o login após logout
+    };
+
+    const handleContactFormSubmitSuccess = () => {
+        setShowContactForm(false);
+        setEditingContact(null);
+        setRefreshContactList(prev => !prev);
+    };
+
+    const handleEditContact = (contact) => {
+        setEditingContact(contact);
+        setShowContactForm(true);
+    };
+
+    const handleCancelForm = () => {
+        setShowContactForm(false);
+        setEditingContact(null);
+    };
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center min-h-[calc(100vh-80px-96px)] bg-gray-100 p-4">
+                <p className="text-lg font-medium text-gray-700">Verificando acesso ao Dashboard...</p>
+            </div>
+        );
+    }
+
+    // Essa checagem é uma redundância útil, embora ProtectedRoute já trate.
+    if (!user || user.role !== 'admin') {
+        return (
+            <div className="flex items-center justify-center min-h-[calc(100vh-80px-96px)] bg-gray-100 p-4 text-center">
+                <Card className="w-full max-w-md p-6 shadow-lg rounded-lg bg-white">
+                    <CardHeader>
+                        <CardTitle className="text-2xl font-bold text-red-600">Acesso Negado</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <p className="text-gray-700">Você não tem permissão para acessar esta página.</p>
+                        <Button onClick={handleLogout} className="w-full bg-red-500 hover:bg-red-600 text-white">
+                            Ir para Login
+                        </Button>
+                    </CardContent>
+                </Card>
+            </div>
+        );
+    }
+
+    return (
+        <div className="container mx-auto p-4 sm:px-6 lg:px-8 my-10"> {/* Contêiner responsivo com margem */}
+            <Card className="w-full p-6 shadow-lg rounded-lg bg-white">
+                <CardHeader>
+                    <CardTitle className="text-3xl font-bold text-gray-900 mb-4">
+                        Bem-vindo, {user.name} (<span className="text-amber-500">{user.role}</span>)!
+                    </CardTitle>
+                    <p className="text-gray-600">Este é o seu painel de administração.</p>
+                </CardHeader>
+
+                <CardContent className="mt-8 space-y-4"> {/* Espaçamento entre seções */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> {/* Layout de botões responsivo */}
+                        <Button
+                            onClick={() => { setShowContactForm(true); setEditingContact(null); }}
+                            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2"
+                        >
+                            Adicionar Novo Contato
+                        </Button>
+
+                        <Link to="/admin/subscribers">
+                            <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2">
+                                Gerenciar Assinantes / Exportar/Importar (Em breve)
+                            </Button>
+                        </Link>
+                        <Link to="/admin/newsletters/create">
+                            <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2">
+                                Criar Newsletter
+                            </Button>
+                        </Link>
+                        <Link to="/admin/newsletters">
+                            <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2">
+                                Gerenciar Newsletters Existentes
+                            </Button>
+                        </Link>
+                    </div>
+
+                    {showContactForm && (
+                        <>
+                            <Separator className="my-8" /> {/* Linha divisória Shadcn */}
+                            <ContactForm
+                                onFormSubmit={handleContactFormSubmitSuccess}
+                                initialData={editingContact || {}}
+                            />
+                            <Button
+                                onClick={handleCancelForm}
+                                variant="outline" // Estilo de botão "outline" do Shadcn
+                                className="w-full mt-4 border-gray-400 text-gray-700 hover:bg-gray-100"
+                            >
+                                Cancelar
+                            </Button>
+                            <Separator className="my-8" />
+                        </>
+                    )}
+
+                    <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Gestão de Contatos</h3>
+                    <ContactList refreshTrigger={refreshContactList} onEditContact={handleEditContact} />
+
+                    <Button
+                        onClick={handleLogout}
+                        className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 mt-8"
+                    >
+                        Sair do Dashboard
+                    </Button>
+                </CardContent>
+            </Card>
+        </div>
+    );
+}
+
+export default AdminDashboard;
+
+
+
+
+/*  funcional mas sem adaptacao tailwind shadcn ui
+
+// my-react-app/src/components/Dashboard/AdminDashboard.jsx
+
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import ContactList from './ContactList';
 import ContactForm from '../Forms/ContactForm';
 import { useAuth } from '../Auth/AuthContext';
@@ -64,7 +209,7 @@ function AdminDashboard() {
 
     return (
         <div style={{ padding: '20px', maxWidth: '900px', margin: '50px auto', border: '1px solid #ccc', borderRadius: '8px', boxShadow: '2px 2px 8px rgba(0,0,0,0.1)', backgroundColor: '#fff' }}>
-            <h2>Bem-vindo, {user.name} ({user.role})!</h2> {/* Pega o nome e role do user do contexto */}
+            <h2>Bem-vindo, {user.name} ({user.role})!</h2> 
             <p>Este é o seu painel de administração.</p>
 
             <div style={{ marginTop: '30px', marginBottom: '30px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
@@ -75,13 +220,12 @@ function AdminDashboard() {
                     Adicionar Novo Contato
                 </button>
 
-                {/* Agora com Link do react-router-dom */}
-                <Link to="/admin/subscribers" style={{ /* sestilos */ }}>
+                <Link to="/admin/subscribers" style={{ /* sestilos  }}>
                     <button style={{ padding: '10px 15px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '1em' }}>
                         Gerenciar Assinantes / Exportar importar (Em breve)
                     </button>
                 </Link>
-                <Link to="/admin/newsletters/create" style={{ /*estilos de link/botão */ }}>
+                <Link to="/admin/newsletters/create" style={{ /*estilos de link/botão  }}>
                     <button style={{ padding: '10px 15px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '1em' }}>
                         Criar Newsletter
                     </button>
@@ -91,7 +235,6 @@ function AdminDashboard() {
                     Gerenciar Newsletters Existentes
                 </button>
             </Link>
-                {/* link para "Exportar/Importar" aqui também, se desejar */}
             </div>
 
             {showContactForm && (
@@ -126,160 +269,12 @@ function AdminDashboard() {
 
 export default AdminDashboard;
 
-
-
-
-
-
-
-
-
-/*
-V1 -----  function admindashboard antes de ser adaptado ao authcontext para usar useAuth()
-
-function AdminDashboard() {
-  const navigate = useNavigate();
-  const [userName, setUserName] = useState('');
-  const [userRole, setUserRole] = useState('');
-  const [showContactForm, setShowContactForm] = useState(false); //adicionar contato
-  const [editingContact, setEditingContact] = useState(null);
-  const [refreshContactList, setRefreshContactList] = useState(false);  
-
-  // useEffect para verificar o status de login ao carregar o componente
-  useEffect(() => {
-    const token = localStorage.getItem('authToken');
-    const role = localStorage.getItem('userRole'); // Pega a role do localStorage
-
-    if (!token || role !== 'admin') {
-      // Se não houver token ou a role não for 'admin', redireciona para o login
-      console.log('Acesso negado. Redirecionando para a página de login.');
-      navigate('/admin/login');
-    } else {
-      // Se estiver logado e for admin, tenta decodificar o token para pegar o nome
-      // Em um projeto real, você faria uma requisição ao backend para obter os dados do usuário logado
-      // Por enquanto, vamos simular que o token guarda o nome
-      try {
-        // ATENÇÃO: Decodificar JWT no frontend é apenas para display!
-        // Não use isso para lógica de segurança. A segurança é feita no backend.
-        // Aqui, estamos apenas pegando o nome para uma mensagem de boas-vindas.
-        const payloadBase64 = token.split('.')[1];
-        const decodedPayload = JSON.parse(atob(payloadBase64)); // 'atob' decodifica Base64
-        setUserName(decodedPayload.name || 'Administrador');
-        setUserRole(role);
-      } catch (error) {
-        console.error('Erro ao decodificar token no frontend:', error);
-        // Se houver erro ao decodificar, redireciona para login por segurança
-        navigate('/admin/login');
-      }
-    }
-  }, [navigate]); // O array vazio garante que o useEffect rode apenas uma vez (ao montar o componente)
-
-
-  const handleLogout = () => {
-    // Limpa o token e a role do localStorage
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('userRole');
-    console.log('Usuário deslogado. Redirecionando para a página de login.');
-    navigate('/admin/login'); // Redireciona para a página de login após o logout
-  };
-
-  // Função para lidar com o sucesso do envio do formulário (adição/edição)
-  const handleContactFormSubmitSuccess = () => {
-    setShowContactForm(false); // Esconde o formulário
-    setEditingContact(null); // Limpa o contato em edição
-    setRefreshContactList(prev => !prev); // Força o ContactList a recarregar
-  };
-
-  // Função para iniciar a edição
-  const handleEditContact = (contact) => { // <-- NOVA FUNÇÃO
-    setEditingContact(contact); // Define o contato que será editado
-    setShowContactForm(true); // Mostra o formulário
-  };
-
-  // Função para cancelar o formulário (seja adição ou edição)
-  const handleCancelForm = () => { // <-- NOVA FUNÇÃO
-    setShowContactForm(false);
-    setEditingContact(null);
-  };
-
-  if (!userName) {
-    // Exibe algo enquanto espera a verificação do login (ou redirecionamento)
-    return (
-      <div style={{ padding: '20px', maxWidth: '400px', margin: '50px auto', textAlign: 'center' }}>
-        <p>Verificando acesso...</p>
-      </div>
-    );
-  }
-
-  return (
-    <div style={{ padding: '20px', maxWidth: '900px', margin: '50px auto', border: '1px solid #ccc', borderRadius: '8px', boxShadow: '2px 2px 8px rgba(0,0,0,0.1)', backgroundColor: '#fff' }}>
-      <h2>Bem-vindo, {userName} ({userRole})!</h2>
-      <p>Este é o seu painel de administração.</p>
-
-      <div style={{ marginTop: '30px', marginBottom: '30px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
-
-        <button
-          onClick={() => { setShowContactForm(true); setEditingContact(null); }} // <-- Limpa editingContact ao adicionar novo
-          style={{ padding: '10px 15px', backgroundColor: '#21a0a0', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '1em' }}
-        >
-          Adicionar Novo Contato
-        </button>
-        
-        <button
-          onClick={() => console.log('Navegar para gestão de assinantes')}
-          style={{ padding: '10px 15px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '1em' }}
-        >
-          Exportar/Importar (Em breve)
-        </button>
-        <button
-          onClick={() => console.log('Navegar para gestão de contatos')}
-          style={{ padding: '10px 15px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '1em' }}
-        >
-          Gerenciar Assinantes (Em breve)
-        </button>
-        <button
-          onClick={() => console.log('Navegar para criação de newsletter')}
-          style={{ padding: '10px 15px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '1em' }}
-        >
-          Criar Newsletter (Em breve)
-        </button>
-      </div>
-
-      {showContactForm && ( // <--- Renderiza o formulário condicionalmente
-        <>
-          <ContactForm
-            onFormSubmit={handleContactFormSubmitSuccess}
-             initialData={editingContact || {}} // <-- PASSA O CONTATO A SER EDITADO
-          />
-          <button
-            onClick={handleCancelForm} // <-- Botão de cancelar
-            style={{ padding: '10px 15px', backgroundColor: '#6c757d', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '0.9em', marginTop: '10px' }}
-          >
-            Cancelar
-          </button>
-          <hr style={{ margin: '40px 0', borderColor: '#eee' }}/>
-        </>
-      )}
-
-      <hr style={{ margin: '40px 0', borderColor: '#eee' }}/>
-      <h3>Gestão de Contatos</h3>
-      <ContactList refreshTrigger={refreshContactList} onEditContact={handleEditContact} /> 
-
-      <button
-        onClick={handleLogout}
-        style={{ marginTop: '40px', padding: '10px 20px', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '1em' }}
-      >
-        Sair
-      </button>
-    </div>
-  );
-}
-
-export default AdminDashboard;
-
-
-
-
 */
+
+
+
+
+
+
 
 
