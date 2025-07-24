@@ -31,6 +31,10 @@ import WhoWeArePage from './pages/WhoWeArePage';
 import WhereWeWillBePage from './pages/WhereWeWillBePage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
+import ProjectPage from './pages/Projects/ProjectPage'; 
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+
 
 // Componente ProtectedRoute (mantenha como está)
 const ProtectedRoute = ({ children, allowedRoles }) => {
@@ -118,6 +122,11 @@ function App() {
                             <Route path="/who-we-are" element={<WhoWeArePage />} />
                             <Route path="/where-we-will-be" element={<WhereWeWillBePage />} />
                             <Route path="/contact" element={<ContactPage />} />
+                            <Route path="/artistic-creation/:id" element={<ProjectPage />} />
+                            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                            <Route path="/terms-of-service" element={<TermsOfService />} />
+                           
+
 
                             {/* Rotas de fallback */}
                             {/* Se você tiver uma página NotFoundPage, use-a. Se não, o Navigate to "/" é um bom fallback */}

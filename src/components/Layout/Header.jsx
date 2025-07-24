@@ -44,7 +44,7 @@ const Header = () => {
           {/* Desktop Navigation Links */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <NavLink to="/about" className={({ isActive }) => `text-gray-200 hover:text-amber-400 font-medium transition-colors duration-200 ${isActive ? 'text-amber-400 underline underline-offset-4' : ''}`}>
+              <NavLink to="/" className={({ isActive }) => `text-gray-200 hover:text-amber-400 font-medium transition-colors duration-200 ${isActive ? 'text-amber-400 underline underline-offset-4' : ''}`}>
                 Informações Gerais
               </NavLink>
 

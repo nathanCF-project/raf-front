@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NewsletterSubscribe from '../components/Forms/NewsletterSubscribe';
-import heroImage from '../assets/hero1.jpg'; 
+import heroImage from '/images/Hotel-Chronos3.jpg?url'; 
+import heroImage2 from '/images/hotel-chronos1.jpg?url'; 
+
 //import '../components/Styles/Custom.css'; 
 
 import { Button } from "../components/ui/button";
@@ -115,7 +117,7 @@ const HomePage = () => {
             </div>
             <div className="relative">
               <img
-                src={heroImage} // Usando a mesma heroImage como placeholder, ou substitua por uma imagem específica do curso
+                src={heroImage2} // Usando a mesma heroImage como placeholder, ou substitua por uma imagem específica do curso
                 alt="Curso Rakugo - A Arte Japonesa de Contar Histórias"
                 className="rounded-lg shadow-xl w-full h-auto object-cover" // object-cover para garantir que a imagem preencha o espaço sem distorcer
                 style={{ maxHeight: '400px' }} // Altura máxima para a imagem do curso
