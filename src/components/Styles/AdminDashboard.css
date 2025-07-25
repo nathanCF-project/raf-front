@@ -1,27 +1,27 @@
-/* my-react-app/src/styles/AdminDashboard.css */
+/*
 .admin-content {
     padding: 20px;
-    background-color: #ffffff; /* Fundo branco para os formulários/conteúdo */
+    background-color: #ffffff; 
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sombra  */
-    margin-bottom: 20px; /* Espaço abaixo do bloco de conteúdo */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+    margin-bottom: 20px; 
 }
 
 .admin-form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espaço entre os grupos de formulário */
+    gap: 15px; 
 }
 
 .form-group {
-    margin-bottom: 10px; /* Espaço entre grupos de input */
-    text-align: left; /* Alinhar labels à esquerda */
+    margin-bottom: 10px; 
+    text-align: left; 
 }
 
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 600; /* Um pouco mais de peso */
+    font-weight: 600; 
     color: #333;
     font-size: 0.95em;
 }
@@ -29,9 +29,9 @@
 .form-group input[type="text"],
 .form-group input[type="url"],
 .form-group textarea {
-    width: calc(100% - 20px); /* Ajuste para padding */
+    width: calc(100% - 20px); 
     padding: 10px;
-    border: 1px solid #dcdcdc; /* Borda mais clara */
+    border: 1px solid #dcdcdc; 
     border-radius: 5px;
     font-size: 1em;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -40,14 +40,14 @@
 .form-group input[type="text"]:focus,
 .form-group input[type="url"]:focus,
 .form-group textarea:focus {
-    border-color: #e44d26; /* Cor da Rafeira ao focar */
-    box-shadow: 0 0 0 3px rgba(228, 77, 38, 0.2); /* Sombra de foco */
+    border-color: #e44d26; 
+    box-shadow: 0 0 0 3px rgba(228, 77, 38, 0.2); 
     outline: none;
 }
 
 .form-group textarea {
     resize: vertical;
-    min-height: 80px; /* Altura para textareas */
+    min-height: 80px; 
 }
 
 h2, h3, h4 {
@@ -66,8 +66,8 @@ h2, h3, h4 {
     font-size: 1.1em;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.1s ease;
-    width: auto; /* Para não ocupar 100% da largura a */
-    align-self: center; /*botão no flex container */
+    width: auto; 
+    align-self: center; 
     margin-top: 20px;
 }
 
@@ -103,7 +103,7 @@ h2, h3, h4 {
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     border-radius: 8px;
-    overflow: hidden; /*bordas arredondadas  com overflow */
+    overflow: hidden; 
 }
 
 .admin-table th, .admin-table td {
@@ -147,7 +147,7 @@ h2, h3, h4 {
 }
 
 .admin-table .button-edit {
-    background-color: #007bff; /* Azul */
+    background-color: #007bff;
     color: white;
 }
 .admin-table .button-edit:hover {
@@ -155,7 +155,7 @@ h2, h3, h4 {
 }
 
 .admin-table .button-send {
-    background-color: #28a745; /* Verde */
+    background-color: #28a745;
     color: white;
 }
 .admin-table .button-send:hover:not(:disabled) {
@@ -168,7 +168,7 @@ h2, h3, h4 {
 }
 
 .admin-table .button-delete {
-    background-color: #dc3545; /* Vermelho */
+    background-color: #dc3545; 
     color: white;
 }
 .admin-table .button-delete:hover {
@@ -176,9 +176,9 @@ h2, h3, h4 {
 }
 
 .admin-table .button-preview {
-    background-color: #ffc107; /* Amarelo */
+    background-color: #ffc107; 
     color: #333;
 }
 .admin-table .button-preview:hover {
     background-color: #e0a800;
-}
+}  */

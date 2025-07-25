@@ -1,13 +1,53 @@
-// src/pages/WhatWeDo/ArtisticCreationPage.jsx
-import React from "react";
-// import EventFilter from "../components/EventFilter"; // Ative quando criar o componente
+// src/pages/WhatWeDo/WhereWeWillBePage.jsx
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+// import EventFilter from "../components/EventFilter"; // Ative quando criar o componente de filtro
 
 export default function WhereWeWillBePage() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchPublicEvents = async () => {
+      setLoading(true);
+      setError('');
+      try {
+        // Requisição para a rota pública
+        const response = await axios.get('http://localhost:3001/api/events'); // Usar a URL completa aqui também
+        setEvents(response.data);
+      } catch (err) {
+        console.error('Erro ao buscar eventos públicos:', err);
+        setError('Não foi possível carregar os eventos. Por favor, tente novamente mais tarde.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPublicEvents();
+  }, []); // Executa apenas uma vez ao montar o componente
+
+  if (loading) {
+    return (
+      <div className="container py-5 text-center">
+        <p className="text-lg text-gray-600">Carregando próximos eventos...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container py-5 text-center">
+        <p className="text-red-600 text-lg">{error}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="container py-5">
       <div className="text-center mb-4">
         <h1 className="display-5 fw-bold">Onde Vamos Estar?</h1>
-        <p className="lead text-muted">Fique por dentro dos nossos próximos eventos, apresentações e oficinas.</p>
+        <p className="lead text-muted">Insights da nossa agenda com os nossos próximos eventos, apresentações e cursos</p>
       </div>
 
       {/* Componente de Filtro de Eventos futuro*/}
@@ -17,27 +57,31 @@ export default function WhereWeWillBePage() {
       </div>
 
       <div className="row row-cols-1 row-cols-md-2 g-4 mt-3">
-        {/* Evento 1 */}
-        <div className="col">
-          <div className="card h-100 shadow-sm">
-            <div className="card-body">
-              <h5 className="card-title">Espetáculo "Nome do Evento"</h5>
-              <p className="card-text">Local: Lisboa<br />Data: 15 de Setembro, 2025<br />Descrição rápida do evento ou apresentação.</p>
-            </div>
+        {events.length === 0 ? (
+          <div className="col-12 text-center">
+            <p className="text-gray-600 text-xl">Nenhum evento futuro agendado no momento. Fique atento às nossas atualizações!</p>
           </div>
-        </div>
-
-        {/* Evento 2 */}
-        <div className="col">
-          <div className="card h-100 shadow-sm">
-            <div className="card-body">
-              <h5 className="card-title">Oficina "Nome da Oficina"</h5>
-              <p className="card-text">Local: Porto<br />Data: 3 de Outubro, 2025<br />Workshop temático aberto ao público com inscrição gratuita.</p>
+        ) : (
+          events.map((event) => (
+            <div className="col" key={event.id}>
+              <div className="card h-100 shadow-sm">
+                {event.image_url && (
+                    <img src={event.image_url} alt={event.title} className="card-img-top object-cover h-48 w-full" />
+                )}
+                <div className="card-body">
+                  <h5 className="card-title text-xl font-semibold">{event.title}</h5>
+                  <p className="card-text text-gray-700 mb-2">
+                    Local: {event.location || 'A definir'}
+                    <br />
+                    Data: {new Date(event.event_date).toLocaleDateString('pt-PT', { year: 'numeric', month: 'long', day: 'numeric' })}
+                    {event.event_time && `, Hora: ${event.event_time}`}
+                  </p>
+                  <p className="card-text text-gray-600">{event.description}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        {/* Adicione mais cards conforme necessário */}
+          ))
+        )}
       </div>
     </div>
   );

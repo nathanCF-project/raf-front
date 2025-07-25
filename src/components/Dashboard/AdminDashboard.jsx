@@ -11,6 +11,12 @@ import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Separator } from '../ui/separator'; // Importar Separator para as linhas horizontais
 
+// Importações para Eventos
+import EventList from '../Forms/EventList';
+import EventForm from '../Forms/EventForm';
+
+
+
 function AdminDashboard() {
     const navigate = useNavigate();
     const { user, isAuthenticated, loading, logout } = useAuth();
@@ -18,6 +24,11 @@ function AdminDashboard() {
     const [showContactForm, setShowContactForm] = useState(false);
     const [editingContact, setEditingContact] = useState(null);
     const [refreshContactList, setRefreshContactList] = useState(false);
+
+    // Estados para gerenciamento de eventos
+    const [showEventForm, setShowEventForm] = useState(false);
+    const [editingEvent, setEditingEvent] = useState(null);
+    const [refreshEventList, setRefreshEventList] = useState(false);
 
     const handleLogout = () => {
         logout(); // Usa a função logout do AuthContext
@@ -38,6 +49,23 @@ function AdminDashboard() {
     const handleCancelForm = () => {
         setShowContactForm(false);
         setEditingContact(null);
+    };
+
+     // Handlers para Eventos
+    const handleEventFormSubmitSuccess = () => {
+        setShowEventForm(false);
+        setEditingEvent(null);
+        setRefreshEventList(prev => !prev); // Dispara a atualização da lista
+    };
+
+    const handleEditEvent = (event) => {
+        setEditingEvent(event);
+        setShowEventForm(true);
+    };
+
+    const handleCancelEventForm = () => {
+        setShowEventForm(false);
+        setEditingEvent(null);
     };
 
     if (loading) {
@@ -101,7 +129,31 @@ function AdminDashboard() {
                                 Gerenciar Newsletters Existentes
                             </Button>
                         </Link>
+                        <Button
+                            onClick={() => { setShowEventForm(true); setEditingEvent(null); }}
+                            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2"
+                        >
+                            Criar Novo Evento
+                        </Button>
                     </div>
+
+                    {/* Seção de Formulário de Eventos */}
+                    {showEventForm && (
+                        <>
+                            <Separator className="my-8" />
+                            <EventForm
+                                onFormSubmit={handleEventFormSubmitSuccess}
+                                initialData={editingEvent || {}}
+                                onCancel={handleCancelEventForm}
+                            />
+                            <Separator className="my-8" />
+                        </>
+                    )}
+
+                    <h3 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Gestão de Eventos</h3>
+                    {/* Componente para listar e gerenciar eventos */}
+                    <EventList refreshTrigger={refreshEventList} onEditEvent={handleEditEvent} />
+
 
                     {showContactForm && (
                         <>

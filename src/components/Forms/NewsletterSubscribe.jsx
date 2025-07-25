@@ -58,7 +58,7 @@ function NewsletterSubscribe() {
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
             <Input
               type="email"
-              placeholder="Seu e-mail"
+              placeholder="Insere o teu e-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -77,7 +77,7 @@ function NewsletterSubscribe() {
             </p>
           )}
           <p className="text-sm text-gray-400 mt-4">
-            Seu email será usado apenas para o envio da newsletter.
+            O teu email serve só para enviar as nossas novidades.
           </p>
         </div>
       </div>
