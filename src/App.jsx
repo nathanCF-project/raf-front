@@ -125,6 +125,7 @@ function App() {
                             <Route path="/artistic-creation/:id" element={<ProjectPage />} />
                             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                             <Route path="/terms-of-service" element={<TermsOfService />} />
+                            
                            
 
 

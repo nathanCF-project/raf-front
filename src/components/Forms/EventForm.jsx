@@ -164,6 +164,33 @@ function EventForm({ onFormSubmit, initialData = {}, onCancel }) {
                         onChange={handleChange}
                     />
                 </div>
+                <div>
+                    <Label htmlFor="external_link">Link Externo (Inscrição, Info, etc.)</Label>
+                    <Input
+                        id="external_link"
+                        type="url"
+                        placeholder="https://example.com"
+                        value={formData.external_link}
+                        onChange={handleChange}
+                    />
+                    </div>
+                    <div>
+                    <Label htmlFor="category">Categoria do Evento</Label>
+                    <select
+                        id="category"
+                        value={formData.category}
+                        onChange={handleChange}
+                        className="w-full border rounded p-2"
+                        required
+                    >
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Espetáculo">Espetáculo</option>
+                        <option value="Oficina">Oficina</option>
+                        <option value="Debate">Debate</option>
+                        <option value="Residência">Residência</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                    </div>
                 <div className="flex items-center space-x-2">
                     <Checkbox
                         id="is_published"

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useAuth } from '../Auth/AuthContext';
 import { Button } from '../ui/button';
 import { Link } from 'react-router-dom'; // Se quiser um botão para criar novo
+import PublicEventList from './PublicEventList';
 // Importações para Tabela Shadcn se você as tiver:
 // import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 
