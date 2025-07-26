@@ -19,7 +19,6 @@ jobs:
       with:
         node-version: '20' # Use a versão do Node.js que você está usando (ou uma compatível)
         cache: 'npm' # Habilita cache para as dependências do npm
-        publish_branch: gh-pages
 
     - name: Install dependencies # Passo 3: Instala as dependências do seu projeto
       run: npm install
@@ -36,5 +35,6 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }} # Token padrão fornecido pelo GitHub
         publish_dir: ./dist # O diretório onde o Vite gera os arquivos de build (geralmente 'dist')
+        publish_branch: gh-pages
         # Se você estiver usando Create-React-App, o diretório é './build'
         # certifique-se de que este caminho está correto para o seu projeto Vite
