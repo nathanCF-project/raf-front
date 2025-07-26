@@ -19,6 +19,7 @@ jobs:
       with:
         node-version: '20' # Use a versão do Node.js que você está usando (ou uma compatível)
         cache: 'npm' # Habilita cache para as dependências do npm
+        publish_branch: gh-pages
 
     - name: Install dependencies # Passo 3: Instala as dependências do seu projeto
       run: npm install
