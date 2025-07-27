@@ -6,6 +6,7 @@ import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Button } from '../ui/button';
+import API_BASE_URL from '../../api/config';
 
 const ITEMS_PER_PAGE = 10; // Define quantos itens serão exibidos por página
 
@@ -67,7 +68,9 @@ function PublicEventList() {
                     queryParams.append('endDate', filterEndDate);
                 }
 
-                const url = `${import.meta.env.VITE_API_URL}/api/events?${queryParams.toString()}`; // Endpoint público para eventos
+                //REQUISICAO PARA TESTE LOCAL ABAIXO (import.metaVITEAPI)
+                //const url = `${import.meta.env.VITE_API_URL}/api/events?${queryParams.toString()}`; // Endpoint público para eventos
+                const url = `${API_BASE_URL}/events?${queryParams.toString()}`; // Endpoint público para eventos
                 // --- FIM DA CONSTRUÇÃO DA URL ---
 
                 try {

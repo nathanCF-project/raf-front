@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button'; // Use alias aqui
 import { Input } from '@/components/ui/input';   // Use alias aqui
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Use alias aqui
 
+import API_BASE_URL from "../../api/config";
+
 function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +27,11 @@ function AdminLogin() {
 
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/auth/login`,
+
+        // PARA TESTES LOCAIS 
+       // `${import.meta.env.VITE_API_URL}/api/auth/login`,
+
+        `${API_BASE_URL}/auth/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

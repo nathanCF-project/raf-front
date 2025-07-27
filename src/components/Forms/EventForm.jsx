@@ -14,6 +14,8 @@ import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import { Checkbox } from '../ui/checkbox'; // Para o is_published
 
+import API_BASE_URL from '../../api/config';
+
 function EventForm({ onFormSubmit, initialData = {}, onCancel }) {
     const { token } = useAuth();
     const [formData, setFormData] = useState({
@@ -87,10 +89,17 @@ function EventForm({ onFormSubmit, initialData = {}, onCancel }) {
             let response;
             if (formData.id) {
                 // Atualizar evento existente
-                response = await axios.put(`${import.meta.env.VITE_API_URL}/api/events/admin/${formData.id}`, eventDataToSend, config);
+
+                //para teste LOCAL
+                //response = await axios.put(`${import.meta.env.VITE_API_URL}/api/events/admin/${formData.id}`, eventDataToSend, config);
+                response = await axios.put(`${API_BASE_URL}/events/admin/${formData.id}`, eventDataToSend, config);
+
             } else {
                 // Criar novo evento
-                response = await axios.post(`${import.meta.env.VITE_API_URL}/api/events/admin`, eventDataToSend, config);
+
+                //para testes Locais
+                //response = await axios.post(`${import.meta.env.VITE_API_URL}/api/events/admin`, eventDataToSend, config);
+                response = await axios.post(`${API_BASE_URL}/events/admin`, eventDataToSend, config);
             }
             setMessage(response.data.message);
             onFormSubmit(); // Notifica o pai para atualizar a lista

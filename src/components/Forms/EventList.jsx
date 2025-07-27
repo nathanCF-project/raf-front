@@ -8,6 +8,8 @@ import PublicEventList from './PublicEventList';
 // Importações para Tabela Shadcn se você as tiver:
 // import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
 
+import API_BASE_URL from '../../api/config';
+
 function EventList({ refreshTrigger, onEditEvent }) {
     const { token } = useAuth();
     const [events, setEvents] = useState([]);
@@ -20,7 +22,9 @@ function EventList({ refreshTrigger, onEditEvent }) {
         setError('');
         setMessage('');
         try {
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/events/admin`, {
+             //para testes LOCAIS
+            //const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/events/admin`, {
+            const response = await axios.get(`${API_BASE_URL}/events/admin`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -45,7 +49,11 @@ function EventList({ refreshTrigger, onEditEvent }) {
             setMessage('');
             setError('');
             try {
-                const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/events/admin/${id}`, {
+
+                //paraTESTE LOCAL 
+                //const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/events/admin/${id}`, {
+
+                const response = await axios.delete(`${API_BASE_URL}/events/admin/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -65,7 +73,10 @@ function EventList({ refreshTrigger, onEditEvent }) {
         const newPublishStatus = event.is_published ? 0 : 1; // Inverte o status
 
         try {
-            const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/events/admin/${event.id}`,
+
+                //paraTESTE LOCAL 
+            //const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/events/admin/${event.id}`,
+            const response = await axios.put(`${API_BASE_URL}/events/admin/${event.id}`,
                 { ...event, is_published: newPublishStatus }, // Envia o objeto completo com o novo status
                 {
                     headers: {
