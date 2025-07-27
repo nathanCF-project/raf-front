@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import EventFilter from "../components/EventFilter"; // Ative quando criar o componente de filtro
 import PublicEventList from "../components/Forms/PublicEventList";
+import API_BASE_URL from "../api/config";
 
 export default function WhereWeWillBePage() {
   const [events, setEvents] = useState([]);
@@ -15,7 +16,9 @@ export default function WhereWeWillBePage() {
       setError('');
       try {
         // Requisição para a rota pública
-        const response = await axios.get('http://localhost:3001/api/events'); // Usar a URL completa aqui também
+        //const response = await axios.get('http://localhost:3001/api/events'); // TESTES LOCAIS
+        const response = await axios.get(`${API_BASE_URL}/events`); // Usar a URL completa aqui também
+
         setEvents(response.data);
       } catch (err) {
         console.error('Erro ao buscar eventos públicos:', err);
