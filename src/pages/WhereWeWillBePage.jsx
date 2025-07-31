@@ -6,74 +6,55 @@ import PublicEventList from "../components/Forms/PublicEventList";
 import API_BASE_URL from "../api/config";
 
 export default function WhereWeWillBePage() {
-  const [events, setEvents] = useState([]);
+  //const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  // Adicionando um pequeno delay para simular carregamento, se desejar testar o estado de loading.
   useEffect(() => {
-    const fetchPublicEvents = async () => {
-      setLoading(true);
-      setError('');
-      try {
-        // Requisição para a rota pública
-        //const response = await axios.get('http://localhost:3001/api/events'); // TESTES LOCAIS
-        const response = await axios.get(`${API_BASE_URL}/events`); // Usar a URL completa aqui também
+    // Apenas para simular o carregamento inicial da página antes de renderizar o PublicEventList
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500); // Meio segundo de "carregamento"
 
-        setEvents(response.data);
-      } catch (err) {
-        console.error('Erro ao buscar eventos públicos:', err);
-        setError('Não foi possível carregar os eventos. Por favor, tente novamente mais tarde.');
-      } finally {
-        setLoading(false);
-      }
-    };
+    return () => clearTimeout(timer);
+  }, []);
 
-    fetchPublicEvents();
-  }, []); // Executa apenas uma vez ao montar o componente
 
   if (loading) {
     return (
-      <div className="container py-5 text-center">
+      <div className="flex justify-center items-center min-h-[50vh] bg-gray-50">
         <p className="text-lg text-gray-600">Carregando próximos eventos...</p>
       </div>
     );
   }
 
+  // O `error` aqui seria para erros na própria `WhereWeWillBePage`,
+  // não para erros da lista de eventos (que `PublicEventList` deve tratar).
+  // Por isso, simplifiquei o `error` para um caso mais genérico se algo *realmente* der errado nesta página.
   if (error) {
     return (
-      <div className="container py-5 text-center">
-        <p className="text-red-600 text-lg">{error}</p>
+      <div className="flex justify-center items-center min-h-[50vh] bg-red-50 p-4 rounded-md">
+        <p className="text-red-700 text-lg font-medium">{error}</p>
       </div>
     );
   }
 
-   return (
-    <div className="container py-5">
-      <div className="text-center mb-4">
-        <h1 className="display-5 fw-bold">Onde Vamos Estar?</h1>
-        <p className="lead text-muted">Insights da nossa agenda com os nossos próximos eventos, apresentações e cursos</p>
+  return (
+    <div className="container mx-auto px-4 py-8 md:py-12">
+      <div className="text-center mb-8">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">Onde Vamos Estar?</h1>
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          Insights da nossa agenda com os nossos próximos eventos, apresentações e cursos.
+        </p>
       </div>
 
-      <div className="alert alert-secondary text-center" role="alert">
-        <PublicEventList/> {/* PublicEventList vai buscar, filtrar e exibir tudo */}
+      {/* PublicEventList vai buscar, filtrar e exibir tudo */}
+      {/* O alert-secondary do Bootstrap foi removido e substituído por uma estilização simples de container */}
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <PublicEventList />
       </div>
 
-      {/* Remova este bloco inteiro de renderização de eventos duplicado */}
-      {/*
-      <div className="row row-cols-1 row-cols-md-2 g-4 mt-3">
-        {events.length === 0 ? (
-          <div className="col-12 text-center">
-            <p className="text-gray-600 text-xl">Nenhum evento futuro agendado no momento. Fique atento às nossas atualizações!</p>
-          </div>
-        ) : (
-          events.map((event) => (
-            <div className="col" key={event.id}>
-              ...
-            </div>
-          ))
-        )}
-      </div>
-      */}
     </div>
   );
 }

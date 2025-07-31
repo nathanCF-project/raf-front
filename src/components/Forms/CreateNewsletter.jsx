@@ -12,6 +12,8 @@ import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'; // Para um layout mais estruturado
 
+import API_BASE_URL from '../../api/config';
+
 const CreateNewsletter = () => {
     const { user, token } = useAuth(); // Obter user e token do contexto de autenticação
 
@@ -65,7 +67,11 @@ const CreateNewsletter = () => {
             }
 
             const response = await axios.post(
-                `${import.meta.env.VITE_API_URL}/api/newsletter/create`,
+
+                //[PARA TESTES LOCAIS:]
+                //`${import.meta.env.VITE_API_URL}/api/newsletter/create`,
+                `${API_BASE_URL}/newsletter/create`,
+
                 { ...formData, created_by: userId },
                 {
                     headers: {

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import API_BASE_URL from '../../api/config';
+
 function ContactForm({ onFormSubmit, initialData = {} }) {
   // initialData será usado para preencher o formulario modo de edição
   const [formData, setFormData] = useState({
@@ -51,8 +53,14 @@ function ContactForm({ onFormSubmit, initialData = {} }) {
     // Determina se é uma adição (POST) ou edição (PUT)
     const method = initialData.id ? 'PUT' : 'POST';
     const url = initialData.id
+
+    /* PARA TESTES LOCAIS !!
       ? `http://localhost:3001/api/newsletter/contacts/${initialData.id}`
       : 'http://localhost:3001/api/newsletter/contacts';
+*/
+
+      ? `${API_BASE_URL}/newsletter/contacts/${initialData.id}`
+      : `${API_BASE_URL}/newsletter/contacts`;
 
     try {
       const response = await fetch(url, {

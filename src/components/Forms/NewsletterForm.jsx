@@ -12,6 +12,8 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea'; // Para textareas
 
+import API_BASE_URL from '../../api/config';
+
 const NewsletterForm = () => {
     const { token, user } = useAuth();
     const navigate = useNavigate();
@@ -60,7 +62,10 @@ const NewsletterForm = () => {
                 setIsError(false);
                 setMessage('');
                 try {
-                    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/${id}`, {
+                    
+                    //PARA TESTES LOCAIS:
+                   // const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/${id}`, {
+                    const response = await axios.get(`${API_BASE_URL}/newsletter/admin/${id}`, {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }
@@ -102,7 +107,10 @@ const NewsletterForm = () => {
         try {
             let res;
             if (id) { // Modo de edição (PUT)
-                res = await axios.put(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/${id}`, {
+
+                //PARA TESTES LOCAIS
+                //res = await axios.put(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/${id}`, { 
+                res = await axios.put(`${API_BASE_URL}/newsletter/admin/${id}`, {
                     ...formData,
                     // created_by não deve ser alterado em um PUT, assume-se que é o mesmo criador ou gerenciado pelo backend
                     // Se o backend precisa do user.id para validação, envie-o.
@@ -114,7 +122,10 @@ const NewsletterForm = () => {
                 });
                 setMessage('Newsletter atualizada com sucesso!');
             } else { // Modo de criação (POST)
-                res = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/create`, {
+
+                //para TESTES LOCAIS
+                //res = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/create`, {
+                res = await axios.post(`${API_BASE_URL}/newsletter/admin/create`, {
                     ...formData,
                     created_by: user.id // Definir o created_by do admin atual
                 }, {

@@ -14,6 +14,11 @@ import { Separator } from "../components/ui/separator";
 import { Textarea } from "../components/ui/textarea";
 import { Mail, Phone, MapPin, Send } from 'lucide-react'; // Ícones existentes
 
+import NewsletterSubscribe from '../components/Forms/NewsletterSubscribe';
+
+
+import API_BASE_URL from '../api/config';
+
 
 
 // Importe os ícones do Facebook e Instagram do Lucide React
@@ -44,7 +49,11 @@ export default function ContactPage() {
     setStatusMessage(''); // Limpa mensagens anteriores
 
     try {
-      const response = await fetch('http://localhost:3001/api/contact-form/contact', { // Ajuste para a sua rota de backend
+
+      //para TESTES LOCAIS=
+     // const response = await fetch('http://localhost:3001/api/contact-form/contact', 
+
+      const response = await fetch(`${API_BASE_URL}/contact-form/contact`, { //rota backend
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

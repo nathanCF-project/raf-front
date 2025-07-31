@@ -3,6 +3,8 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Certifique-se de que react-router-dom está instalado
 
+import NewsletterSubscribe from '../../components/Forms/NewsletterSubscribe';
+
 // Array de projetos artísticos
 const projects = [
   {

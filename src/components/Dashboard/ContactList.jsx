@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import API_BASE_URL from '../../api/config';
+
 const ITEMS_PER_PAGE = 10; // Define quantos itens serão exibidos por página
 
 function ContactList({ refreshTrigger,onEditContact }) {
@@ -66,8 +68,11 @@ function ContactList({ refreshTrigger,onEditContact }) {
       if (filterCountry) {
         queryParams.append('country', filterCountry);
       }
+   
+      //PARA TESTES LOCAIS!!!!
+     // const url = `http://localhost:3001/api/newsletter/contacts?${queryParams.toString()}`;
+      const url = `${API_BASE_URL}/newsletter/contacts?${queryParams.toString()}`;
 
-      const url = `http://localhost:3001/api/newsletter/contacts?${queryParams.toString()}`;
       // --- FIM DA CONSTRUÇÃO DA URL ---
 
 
@@ -141,7 +146,11 @@ function ContactList({ refreshTrigger,onEditContact }) {
     }
 
     try {
-      const response = await fetch(`http://localhost:3001/api/newsletter/contacts/${contactId}`, {
+
+      //para TESTES LOCAIS !!
+      //const response = await fetch(`http://localhost:3001/api/newsletter/contacts/${contactId}`, {
+      const response = await fetch(`${API_BASE_URL}/newsletter/contacts/${contactId}`, {
+
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

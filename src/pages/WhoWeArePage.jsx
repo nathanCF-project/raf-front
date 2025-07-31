@@ -116,7 +116,7 @@ export default function AboutUs() {
                   className="rounded-full mb-6 object-cover aspect-square w-48 h-48" // Definindo tamanho explícito e aspect ratio
                 />
                 <h3 className="text-2xl font-medium text-gray-900 mb-2">Clara Passarinho</h3>
-                <p className="text-gray-500 mb-4">2001</p> {/* Informação da data de nascimento */}
+                <p className="text-gray-500 mb-4"></p> {/* Informação da data de nascimento */}
                 <div className="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
                   <Mail className="w-4 h-4 mr-2" />
                   <a href="mailto:clara@arafeira.com" className="text-sm">
@@ -169,7 +169,7 @@ export default function AboutUs() {
                   className="rounded-full mb-6 object-cover aspect-square w-48 h-48" // Definindo tamanho explícito e aspect ratio
                 />
                 <h3 className="text-2xl font-medium text-gray-900 mb-2">Andreia Galvão</h3>
-                <p className="text-gray-500 mb-4">2000</p> {/* Informação da data de nascimento */}
+                <p className="text-gray-500 mb-4"></p> {/* Informação da data de nascimento */}
                 <div className="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
                   <Mail className="w-4 h-4 mr-2" />
                   <a href="mailto:andreia@arafeira.com" className="text-sm">

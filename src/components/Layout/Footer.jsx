@@ -9,6 +9,8 @@ import { Send } from 'lucide-react'; // Ícone de envio
 
 import logo from '../../assets/logo.png'; // logo
 
+import API_BASE_URL from '../../api/config';
+
 const Footer = () => {
 
 const [formData, setFormData] = useState({
@@ -45,7 +47,11 @@ const [formData, setFormData] = useState({
 
     // Usar a URL completa que funcionou
     try {
-      const response = await fetch('http://localhost:3001/api/contact-form/contact', {
+
+      //PARA TESTES LOCAIS !!!!
+     // const response = await fetch('http://localhost:3001/api/contact-form/contact', {
+      const response = await fetch(`${API_BASE_URL}/contact-form/contact`, {
+
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -81,7 +87,7 @@ const [formData, setFormData] = useState({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8"> {/* Grid para as colunas */}
           {/* Logo e nome */}
           <div className="mb-6 md:mb-0">
-            <h5 className="text-2xl font-bold mb-2 text-amber-400">A Rafeira - Estrutura de criação</h5> {/* Usando text-amber-400 do v0.dev */}
+            <h5 className="text-2xl font-bold mb-2 text-red-400">A Rafeira</h5> {/* Usando text-amber-400 do v0.dev */}
              <img
               src={logo} // Use a variável importada
               alt="Logo da Associação A Rafeira"
@@ -94,10 +100,10 @@ const [formData, setFormData] = useState({
           <div className="mb-6 md:mb-0">
             <h6 className="text-xl font-bold uppercase mb-4 text-gray-200">Links</h6>
             <ul className="list-none p-0 space-y-2"> {/* space-y-2 para espaçamento entre links */}
-              <li><Link to="/who-we-are" className="text-gray-400 hover:text-amber-400 transition-colors">Sobre Nós</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-amber-400 transition-colors">Contactos</Link></li>
-              <li><Link to="/privacy-policy" className="text-gray-400 hover:text-amber-400 transition-colors">Política de Privacidade</Link></li> {/* Mude para Link se for rota */}
-              <li><Link to="/terms-of-service" className="text-gray-400 hover:text-amber-400 transition-colors">Termos de Serviço</Link></li> {/* Mude para Link se for rota */}
+              <li><Link to="/who-we-are" className="text-gray-400 hover:text-red-400 transition-colors">Sobre Nós</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-red-400 transition-colors">Contactos</Link></li>
+              <li><Link to="/privacy-policy" className="text-gray-400 hover:text-red-400 transition-colors">Política de Privacidade</Link></li> {/* Mude para Link se for rota */}
+              <li><Link to="/terms-of-service" className="text-gray-400 hover:text-red-400 transition-colors">Termos de Serviço</Link></li> {/* Mude para Link se for rota */}
             </ul>
           </div>
 
@@ -135,7 +141,7 @@ const [formData, setFormData] = useState({
               )}
               <Button
                 type="submit"
-                className="w-full bg-amber-500 hover:bg-amber-600 text-slate-900 py-2 text-base font-medium transition-all duration-200"
+                className="w-full bg-red-500 hover:bg-red-600 text-slate-900 py-2 text-base font-medium transition-all duration-200"
                 disabled={loading}
               >
                 {loading ? 'A Enviar...' : <>

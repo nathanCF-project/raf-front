@@ -34,6 +34,8 @@ import {
     SelectValue,
 } from '../ui/select'; // Para o dropdown de tipo de agendamento
 
+import API_BASE_URL from '../../api/config';
+
 // Remover o import do CSS antigo e do React-Bootstrap
 // import '../styles/AdminDashboard.css';
 // import { Modal, Button, Form } from 'react-bootstrap';
@@ -56,7 +58,11 @@ const NewsletterList = () => {
         setError('');
         setMessage('');
         try {
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/newsletter/admin`, {
+
+            //PARA TESTES LOCAIS
+            //const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/newsletter/admin`, {
+             const response = await axios.get(`${API_BASE_URL}/newsletter/admin`, {
+
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -81,7 +87,10 @@ const NewsletterList = () => {
             setMessage('');
             setError('');
             try {
-                const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/send/${id}`, {}, {
+                
+                //PARA TESTES LOCAIS
+                //const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/send/${id}`, {}, {
+                const response = await axios.post(`${API_BASE_URL}/newsletter/send/${id}`, {}, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -100,7 +109,10 @@ const NewsletterList = () => {
             setMessage('');
             setError('');
             try {
-                const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/${id}`, {
+
+                //PARA TESTES LOCAIS
+            //  const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/${id}`, {
+                const response = await axios.delete(`${API_BASE_URL}/newsletter/admin/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -156,7 +168,9 @@ const NewsletterList = () => {
         };
 
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/schedule/${selectedNewsletterId}`, payload, {
+           //PARA TESTES LOCAIS
+         // const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/schedule/${selectedNewsletterId}`, payload, {
+            const response = await axios.post(`${API_BASE_URL}/newsletter/admin/schedule/${selectedNewsletterId}`, payload, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -176,7 +190,11 @@ const NewsletterList = () => {
             setMessage('');
             setError('');
             try {
-                const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/schedule/${id}`, {
+
+                //PARA TESTES LOCAIS
+                //const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/schedule/${id}`, {
+                const response = await axios.delete(`${API_BASE_URL}/newsletter/admin/schedule/${id}`, {
+    
                     headers: {
                         Authorization: `Bearer ${token}`
                     }

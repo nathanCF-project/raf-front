@@ -294,7 +294,7 @@ function PublicEventList() {
                                     rel="noopener noreferrer"
                                     style={{
                                         padding: '8px 12px',
-                                        backgroundColor: '#007bff',
+                                        backgroundColor: '#808080',
                                         color: 'white',
                                         textDecoration: 'none',
                                         borderRadius: '4px',
@@ -313,11 +313,11 @@ function PublicEventList() {
 
 
             <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                <button onClick={handlePreviousPage} disabled={currentPage === 1} style={{ padding: '8px 15px', marginRight: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+                <button onClick={handlePreviousPage} disabled={currentPage === 1} style={{ padding: '8px 15px', marginRight: '10px', backgroundColor: '#808080', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
                     Anterior
                 </button>
                 <span>Página {currentPage} de {totalPages}</span>
-                <button onClick={handleNextPage} disabled={currentPage === totalPages} style={{ padding: '8px 15px', marginLeft: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+                <button onClick={handleNextPage} disabled={currentPage === totalPages} style={{ padding: '8px 15px', marginLeft: '10px', backgroundColor: '#808080', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
                     Próxima
                 </button>
             </div>

@@ -30,21 +30,21 @@ const Header = () => {
   };
 
   return (
-    <nav className="bg-black text-white shadow-lg border-b border-gray-800 sticky top-0 z-50">
+    <nav className="bg-black text-white shadow-lg border-gray-800 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center space-x-2">
               <img src={logo} alt="Logo A Rafeira" className="h-10 w-auto" />
-              <span className="text-xl font-bold text-amber-400">A Rafeira</span>
+              <span className="text-xl font-bold text-red-400">A Rafeira</span>
             </Link>
           </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <NavLink to="/" className={({ isActive }) => `text-gray-200 hover:text-amber-400 font-medium transition-colors duration-200 ${isActive ? 'text-amber-400 underline underline-offset-4' : ''}`}>
+              <NavLink to="/" className={({ isActive }) => `text-gray-200 hover:text-red-400 font-medium transition-colors duration-200 ${isActive ? 'text-red-400 underline-offset-4' : ''}`}>
                 Informações Gerais
               </NavLink>
 
@@ -53,7 +53,7 @@ const Header = () => {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="relative text-gray-200 hover:text-amber-400 font-medium transition-colors duration-200 flex items-center space-x-1"
+                    className="relative text-gray-200 hover:text-red-400 font-medium transition-colors duration-200 flex items-center space-x-1"
                   >
                     <span>O que fazemos?</span>
                     <ChevronDown className="h-4 w-4" />
@@ -75,20 +75,20 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <NavLink to="/how-we-think" className={({ isActive }) => `text-gray-200 hover:text-amber-400 font-medium transition-colors duration-200 ${isActive ? 'text-amber-400 underline underline-offset-4' : ''}`}>
+              <NavLink to="/how-we-think" className={({ isActive }) => `text-gray-200 hover:text-red-400 font-medium transition-colors duration-200 ${isActive ? 'text-red-400 underline-offset-4' : ''}`}>
                 Como pensamos
               </NavLink>
-              <NavLink to="/who-we-are" className={({ isActive }) => `text-gray-200 hover:text-amber-400 font-medium transition-colors duration-200 ${isActive ? 'text-amber-400 underline underline-offset-4' : ''}`}>
+              <NavLink to="/who-we-are" className={({ isActive }) => `text-gray-200 hover:text-red-400 font-medium transition-colors duration-200 ${isActive ? 'text-red-400 underline-offset-4' : ''}`}>
                 Quem somos
               </NavLink>
-              <NavLink to="/where-we-will-be" className={({ isActive }) => `text-gray-200 hover:text-amber-400 font-medium transition-colors duration-200 ${isActive ? 'text-amber-400 underline underline-offset-4' : ''}`}>
+              <NavLink to="/where-we-will-be" className={({ isActive }) => `text-gray-200 hover:text-red-400 font-medium transition-colors duration-200 ${isActive ? 'text-red-400 underline-offset-4' : ''}`}>
                 Onde vamos estar?
               </NavLink>
-              <NavLink to="/contact" className={({ isActive }) => `text-gray-200 hover:text-amber-400 font-medium transition-colors duration-200 ${isActive ? 'text-amber-400 underline underline-offset-4' : ''}`}>
+              <NavLink to="/contact" className={({ isActive }) => `text-gray-200 hover:text-red-400 font-medium transition-colors duration-200 ${isActive ? 'text-red-400 underline-offset-4' : ''}`}>
                 Contactos
               </NavLink>
               {isAuthenticated && user?.role === 'admin' && (
-                <NavLink to="/admin/dashboard" className={({ isActive }) => `text-gray-200 hover:text-amber-400 font-medium transition-colors duration-200 ${isActive ? 'text-amber-400 underline underline-offset-4' : ''}`}>
+                <NavLink to="/admin/dashboard" className={({ isActive }) => `text-gray-200 hover:text-red-400 font-medium transition-colors duration-200 ${isActive ? 'text-red-400 underline-offset-4' : ''}`}>
                   Admin Dashboard
                 </NavLink>
               )}
@@ -101,7 +101,7 @@ const Header = () => {
               {isAuthenticated ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="flex items-center space-x-2 text-gray-200 hover:text-amber-400">
+                    <Button variant="ghost" className="flex items-center space-x-2 text-gray-200 hover:text-red-400">
                       <User className="h-4 w-4" />
                       <span>{user?.name || 'Conta'}</span>
                       <ChevronDown className="h-4 w-4" />
@@ -133,7 +133,7 @@ const Header = () => {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="inline-flex items-center justify-center p-2 text-gray-200 hover:text-amber-400"
+                  className="inline-flex items-center justify-center p-2 text-gray-200 hover:text-red-400"
                 >
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Toggle navigation menu</span>
@@ -142,39 +142,39 @@ const Header = () => {
               <SheetContent side="right" className="bg-gray-900 text-white border-gray-800">
                 <Link className="flex items-center gap-2 mb-6" to="/">
                   <img src={logo} alt="Logo A Rafeira" height="30" className="h-8 w-auto" />
-                  <span className="font-bold text-lg text-amber-400">A Rafeira</span>
+                  <span className="font-bold text-lg text-red-400">A Rafeira</span>
                 </Link>
                 <nav className="grid gap-4 py-6">
-                  <NavLink to="/about" className={({ isActive }) => `text-lg font-medium hover:text-amber-400 ${isActive ? 'text-amber-400' : 'text-gray-200'}`}>
+                  <NavLink to="/about" className={({ isActive }) => `text-lg font-medium hover:text-red-400 ${isActive ? 'text-red-400' : 'text-gray-200'}`}>
                     Informações Gerais
                   </NavLink>
 
                   <div className="text-lg font-medium text-gray-200 mt-2">O que fazemos?</div>
                   <ul className="pl-4 space-y-2">
-                    <li><NavLink to="/what-we-do/artistic-creation" className={({ isActive }) => `text-base text-gray-400 hover:text-amber-400 ${isActive ? 'text-amber-400' : ''}`}>Criação Artística</NavLink></li>
-                    <li><NavLink to="/what-we-do/training" className={({ isActive }) => `text-base text-gray-400 hover:text-amber-400 ${isActive ? 'text-amber-400' : ''}`}>Formação</NavLink></li>
-                    <li><NavLink to="/what-we-do/cultural-exchanges" className={({ isActive }) => `text-base text-gray-400 hover:text-amber-400 ${isActive ? 'text-amber-400' : ''}`}>Intercâmbios Culturais</NavLink></li>
-                    <li><NavLink to="/what-we-do/culture-defense" className={({ isActive }) => `text-base text-gray-400 hover:text-amber-400 ${isActive ? 'text-amber-400' : ''}`}>Defesa da Cultura</NavLink></li>
+                    <li><NavLink to="/what-we-do/artistic-creation" className={({ isActive }) => `text-base text-gray-400 hover:text-red-400 ${isActive ? 'text-red-400' : ''}`}>Criação Artística</NavLink></li>
+                    <li><NavLink to="/what-we-do/training" className={({ isActive }) => `text-base text-gray-400 hover:text-red-400 ${isActive ? 'text-red-400' : ''}`}>Formação</NavLink></li>
+                    <li><NavLink to="/what-we-do/cultural-exchanges" className={({ isActive }) => `text-base text-gray-400 hover:text-red-400 ${isActive ? 'text-red-400' : ''}`}>Intercâmbios Culturais</NavLink></li>
+                    <li><NavLink to="/what-we-do/culture-defense" className={({ isActive }) => `text-base text-gray-400 hover:text-red-400 ${isActive ? 'text-red-400' : ''}`}>Defesa da Cultura</NavLink></li>
                   </ul>
-                  <NavLink to="/how-we-think" className={({ isActive }) => `text-lg font-medium hover:text-amber-400 ${isActive ? 'text-amber-400' : 'text-gray-200'}`}>
+                  <NavLink to="/how-we-think" className={({ isActive }) => `text-lg font-medium hover:text-red-400 ${isActive ? 'text-red-400' : 'text-gray-200'}`}>
                     Como pensamos
                   </NavLink>
-                  <NavLink to="/who-we-are" className={({ isActive }) => `text-lg font-medium hover:text-amber-400 ${isActive ? 'text-amber-400' : 'text-gray-200'}`}>
+                  <NavLink to="/who-we-are" className={({ isActive }) => `text-lg font-medium hover:text-red-400 ${isActive ? 'text-red-400' : 'text-gray-200'}`}>
                     Quem somos
                   </NavLink>
-                  <NavLink to="/where-we-will-be" className={({ isActive }) => `text-lg font-medium hover:text-amber-400 ${isActive ? 'text-amber-400' : 'text-gray-200'}`}>
+                  <NavLink to="/where-we-will-be" className={({ isActive }) => `text-lg font-medium hover:text-red-400 ${isActive ? 'text-red-400' : 'text-gray-200'}`}>
                     Onde vamos estar?
                   </NavLink>
-                  <NavLink to="/contact" className={({ isActive }) => `text-lg font-medium hover:text-amber-400 ${isActive ? 'text-amber-400' : 'text-gray-200'}`}>
+                  <NavLink to="/contact" className={({ isActive }) => `text-lg font-medium hover:text-red-400 ${isActive ? 'text-red-400' : 'text-gray-200'}`}>
                     Contactos
                   </NavLink>
                   {isAuthenticated && user?.role === 'admin' && (
-                    <NavLink to="/admin/dashboard" className={({ isActive }) => `text-lg font-medium hover:text-amber-400 ${isActive ? 'text-amber-400' : 'text-gray-200'}`}>
+                    <NavLink to="/admin/dashboard" className={({ isActive }) => `text-lg font-medium hover:text-red-400 ${isActive ? 'text-red-400' : 'text-gray-200'}`}>
                       Admin Dashboard
                     </NavLink>
                   )}
                   {isAuthenticated && (
-                    <Button variant="ghost" className="mt-4 w-full text-lg font-medium text-gray-200 hover:text-amber-400" onClick={handleLogout}>Sair</Button>
+                    <Button variant="ghost" className="mt-4 w-full text-lg font-medium text-gray-200 hover:text-red-400" onClick={handleLogout}>Sair</Button>
                   )}
                 </nav>
               </SheetContent>
