@@ -3,11 +3,12 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 import tailwindcss from '@tailwindcss/vite'
 
+//  base: '/raf-front/',
 
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/raf-front/',
+  base: '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
