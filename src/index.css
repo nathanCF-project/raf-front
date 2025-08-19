@@ -2,6 +2,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -141,6 +142,12 @@
   }
 }
 
+
+@layer utilities {
+  .font-amatic {
+    font-family: 'Amatic SC', cursive;
+  }
+}
 
 
 /*
