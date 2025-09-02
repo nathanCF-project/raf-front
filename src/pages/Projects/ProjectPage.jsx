@@ -16,21 +16,17 @@ const projectsData = {
     image: "images/hotel-chronos5.jpg", // Imagem de banner para a página de detalhe
     description: "Um espetáculo sobre a urgência climática, a primeira criação da estrutura A Rafeira.",
     detailedDescription:
-      "Hotel Chronos é a primeira criação da estrutura A Rafeira, um espetáculo que mergulha na temática da urgência climática. Através de uma abordagem inovadora, o projeto cruza linguagens do teatro, dramaturgia e o recurso à tecnologia para provocar uma reflexão crítica sobre o presente e o futuro do nosso planeta. A narrativa explora as consequências das ações humanas no ambiente, convidando o público a confrontar-se com a sua responsabilidade e a necessidade de mudança.",
+      "Hotel Chronos é um espetáculo que mergulha na ansiedade provocada pela crise e pela iminente catástrofe climática. Num hotel no fim do mundo, duas mulheres cuidam religiosamente da sua gestão, como se essa prática pudesse atrair clientela. Mas há anos que ninguém chega. Uma delas começa a questionar a rotina absurda, enquanto a outra insiste em mantê-la, aterrorizada pelo vazio que a mudança pode trazer. O tempo passa e, no fundo do hotel, o relojoeiro tenta consertar o relógio…",
     team: [
-      { role: "Co-Direção e Criação", name: "Andreia Galvão" }, // Exemplo de Ficha Artística
-      { role: "Co-Direção e Criação", name: "Clara Passarinho" },
-      { role: "Dramaturgia", name: "Clara Passarinho" },
-      { role: "Cenografia", name: "Nome do Cenógrafo" },
-      { role: "Desenho de Luz", name: "Nome do Designer de Luz" },
-      { role: "Desenho de Som", name: "Nome do Designer de Som" },
-      { role: "Interpretação", name: "Andreia Galvão" },
-      { role: "Interpretação", name: "Clara Passarinho" },
+      { role: "Interpretação e co-criação", name: "Clara Passarinho, Andreia Galvão e Carla Madeira" },
+      { role: "Dramaturgia", name: "Andreia Galvão e Bárbara Soares" },
+      { role: "Sonoplastia", name: "Clara Passarinho" },
+      { role: "Operação de som e vídeo", name: "Vicente Silvestre" },
+      { role: "Fotografia", name: "Daniel Silva" },
       // Adicione outros membros da ficha artística
     ],
     events: [
-      { date: "Novembro de 2024", venue: "Largo Residências, Lisboa (Residência Artística)" },
-      { date: "Datas Futuras a Anunciar", venue: "Locais Diversos" },
+      { date: "Maio de 2025", venue: "Hostel Saint Jordi" },
       // Adicione outras datas e locais de espetáculos
     ],
     gallery: [

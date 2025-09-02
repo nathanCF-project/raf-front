@@ -17,10 +17,10 @@
     "featuredTitle": "Em Destaque",
     "featuredCourseTitle": "Curso: Rakugo – A Arte Japonesa de Contar Histórias",
     "featuredCourseDescription": "Curso presencial com Clara Passarinho. 5 sessões, de setembro a outubro. Técnicas narrativas, práticas e performance final.",
-    "featuredCourseDuration": "Duração:",
-    "featuredCourseSessions": "5 sessões",
-    "featuredCourseSchedule": "Horário:",
-    "featuredCourseMonths": "Setembro a Outubro",
+    "featuredCourseDuration": "DATAS:",
+    "featuredCourseSessions": "Sábados | 20 e 27 Setembro; 4, 11 e 18 Outubro",
+    "featuredCourseSchedule": "HORAS:",
+    "featuredCourseMonths": "10.30 às 13.30 | 18 Outubro, 17.00 às 21.00",
     "featuredCourseButton": "Inscreva-te aqui",
     "actions": [
       {
@@ -203,20 +203,20 @@
    "thinkmsg2":"A prática artística não é neutra — é um gesto político, relacional e afetivo.",
    "thinkmsg3":"Valorizamos a escuta, o tempo coletivo e a criação que parte de encontros reais.",
    "thinkmsg4":"“Pensar é resistir. Criar é existir.”",
-   "thinknewsletter":"Receba nossas novidades!"
+   "thinknewsletter":"Fica a par das nossas novidades!"
   },
 
   "cultureDefense": {
     "headerTitle": "Defesa da Cultura",
-    "heroBadge": "A Rafeira • Coletivo Artístico",
+    "heroBadge": "A Rafeira • Estrutura de Criação",
     "heroTitle": "Cultura como Campo de Ação Política",
-    "heroText1": "Em 2025, A Rafeira organizou a manifestação **'Não queremos viver num país de medo'**, em resposta à agressão sofrida pelo ator Aderito Lopes. A ação mobilizou pessoas em 12 cidades do país, unindo sindicatos, coletivos e cidadãos numa declaração pela liberdade e contra o medo.",
+    "heroText1": "Em 2025, A Rafeira organizou a manifestação 'Não queremos viver num país de medo', em resposta à agressão sofrida pelo ator Aderito Lopes. A ação mobilizou pessoas em 12 cidades do país, unindo sindicatos, coletivos e cidadãos numa declaração pela liberdade e contra o medo.",
     "heroText2": "A Rafeira acredita que a cultura é um campo de ação política e pretende abalar o setor, questionando a atual distribuição de recursos e contribuindo ativamente para a construção de um ecossistema cultural mais justo, transparente e sustentável.",
     "projectsTitle": "Projetos e Ações",
     "projectsSubtitle": "Iniciativas que materializam o nosso compromisso com a transformação do panorama cultural português",
     "project1Title": "Não queremos viver num país de medo",
     "project1Description": "Demonstração nacional organizada em resposta à agressão sofrida pelo ator Aderito Lopes, mobilizando 12 cidades em defesa da liberdade e contra o medo.",
-    "project1Type": "Demonstração",
+    "project1Type": "Concentração",
     "project2Title": "Produção",
     "project2Description": "Iniciativa em Produção..",
     "project2Type": "Fórum",

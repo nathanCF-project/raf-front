@@ -17,10 +17,10 @@
     "featuredTitle": "Featured",
     "featuredCourseTitle": "Course: Rakugo – The Japanese Art of Storytelling",
     "featuredCourseDescription": "In-person course with Clara Passarinho. 5 sessions, from September to October. Narrative techniques, practice, and final performance.",
-    "featuredCourseDuration": "Duration:",
-    "featuredCourseSessions": "5 sessions",
-    "featuredCourseSchedule": "Schedule:",
-    "featuredCourseMonths": "September to October",
+    "featuredCourseDuration": "DATES:",
+    "featuredCourseSessions": "Saturdays | 20 and 27 September; 4, 11 and 18 October",
+    "featuredCourseSchedule": "HOURS:",
+    "featuredCourseMonths": "10.30 to 13.30 | 18 October, 5pm to 9pm",
     "featuredCourseButton": "Register here",
     "actions": [
       {
@@ -208,15 +208,15 @@
 
    "cultureDefense": {
     "headerTitle": "Culture Advocacy",
-    "heroBadge": "A Rafeira • Artistic Collective",
+    "heroBadge": "A Rafeira • Creation Structure",
     "heroTitle": "Culture as a Field of Political Action",
-    "heroText1": "In 2025, A Rafeira organized the demonstration **'We don't want to live in a country of fear'**, in response to the aggression suffered by actor Aderito Lopes. The action mobilized people in 12 cities across the country, uniting unions, collectives, and citizens in a declaration for freedom and against fear.",
+    "heroText1": "In 2025, A Rafeira organized the demonstration 'We don't want to live in a country of fear', in response to the aggression suffered by actor Aderito Lopes. The action mobilized people in 12 cities across the country, uniting unions, collectives, and citizens in a declaration for freedom and against fear.",
     "heroText2": "A Rafeira believes that culture is a field of political action and aims to shake up the sector, questioning the current distribution of resources and actively contributing to the construction of a more just, transparent, and sustainable cultural ecosystem.",
     "projectsTitle": "Projects and Actions",
     "projectsSubtitle": "Initiatives that embody our commitment to transforming the Portuguese cultural landscape",
     "project1Title": "We don't want to live in a country of fear",
     "project1Description": "National demonstration organized in response to the aggression suffered by the actor Aderito Lopes, mobilizing 12 cities in defense of freedom and against fear.",
-    "project1Type": "Demonstration",
+    "project1Type": "Concentration",
     "project2Title": "In Production",
     "project2Description": "Initiative in Production..",
     "project2Type": "Forum",

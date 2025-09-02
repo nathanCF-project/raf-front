@@ -61,8 +61,9 @@ const HomePage = () => {
       {/* Hero Section com o novo Carrossel */}
       <HeroCarousel>
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-amatic uppercase font-bold mb-6 leading-tight text-red-500 drop-shadow-lg">
-            A Rafeira <br /> Estrutura de Criação
+          <h1 className="font-amatic uppercase font-bold mb-6 leading-tight text-red-500 drop-shadow-lg">
+            <span className="block text-6xl md:text-8xl">A Rafeira</span>
+            <span className="block text-2xl md:text-4xl mt-2">Estrutura de Criação</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
             <br />
@@ -99,12 +100,12 @@ const HomePage = () => {
        <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">{t('home.whatWeDoTitle')}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 justify-items-center">
           {acoes.map((item, i) => (
             <Link
               key={i}
               to={item.link}
-              className="no-underline text-gray-900 hover:text-red-600"
+              className="no-underline text-gray-900 hover:text-red-600 w-full max-w-sm"
             >
               <Card className="text-center hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-between">
                 <CardHeader>

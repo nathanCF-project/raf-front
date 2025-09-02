@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
+import API_BASE_URL from "../../api/config";
+
 function AdminRegister() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +17,10 @@ function AdminRegister() {
     setIsError(false);
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/register', { //  rota de registro
+
+         //PARA testes LOCAIS
+        // const response = await fetch('http://localhost:3001/api/auth/register', { //  rota de registro
+      const response = await fetch(`${API_BASE_URL}/auth/register`, { //  rota de registro
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
