@@ -4,6 +4,7 @@
 import React from 'react'; // Boa prática
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 // O objeto projectsData deve conter os detalhes completos de CADA projeto
 // listado em ArtisticCreation.jsx, usando o mesmo 'id'.
@@ -12,7 +13,7 @@ const projectsData = {
     title: "Hotel Chronos",
     year: "2024", // Ano do espetáculo
     type: "Teatro",
-    image: "images/hotel-chronos 4.jpg", // Imagem de banner para a página de detalhe
+    image: "images/hotel-chronos5.jpg", // Imagem de banner para a página de detalhe
     description: "Um espetáculo sobre a urgência climática, a primeira criação da estrutura A Rafeira.",
     detailedDescription:
       "Hotel Chronos é a primeira criação da estrutura A Rafeira, um espetáculo que mergulha na temática da urgência climática. Através de uma abordagem inovadora, o projeto cruza linguagens do teatro, dramaturgia e o recurso à tecnologia para provocar uma reflexão crítica sobre o presente e o futuro do nosso planeta. A narrativa explora as consequências das ações humanas no ambiente, convidando o público a confrontar-se com a sua responsabilidade e a necessidade de mudança.",
@@ -44,13 +45,13 @@ const projectsData = {
     ]
   },
   "projeto-instalacao-x": {
-    title: "Em Desenvolvimento..",
+    title: "Em-Construção..",
     year: "2025",
     type: "Instalação",
     image: "/images/instalacao_x_banner.jpg",
-    description: "Uma instalação interativa que explora a relação entre a natureza e o ambiente urbano.",
+    description: "nós estamos neste momento a escrever e a trabalhar nesse texto",
     detailedDescription:
-      "A instalação  é uma experiência imersiva que convida o público a refletir ",
+      "projeto dramatúrgico ",
     team: [
       { role: "Direção Artística", name: "Equipa A Rafeira" },
       { role: "Design de Instalação", name: "Nome do Designer" },
@@ -72,9 +73,9 @@ const projectsData = {
     year: "2025",
     type: "Dramaturgia",
     image: "/images/dramaturgia_y_banner.jpg",
-    description: "Um texto que aborda as narrativas não contadas e as experiências marginalizadas.",
+    description: "Um texto que aborda as narrativas a ser escrito..",
     detailedDescription:
-      "Este projeto dramatúrgico aprofunda-se nas.",
+      "Em contrução..",
     team: [
       { role: "Dramaturgia e Pesquisa", name: "Equipa A Rafeira" },
       { role: "Consultoria Cultural", name: "Nome do Consultor" },

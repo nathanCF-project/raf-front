@@ -11,6 +11,8 @@ import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../Auth/AuthContext';
 import logo from '../../assets/logo.png';
+import { useTranslation } from 'react-i18next';
+
 
 // Componentes Shadcn UI
 import { Button } from '@/components/ui/button';
@@ -19,9 +21,10 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/s
 // Ícones Lucide
 import { Menu, X } from "lucide-react";
 
+
 const navLinks = [
     { name: 'Informações Gerais', path: '/' },
-    { name: 'O que fazemos?', path: '/what-we-do' }, // Link principal para o dropdown
+    { name: 'O que fazemos?', path: '/' }, // Link principal para o dropdown
     { name: 'Como pensamos', path: '/how-we-think' },
     { name: 'Quem somos', path: '/who-we-are' },
     { name: 'Onde vamos estar?', path: '/where-we-will-be' },
@@ -33,6 +36,7 @@ const subLinks = [
   { name: 'Formação', path: '/what-we-do/training' },
   { name: 'Intercâmbios Culturais', path: '/what-we-do/cultural-exchanges' },
   { name: 'Defesa da Cultura', path: '/what-we-do/culture-defense' },
+  { name: 'Publicação e Traduções', path: 'what-we-do/translation' },
 ];
 
 const Header = () => {

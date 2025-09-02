@@ -5,6 +5,8 @@ import { Link } from "react-router-dom"; // Certifique-se de que react-router-do
 
 import NewsletterSubscribe from '../../components/Forms/NewsletterSubscribe';
 
+import { useTranslation } from "react-i18next";
+
 // Array de projetos artísticos
 const projects = [
   {
@@ -12,25 +14,25 @@ const projects = [
     title: "Hotel Chronos",
     year: "2024", // Ou o ano de estreia se for diferente
     type: "Teatro",
-    image: "images/Hotel-Chronos2.jpg", // Caminho para a imagem de capa do Hotel Chronos
+    image: "images/cronosinsta2.jpg", // Caminho para a imagem de capa do Hotel Chronos
     description:
       "A primeira criação da estrutura, um espetáculo sobre a urgência climática que cruza teatro, dramaturgia e tecnologia.",
   },
   {
     id: "projeto-instalacao-x", // Exemplo de um novo projeto
-    title: "Em-Breve",
+    title: "Arrendar",
     year: "2025",
-    type: "Instalação",
+    type: "Dramaturgia",
     image: "images/fixing.png", // Caminho para a imagem de capa
     description:
-      "Esta pagina esta em desenvolvimento, e está quase..",
+      "(nós estamos neste momento a escrever e a trabalhar nesse texto)",
   },
   
   {
     id: "peça-dramaturgica-y", // Exemplo de um novo projeto
-    title: "Em-Breve",
+    title: "Em-Construção",
     year: "2025",
-    type: "Dramaturgia",
+    type: "Instalação",
     image: "images/fixing.png", // Caminho para a imagem de capa
     description:
       "Esta pagina esta em desenvolvimento, e está quase..",
@@ -40,16 +42,18 @@ const projects = [
 ];  
 
 const ArtisticCreation = () => {
+
+    const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">Criação Artística</h1>
+          <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">{t("artisticCreation.headerTitle")}</h1>
           <div className="w-24 h-px bg-gray-300 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            A Rafeira desenvolve projetos nas áreas do teatro, da dramaturgia e também da instalação com recurso a tecnologia,
-            procurando cruzar linguagens e refletir criticamente sobre o presente.
+            {t("artisticCreation.headerSubtitle")}
           </p>
         </div>
 

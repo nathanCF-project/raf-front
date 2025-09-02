@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NewsletterSubscribe from '../components/Forms/NewsletterSubscribe';
 import heroImage from '/images/Hotel-Chronos3.jpg?url'; 
-import heroImage2 from '/images/japones.jpg'; 
+import heroImage2 from '/images/chines1.jpg'; 
 import HeroCarousel from './HeroCarousel'; 
+
+import { useTranslation } from 'react-i18next'; 
+
 
 
 //import '../components/Styles/Custom.css'; 
@@ -38,10 +41,21 @@ const acoes = [
     description: 'Curadoria de exposições, performances e festivais que celebram diversas expressões culturais e inovação artística.',
     link: '/what-we-do/culture-defense',
   },
+  {
+    title: 'Publicação, edição e traduções',
+    icon: Mail,
+    description: 'Dramaturgia do Hotel Chronos, projeto “Arrendar” e traduções de obras selecionadas.',
+    link: '/what-we-do/translation',
+  },
+  
 ];
 
 
 const HomePage = () => {
+
+    const { t } = useTranslation();
+    
+
   return (
     <> {/* Fragmento React para englobar todo o conteúdo */}
       {/* Hero Section com o novo Carrossel */}
@@ -55,7 +69,7 @@ const HomePage = () => {
           </p>
           <Link to="/who-we-are">
             <Button size="lg" className="bg-rafeira-red hover:bg-red-600 text-white font-semibold px-8 py-3 text-lg">
-              Saber mais
+               {t('home.heroButton')}
             </Button>
           </Link>
         </div>
@@ -64,9 +78,9 @@ const HomePage = () => {
       {/* Sobre Nós Section (adaptada) */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900">Sobre Nós</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900">{t('home.aboutTitle')}</h2>
           <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto">
-            Fundada por Andreia Galvão e Clara Passarinho em 2025, A Rafeira nasce da urgência de criar, questionar e partilhar. Promovemos a criação artística, a reflexão crítica sobre o setor cultural e a defesa do seu futuro sustentável.
+             {t('home.aboutText')}
           </p>
           <Link to="/who-we-are">
             <Button
@@ -74,7 +88,7 @@ const HomePage = () => {
               size="lg"
               className="border-amber-500 text-red-600 hover:bg-amber-50 bg-transparent"
             >
-              Conhecer a Estrutura
+               {t('home.aboutButton')}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
@@ -84,7 +98,7 @@ const HomePage = () => {
       {/* O que fazemos Section (mantido do novo design com suas informações) */}
        <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">O que fazemos</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">{t('home.whatWeDoTitle')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {acoes.map((item, i) => (
             <Link
@@ -104,7 +118,7 @@ const HomePage = () => {
                     {item.description}
                   </CardDescription>
                   <p className="mt-4 text-red-600 font-semibold">
-                    Saber mais <ArrowRight className="inline-block ml-1 h-4 w-4" />
+                     {t('home.knowMore')} <ArrowRight className="inline-block ml-1 h-4 w-4" />
                   </p>
                 </CardContent>
               </Card>
@@ -119,23 +133,23 @@ const HomePage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Em Destaque</h2>
-              <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-red-600">Curso: Rakugo – A Arte Japonesa de Contar Histórias</h3>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">{t('home.featuredTitle')}</h2>
+              <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-red-600">{t('home.featuredCourseTitle')}</h3>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Curso online com Clara Passarinho. 5 sessões, de maio a outubro. Técnicas narrativas, práticas e performance final.
+                                {t('home.featuredCourseDescription')}
               </p>
               <div className="space-y-2 mb-8">
                 <p className="text-gray-600">
-                  <strong>Duração:</strong> 5 sessões
+                  <strong>{t('home.featuredCourseDuration')}</strong> {t('home.featuredCourseSessions')}
                 </p>
                 <p className="text-gray-600">
-                  <strong>Horário:</strong> Maio a Outubro
+                  <strong>{t('home.featuredCourseSchedule')}</strong> {t('home.featuredCourseMonths')}
                 </p>
                 {/* Removido o campo "Investment" pois não estava no conteúdo original */}
               </div>
               <a href="https://www.bol.pt/Comprar/Bilhetes/159761-rakugo_a_arte_japonesa_de_contar_historias_curso-museu_do_oriente/" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="bg-red-500 hover:bg-red-600 text-black font-semibold">
-                  Inscreva-se aqui
+                   {t('home.featuredCourseButton')}
                 </Button>
               </a>
             </div>

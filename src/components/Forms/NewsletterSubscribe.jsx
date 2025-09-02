@@ -4,10 +4,13 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button'; // Importe Button do shadcn/ui
 import { Input } from '@/components/ui/input';   // Importe Input do shadcn/ui
 import { Mail } from 'lucide-react'; // Ícone para o título, se quiser
+import { useTranslation } from 'react-i18next';
+
 
 import API_BASE_URL from '../../api/config';
 
 function NewsletterSubscribe() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
@@ -36,16 +39,16 @@ function NewsletterSubscribe() {
       const data = await response.json();
 
       if (response.ok) {
-        setMessage(data.message || 'Inscrição realizada com sucesso!');
+        setMessage(data.message || t("newsletter.success"));
         setEmail('');
       } else {
         setIsError(true);
-        setMessage(data.error || 'Erro ao processar sua inscrição. Tente novamente.');
+        setMessage(data.error || t("newsletter.error"));
       }
     } catch (error) {
       console.error('Erro na requisição de inscrição:', error);
       setIsError(true);
-      setMessage('Não foi possível conectar ao servidor. Verifique sua conexão.');
+      setMessage(t("newsletter.networkError"));
     }
   };
 
@@ -54,14 +57,14 @@ function NewsletterSubscribe() {
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8">
           <Mail className="h-16 w-16 text-red-400 mx-auto mb-6" /> {/* Ícone */}
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Quero receber as novidades!</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("newsletter.title")}</h2>
           
         </div>
         <div className="max-w-md mx-auto">
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
             <Input
               type="email"
-              placeholder="Insere o teu e-mail"
+              placeholder={t("newsletter.placeholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -71,7 +74,7 @@ function NewsletterSubscribe() {
               type="submit"
               className="bg-red-500 hover:bg-red-600 text-black font-semibold px-8" // Estilo Shadcn/Tailwind
             >
-              Inscrever
+              {t("newsletter.button")}
             </Button>
           </form>
           {message && (
@@ -80,7 +83,7 @@ function NewsletterSubscribe() {
             </p>
           )}
           <p className="text-sm text-gray-400 mt-4">
-            O teu email serve só para enviar as nossas novidades.
+             {t("newsletter.privacy")}
           </p>
         </div>
       </div>

@@ -4,6 +4,8 @@ import { HashRouter as Router, Routes, Route, useNavigate, Navigate } from 'reac
 // Remova a importação de '/src/components/Styles/Custom.css' se você está migrando para Tailwind/Shadcn UI
 // import '/src/components/Styles/Custom.css'; 
 
+import './translation/i18n';
+
 // Importações de componentes de autenticação e dashboard
 import AdminLogin from './components/Auth/AdminLogin';
 import AdminDashboard from './components/Dashboard/AdminDashboard';
@@ -34,6 +36,8 @@ import NotFoundPage from './pages/NotFoundPage';
 import ProjectPage from './pages/Projects/ProjectPage'; 
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import TranslationPage from './pages/TranslationPage';
+
 
 
 // Componente ProtectedRoute (mantenha como está)
@@ -125,7 +129,7 @@ function App() {
                             <Route path="/artistic-creation/:id" element={<ProjectPage />} />
                             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                             <Route path="/terms-of-service" element={<TermsOfService />} />
-                            
+                            <Route path="/what-we-do/translation" element={<TranslationPage />} />
                            
 
 

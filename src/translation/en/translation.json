@@ -1,0 +1,312 @@
+{
+  "culturalExchanges": {
+    "title": "Cultural Exchanges",
+    "intro": "We promote exchanges at the national level with associations from various regions of the country and, at the European level, we have experience in programs such as Erasmus+, CERV, and Creative Europe. Both artistic directors are part of the Culture Action Europe network. Globally, Rafeira has been building bridges with Asia, particularly with China through theater, and with Africa, starting with Cape Verde.",
+    "futureProjects": "Upcoming Projects",
+    "futureProjectsDesc": "Almost there, I promise. Or at least, on the way."
+  },
+
+   "home": {
+    "heroTitle": "Rafeira <br /> Creation Structure",
+    "heroButton": "Learn more",
+    "aboutTitle": "About Us",
+    "aboutText": "Founded by Andreia Galvão and Clara Passarinho in 2025, Rafeira is born from the urgency to create, question, and share. We promote artistic creation, critical reflection on the cultural sector, and the defense of its sustainable future.",
+    "aboutButton": "Meet the Structure",
+    "whatWeDoTitle": "What We Do",
+    "knowMore": "Learn more",
+    "featuredTitle": "Featured",
+    "featuredCourseTitle": "Course: Rakugo – The Japanese Art of Storytelling",
+    "featuredCourseDescription": "In-person course with Clara Passarinho. 5 sessions, from September to October. Narrative techniques, practice, and final performance.",
+    "featuredCourseDuration": "Duration:",
+    "featuredCourseSessions": "5 sessions",
+    "featuredCourseSchedule": "Schedule:",
+    "featuredCourseMonths": "September to October",
+    "featuredCourseButton": "Register here",
+    "actions": [
+      {
+        "title": "Artistic Creation",
+        "description": "Supporting artists in developing their art through collaborative projects, studio spaces, and creative residencies."
+      },
+      {
+        "title": "Training",
+        "description": "Comprehensive educational programs to nurture talent and share knowledge in various artistic disciplines."
+      },
+      {
+        "title": "Cultural Exchanges",
+        "description": "Building bridges between artists and communities through outreach programs and collaborative initiatives."
+      },
+      {
+        "title": "Culture Advocacy",
+        "description": "Curating exhibitions, performances, and festivals that celebrate diverse cultural expressions and artistic innovation."
+      }
+    ]
+  },
+
+   "footer": {
+    "links": "Links",
+    "aboutUs": "About Us",
+    "contacts": "Contacts",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "quickContact": "Quick Contact",
+    "quickMessage": "Send a quick message:",
+    "placeholders": {
+      "email": "Your email",
+      "message": "Your short message..."
+    },
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent! We will contact you soon.",
+    "error": "Error sending message. Please try again."
+  },
+  "header": {
+    "generalInfo": "General Info",
+    "whatWeDo": "What we do?",
+    "howWeThink": "How we think",
+    "whoWeAre": "Who we are",
+    "whereWeWillBe": "Where we will be?",
+    "contacts": "Contacts",
+    "subLinks": {
+      "artisticCreation": "Artistic Creation",
+      "training": "Training",
+      "culturalExchanges": "Cultural Exchanges",
+      "cultureDefense": "Culture Defense"
+    },
+    "logout": "Logout",
+    "adminDashboard": "Admin Dashboard"
+  },
+
+   "newsletter": {
+    "title": "I want to receive updates!",
+    "placeholder": "Enter your email",
+    "button": "Subscribe",
+    "privacy": "Your email will only be used to send our updates.",
+    "success": "Subscription successful!",
+    "error": "Error processing your subscription. Please try again.",
+    "networkError": "Unable to connect to the server. Please check your connection."
+  },
+
+ "contact": {
+    "pageTitle": "Contact Us",
+    "pageIntro": "We are here to hear your ideas, clarify doubts, or think together about partnerships and collaborations that make a difference.",
+    "formTitle": "Send us a message",
+    "formDescription": "Please fill out the form below and we will get back to you.",
+    "labelName": "Name",
+    "placeholderName": "Your full name",
+    "labelEmail": "Email",
+    "placeholderEmail": "your.email@example.com",
+    "labelSubject": "Subject",
+    "placeholderSubject": "What is this about?",
+    "labelMessage": "Message",
+    "placeholderMessage": "Tell us more about your question...",
+    "loadingButton": "Sending...",
+    "submitButton": "Send Message",
+    "statusSuccess": "Message sent! We will get in touch with you shortly.",
+    "statusError": "An error occurred while sending the message.",
+    "statusConnectionError": "Could not connect to the server. Please try again later.",
+    "infoTitle": "Contact Information",
+    "infoDescription": "Contact us directly through any of these channels.",
+    "emailMainTitle": "Main Email",
+    "emailCodirectorsTitle": "Artistic Co-directors' Emails",
+    "phonesTitle": "Phones",
+    "socialsTitle": "You can also find us here:",
+    "bottomNote": "We usually reply within 24 business hours."
+  },
+
+    "about": {
+    "heroTitle": "A Rafeira",
+    "heroSubtitle": "An artistic creation structure dedicated to promoting artistic creation, reflection on the sector and its sustainability, cultural exchange, and democracy in access to cultural enjoyment.",
+    "historyTitle": "Our History",
+    "historyP1": "A Rafeira - Estrutura de Criação is born from a shared vision and the commitment of two dynamic professionals, involved and active in the cultural sector. Founded and co-directed by Andreia Galvão and Clara Passarinho in 2025, Rafeira emerges in the contemporary Portuguese cultural scene with the goal of promoting artistic creation, reflection on the sector and its sustainability, cultural exchange, and democracy in access to cultural enjoyment. Both had already been developing projects together since 2023.",
+    "historyP2": "The structure is based on four fundamental pillars, which reflect Rafeira's commitment to a more inclusive, sustainable, and participatory cultural ecosystem, promoting practices that directly involve artists, audiences, and communities.",
+    "pillarsTitle": "Our Pillars",
+    "pillar1Title": "Artistic Creation",
+    "pillar1Desc": "Fostering innovative artistic expression through collaborative projects that transcend creative boundaries and explore new media.",
+    "pillar2Title": "Training",
+    "pillar2Desc": "Providing comprehensive educational programs and workshops that develop artistic skills and nurture emerging talents.",
+    "pillar3Title": "Cultural Exchanges",
+    "pillar3Desc": "Building bridges between diverse artistic communities and facilitating meaningful cultural dialogue and collaboration.",
+    "pillar4Title": "Culture Advocacy",
+    "pillar4Desc": "Preserving and protecting cultural heritage, advocating for the vital role of the arts in society and community development.",
+    "cofoundersTitle": "The Co-Founders",
+    "claraName": "Clara Passarinho",
+    "claraBioP1": "Portuguese artist with a degree in Theater - Actors branch - from the Escola Superior de Teatro e Cinema, and a master's degree in Directing from the same institution. She directed the play Nevou no País das Maravilhas, where she was also responsible for the dramaturgy. In 2023, she won the competition for young directors promoted by Baal17, where she directed the creation Estrangeiras, based on a text by José Luís Peixoto. In addition to directing, Clara co-created and was an interpreter in the play Hotel Chronos, which was in artistic residence at Largo Residências, in Lisbon, at the end of 2024. She was part of the cast of À Flor das Águas, Caim e Barbo, Salvar Gaia Rumo a Yod with Teatro Estúdio Fontenova.",
+    "claraBioP2": "In 2024, she collaborated with the Yokohama Theatre Group and conducted research on Rakugo in Tokyo, with the support of the Orient Foundation. Additionally, she is a member of Culture Action Europe, a European network dedicated to the cultural and creative sector. Clara has been involved in several European projects, having written and participated in more than 10 mobility programs. She is a co-founder of Associação da Minha Rua, a youth association based in Caldas da Rainha. She assisted in the production of the Alecrim Festival, an event on ecology and culture organized in partnership with Casa do Jardim da Estrela (A theater in every neighborhood) and supported by the Instituto Marquês Valle Flor.",
+    "claraBioP3": "The following year, 2025, she co-coordinated the project A Cidade que Queremos, funded by the AMI Foundation, with the aim of bringing a performance/conference to schools in Amadora for young people and children on sustainable cities and holding a 3-day festival in Cova da Moura with local artists and workshops. She was invited to direct the new creation of the Theater Nucleus of the Faculty of Sciences and Technologies of the NOVA University. The show participated in the FATAL 2025 competition and received the Cidade de Lisboa Award in the most innovative show category. In parallel, she completed a postgraduate degree in Performance and Digital Technology at the Instituto de Teatro de Barcelona. Clara, along with Andreia Galvão, created the A Rafeira creation structure with the objective of promoting artistic creation, reflection on the sector and its sustainability, cultural exchange, and democracy in access to cultural enjoyment.",
+    "andreiaName": "Andreia Galvão",
+    "andreiaBioP1": "She has a degree in Communication Sciences, with a specialization in Cinema and Television from the NOVA University of Lisbon, and a master's degree with distinction in Theater - Performing Arts from the Escola Superior de Teatro e Cinema. She did Erasmus+ at the Sorbonne Nouvelle (Paris 3) and completed additional training at the international theater school Jacques Lecoq (Paris), as well as in techniques such as neutral mask, Commedia dell’Arte, and “Spoken English for Acting” at the Royal Academy of Dramatic Art (RADA) in London. She also attended the directing practices course at Teatro Meridional.",
+    "andreiaBioP2": "She works as an actress, creator, and trainer. She debuted as a co-creator in the show Hotel Chronos, which she also co-wrote. The dramaturgical text of the show was selected for the Cycle of New Portuguese Dramaturgies of the company O Fim do Teatro, in partnership with the Rectory of the University of Lisbon.",
+    "andreiaBioP3": "She is a co-founder of “A Rafeira” — a creation structure that organizes courses and workshops she facilitates, aimed at adult audiences. Her work develops at the intersection of artistic creation and public participation, with a focus on the critical empowerment of citizens through the arts. She uses methodologies such as physical theater, creative writing, improvisation, and collective thinking, promoting transformative learning contexts. In parallel, she works as a freelance journalist. She collaborated with publications such as the Ítaca magazine (from the D. Maria II National Theater) and was a scholarship holder for Ciência Viva and Gerador magazine, with a report on political theater. In 2024, she organized her first festival dedicated to ecology and culture, at Casa do Jardim da Estrela, in Lisbon, with the collective “Alecrim,” which she also founded. In 2025, she organized her second festival — A Cidade que Queremos — which took place between Cova da Moura and Teatro de Alfornelos, bringing together residents, artists, and thinkers around ideas to collectively imagine, build, and dispute urban space. The festival reaffirms her vision of artistic work deeply committed to social transformation."
+  },
+
+  "training": {
+    "headerTitle": "Training",
+    "headerSubtitle": "We are dedicated to training and empowering cultural professionals, offering practical and specialized courses that address the real needs of the sector. Our mission is to empower artists and cultural agents with essential technical, legal, and creative knowledge for the development of their careers and projects.",
+    "course1Title": "FUCK! What does a cultural worker need to know??",
+    "course1Subtitle": "Legal-Framework for Professionals in the Performing Arts",
+    "course1InfoDate": "Sep 29 & Oct 6",
+    "course1InfoTime": "2h per class",
+    "course1InfoLocation": "ONLINE",
+    "course1InfoInstructor": "Sofia Leal",
+    "course1ModulesTitle": "Modules:",
+    "course1Module1Title": "What are my rights and duties?",
+    "course1Module1List1": "Legal framework for cultural professionals",
+    "course1Module1List2": "Types of contracts",
+    "course1Module1List3": "Self-employment receipts: Social Security and Finance",
+    "course1Module2Title": "Where do I fit in?",
+    "course1Module2List1": "Cultural Professional Status",
+    "course1Module2List2": "Collective organizations, representation, and rights",
+    "course1Quote": "Practical, clear training, with space for real questions. If you don't understand what you sign, what you declare, or what you pay — this course is for you!",
+    "course1ImageAlt": "People at a meeting table, focused and analyzing documents",
+    
+    "course2Title": "FUCK!!! HOW TO GET MONEY FOR ARTISTIC CREATION?",
+    "course2Subtitle": "A practical training for artists and cultural agents who want to finance their projects without selling their soul to the devil",
+    "course2InfoDate": "May 5, 12, 19 & 26",
+    "course2InfoTime": "7:30 PM - 10:30 PM",
+    "course2InfoLocation": "ONLINE",
+    "course2ModulesTitle": "Modules:",
+    "course2Module1": "Compete vs. Collaborate in a network",
+    "course2Module2": "Is there still money in Portugal for me?",
+    "course2Module3": "Europe's Sugarbaby",
+    "course2Module4": "What if nothing works?",
+    "course2ImageAlt": "Two people working together and collaborating",
+    
+    "course3Title": "Rakugo | The Japanese Art of Storytelling",
+    "course3Subtitle": "A practical and theoretical introduction to Rakugo — a traditional Japanese narrative art — focusing on performance, humor, and vocal expression",
+    "course3InfoDate": "5 sessions with historical, technical, and practical content",
+    "course3InfoLocation": "Museu do Oriente",
+    "course3Note": "This course is the result of research supported by the Orient Foundation",
+    "course3ObjectivesTitle": "Objectives:",
+    "course3Objective1": "Disseminate Rakugo in Portugal",
+    "course3Objective2": "Empower participants with narrative techniques",
+    "course3Objective3": "Stimulate performative experimentation",
+    "course3Objective4": "Promote artistic exchange with Japan",
+    "course3ImageAlt": "Illustration of a Rakugo actor performing on stage",
+    
+    "buttonRegister": "Register!",
+    "buttonMoreInfo": "More Information",
+    "footerText": "© 2024 Training - Artistic Collective. All rights reserved."
+  },
+
+  "where":{
+   "wheretitle": "Where will we be?",
+   "wheresubtitle": "Insights into our agenda with our upcoming events, presentations and courses.",
+   "whereloading":"Loading upcoming events..."
+
+  },
+
+  "think":{
+   "thinktitle":"How We Think",
+   "thinksubtitle":"Our way of being, doing and resisting in the world.",
+   "thinkmsg1":"We believe in art that dialogues with the territory, with memories and with social emergencies.",
+   "thinkmsg2":"Artistic practice is not neutral — it is a political, relational and affective gesture.",
+   "thinkmsg3":"We value listening, collective time and creation that comes from real encounters.",
+   "thinkmsg4":"'To think is to resist. To create is to exist.'",
+   "thinknewsletter":"Receive our news!"
+   
+  },
+
+   "cultureDefense": {
+    "headerTitle": "Culture Advocacy",
+    "heroBadge": "A Rafeira • Artistic Collective",
+    "heroTitle": "Culture as a Field of Political Action",
+    "heroText1": "In 2025, A Rafeira organized the demonstration **'We don't want to live in a country of fear'**, in response to the aggression suffered by actor Aderito Lopes. The action mobilized people in 12 cities across the country, uniting unions, collectives, and citizens in a declaration for freedom and against fear.",
+    "heroText2": "A Rafeira believes that culture is a field of political action and aims to shake up the sector, questioning the current distribution of resources and actively contributing to the construction of a more just, transparent, and sustainable cultural ecosystem.",
+    "projectsTitle": "Projects and Actions",
+    "projectsSubtitle": "Initiatives that embody our commitment to transforming the Portuguese cultural landscape",
+    "project1Title": "We don't want to live in a country of fear",
+    "project1Description": "National demonstration organized in response to the aggression suffered by the actor Aderito Lopes, mobilizing 12 cities in defense of freedom and against fear.",
+    "project1Type": "Demonstration",
+    "project2Title": "In Production",
+    "project2Description": "Initiative in Production..",
+    "project2Type": "Forum",
+    "project3Title": "Under Construction",
+    "project3Description": "Initiative in Production..",
+    "project3Type": "Under Development..",
+    "statusRealized": "Completed",
+    "statusInProgress": "In Progress",
+    "statusPlanned": "Planned",
+    "ctaTitle": "Join the Movement",
+    "ctaSubtitle": "Cultural transformation happens through collective action. Participate in building a more just future for Portuguese culture.",
+    "buttonLearnMore": "Learn More",
+    "buttonContact": "Contact",
+    "footerText": "© 2025 A Rafeira • Culture Advocacy"
+  },
+
+ "artisticCreation": {
+    "headerTitle": "Artistic Creation",
+    "headerSubtitle": "A Rafeira develops projects in the areas of theater, dramaturgy, and also installation using technology, seeking to cross languages and critically reflect on the present.",
+    "placeholderImageAlt": "Project preview image",
+    "project1": {
+      "title": "Hotel Chronos",
+      "type": "Theater",
+      "description": "The first creation of the collective, a show about climate urgency that crosses theater, dramaturgy, and technology.",
+      "detailedDescription": "Hotel Chronos is the first creation of the A Rafeira collective, a show that delves into the theme of climate urgency. Through an innovative approach, the project crosses the languages of theater, dramaturgy, and the use of technology to provoke a critical reflection on the present and future of our planet. The narrative explores the consequences of human actions on the environment, inviting the audience to confront their responsibility and the need for change.",
+      "teamTitle": "Artistic Team",
+      "teamMembers": [
+        { "role": "Co-Direction and Creation", "name": "Andreia Galvão" },
+        { "role": "Co-Direction and Creation", "name": "Clara Passarinho" },
+        { "role": "Dramaturgy", "name": "Clara Passarinho" },
+        { "role": "Scenography", "name": "Name of the Scenographer" },
+        { "role": "Lighting Design", "name": "Name of the Lighting Designer" },
+        { "role": "Sound Design", "name": "Name of the Sound Designer" },
+        { "role": "Performance", "name": "Andreia Galvão" },
+        { "role": "Performance", "name": "Clara Passarinho" }
+      ],
+      "eventsTitle": "Show Dates",
+      "event1Date": "November 2024",
+      "event1Venue": "Largo Residências, Lisbon (Artistic Residency)",
+      "event2Date": "Future Dates to be Announced",
+      "event2Venue": "Various Locations"
+    },
+    "project2": {
+      "title": "Arrendar",
+      "type": "Dramaturgy",
+      "description": "(we are currently writing and working on this text)",
+      "detailedDescription": "dramaturgical project",
+      "teamTitle": "Production Team",
+      "teamMembers": [
+        { "role": "Artistic Direction", "name": "A Rafeira Team" }
+      ],
+      "eventsTitle": "Show Dates",
+      "event1Date": "Under development..",
+      "event1Venue": "Various Locations"
+    },
+    "project3": {
+      "title": "Under Construction",
+      "type": "Installation",
+      "description": "This page is under development, and it's almost ready..",
+      "detailedDescription": "Under construction..",
+      "teamTitle": "Production Team",
+      "teamMembers": [
+        { "role": "Artistic Direction", "name": "A Rafeira Team" },
+        { "role": "Installation Design", "name": "Name of the Designer" },
+        { "role": "Sound Engineering", "name": "Name of the Engineer" }
+      ],
+      "eventsTitle": "Show Dates",
+      "event1Date": "April - June 2025",
+      "event1Venue": "Jardins do Palácio de Cristal, Porto",
+      "event2Date": "July - September 2025",
+      "event2Venue": "Parque da Cidade, Lisbon"
+    },
+    "projectNotFound": "Project Not Found",
+    "backToArtisticCreation": "Back to Artistic Creation",
+    "aboutProject": "About the Project",
+    "galleryTitle": "Gallery",
+    "videosTitle": "Videos"
+  },
+
+   "publishing": {
+    "headerTitle": "Publishing, Editing, and Translations",
+    "introText": "At A Rafeira, we create the dramaturgy for **Hotel Chronos**, and this year we will develop a new dramaturgy titled **“Arrendar”**. At the same time, we are preparing several translations of selected works, enriching our programming with diverse voices and new perspectives.",
+    "visionTitle": "Our Editorial Vision",
+    "visionText": "Our goal is to provide a space for different artistic expressions, broaden horizons, and value cultural multiplicity. Publishing and translation are fundamental tools for bringing new narratives to the public.",
+    "booksTitle": "Translated Books",
+    "bookPlaceholderTitle": "Under construction",
+    "bookPlaceholderAuthor": "Under construction",
+    "bookCoverAlt": "Book cover"
+  }
+
+
+
+}

@@ -9,9 +9,19 @@ import { Send } from 'lucide-react'; // Ícone de envio
 
 import logo from '../../assets/logo.png'; // logo
 
+import { useTranslation } from 'react-i18next';
+
+
 import API_BASE_URL from '../../api/config';
 
 const Footer = () => {
+
+
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };  
 
 const [formData, setFormData] = useState({
     email: '',
@@ -94,33 +104,52 @@ const [formData, setFormData] = useState({
               className="mx-auto md:mx-0 my-4 h-32 w-32 object-contain" // Ajuste as classes para o tamanho e centralização desejados
             />
             <p className="text-gray-400 text-sm">&copy; {new Date().getFullYear()} Todos os direitos reservados.</p>
+
+             {/* BOTÕES DE IDIOMA AQUI */}
+                        <div className="mt-4 flex justify-center md:justify-start space-x-2">
+                          <Button
+                            variant="ghost"
+                            className={`p-2 rounded-full text-white ${i18n.language === 'pt' ? 'bg-gray-700' : ''}`}
+                            onClick={() => changeLanguage('pt')}
+                          >
+                            PT
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            className={`p-2 rounded-full text-white ${i18n.language === 'en' ? 'bg-gray-700' : ''}`}
+                            onClick={() => changeLanguage('en')}
+                          >
+                            EN
+                          </Button>
+                        </div>
+                        
           </div>
 
           {/* Links rápidos */}
           <div className="mb-6 md:mb-0">
-            <h6 className="text-xl font-bold uppercase mb-4 text-gray-200">Links</h6>
+            <h6 className="text-xl font-bold uppercase mb-4 text-gray-200">  {t("footer.links")}</h6>
             <ul className="list-none p-0 space-y-2"> {/* space-y-2 para espaçamento entre links */}
-              <li><Link to="/who-we-are" className="text-gray-400 hover:text-red-400 transition-colors">Sobre Nós</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-red-400 transition-colors">Contactos</Link></li>
-              <li><Link to="/privacy-policy" className="text-gray-400 hover:text-red-400 transition-colors">Política de Privacidade</Link></li> {/* Mude para Link se for rota */}
-              <li><Link to="/terms-of-service" className="text-gray-400 hover:text-red-400 transition-colors">Termos de Serviço</Link></li> {/* Mude para Link se for rota */}
+              <li><Link to="/who-we-are" className="text-gray-400 hover:text-red-400 transition-colors">{t("footer.aboutUs")}</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-red-400 transition-colors">{t("footer.contacts")}</Link></li>
+              <li><Link to="/privacy-policy" className="text-gray-400 hover:text-red-400 transition-colors">{t("footer.privacyPolicy")}</Link></li> {/* Mude para Link se for rota */}
+              <li><Link to="/terms-of-service" className="text-gray-400 hover:text-red-400 transition-colors">{t("footer.termsOfService")}</Link></li> {/* Mude para Link se for rota */}
             </ul>
           </div>
 
            {/* Contato e Mini Formulário */}
           <div>
-            <h6 className="text-xl font-bold uppercase mb-4 text-gray-200">Contacto Rápido</h6>
+            <h6 className="text-xl font-bold uppercase mb-4 text-gray-200">{t("footer.quickContact")}</h6>
             <p className="text-gray-400 text-sm mb-2">Email: <a href="mailto:arafeira.estruturadecriacao@gmail.com" className="hover:underline">arafeira.estruturadecriacao@gmail.com</a></p>
             <p className="text-gray-400 text-sm mb-2">Instagram: <a href="https://www.instagram.com/arafeira.estruturadecriacao/" target="_blank" rel="noopener noreferrer" className="hover:underline">@arafeira.estruturadecriacao</a></p>
             <p className="text-gray-400 text-sm mb-4">Telefones: <a href="tel:+351962185565" className="hover:underline">+351 962 185 565</a> / <a href="tel:+351961200611" className="hover:underline">+351 961 200 611</a></p>
 
             {/* Mini Formulário de Contacto */}
-            <h6 className="text-lg font-bold uppercase mb-3 text-gray-200">Envie uma mensagem rápida:</h6>
+            <h6 className="text-lg font-bold uppercase mb-3 text-gray-200">{t("footer.quickMessage")}</h6>
             <form onSubmit={handleSubmit} className="space-y-3">
               <Input
                 id="email"
                 type="email"
-                placeholder="O seu e-mail"
+                placeholder={t("footer.placeholders.email")}
                 className="w-full bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:border-amber-400 focus:ring-amber-400"
                 value={formData.email}
                 onChange={handleChange}
@@ -128,7 +157,7 @@ const [formData, setFormData] = useState({
               />
               <Textarea
                 id="message"
-                placeholder="A sua mensagem curta..."
+                placeholder={t("footer.placeholders.message")}
                 className="w-full bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:border-amber-400 focus:ring-amber-400 min-h-[60px] max-h-[120px] resize-y"
                 value={formData.message}
                 onChange={handleChange}

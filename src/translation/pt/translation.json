@@ -1,0 +1,311 @@
+{
+  "culturalExchanges": {
+    "title": "Intercâmbios Culturais",
+    "intro": "Promovemos trocas a nível nacional com associações de várias regiões do país e, a nível europeu, temos experiência em programas como Erasmus+, CERV e Europa Criativa. Ambas as diretoras artísticas integram a rede Culture Action Europe. Globalmente, a Rafeira tem vindo a abrir pontes com o continente asiático, em particular com a China, através do teatro, e com África, começando por Cabo Verde.",
+    "futureProjects": "Próximos Projetos",
+    "futureProjectsDesc": "Está quase, juro. Ou pelo menos, a caminho."
+  },
+
+  "home": {
+    "heroTitle": "A Rafeira <br /> Estrutura de Criação",
+    "heroButton": "Saber mais",
+    "aboutTitle": "Sobre Nós",
+    "aboutText": "Fundada por Andreia Galvão e Clara Passarinho em 2025, A Rafeira nasce da urgência de criar, questionar e partilhar. Promovemos a criação artística, a reflexão crítica sobre o setor cultural e a defesa do seu futuro sustentável.",
+    "aboutButton": "Conhecer a Estrutura",
+    "whatWeDoTitle": "O que fazemos",
+    "knowMore": "Saber mais",
+    "featuredTitle": "Em Destaque",
+    "featuredCourseTitle": "Curso: Rakugo – A Arte Japonesa de Contar Histórias",
+    "featuredCourseDescription": "Curso presencial com Clara Passarinho. 5 sessões, de setembro a outubro. Técnicas narrativas, práticas e performance final.",
+    "featuredCourseDuration": "Duração:",
+    "featuredCourseSessions": "5 sessões",
+    "featuredCourseSchedule": "Horário:",
+    "featuredCourseMonths": "Setembro a Outubro",
+    "featuredCourseButton": "Inscreva-te aqui",
+    "actions": [
+      {
+        "title": "Criação Artística",
+        "description": "Apoio a artistas no desenvolvimento de sua arte através de projetos colaborativos, espaços de estúdio e residências criativas."
+      },
+      {
+        "title": "Formação",
+        "description": "Programas educacionais abrangentes para nutrir talentos e compartilhar conhecimento em diversas disciplinas artísticas."
+      },
+      {
+        "title": "Intercâmbios Culturais",
+        "description": "Construindo pontes entre artistas e comunidades através de programas de extensão e iniciativas colaborativas."
+      },
+      {
+        "title": "Defesa da Cultura",
+        "description": "Curadoria de exposições, performances e festivais que celebram diversas expressões culturais e inovação artística."
+      }
+    ]
+  },
+
+   "footer": {
+    "links": "Links",
+    "aboutUs": "Sobre Nós",
+    "contacts": "Contactos",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço",
+    "quickContact": "Contacto Rápido",
+    "quickMessage": "Envie uma mensagem rápida:",
+    "placeholders": {
+      "email": "O seu e-mail",
+      "message": "A sua mensagem curta..."
+    },
+    "send": "Enviar",
+    "sending": "A Enviar...",
+    "success": "Mensagem enviada! Brevemente entraremos em contacto.",
+    "error": "Erro ao enviar a mensagem. Tente novamente."
+  },
+  "header": {
+    "generalInfo": "Informações Gerais",
+    "whatWeDo": "O que fazemos?",
+    "howWeThink": "Como pensamos",
+    "whoWeAre": "Quem somos",
+    "whereWeWillBe": "Onde vamos estar?",
+    "contacts": "Contactos",
+    "subLinks": {
+      "artisticCreation": "Criação Artística",
+      "training": "Formação",
+      "culturalExchanges": "Intercâmbios Culturais",
+      "cultureDefense": "Defesa da Cultura"
+    },
+    "logout": "Sair",
+    "adminDashboard": "Admin Dashboard"
+  },
+
+  "newsletter": {
+    "title": "Quero receber as novidades!",
+    "placeholder": "Insere o teu e-mail",
+    "button": "Inscrever",
+    "privacy": "O teu email serve só para enviar as nossas novidades.",
+    "success": "Inscrição realizada com sucesso!",
+    "error": "Erro ao processar sua inscrição. Tente novamente.",
+    "networkError": "Não foi possível conectar ao servidor. Verifique sua conexão."
+  },
+
+   "contact": {
+    "pageTitle": "Contactos",
+    "pageIntro": "Estamos por aqui para ouvir as tuas ideias, esclarecer dúvidas ou pensar juntos em parcerias e colaborações que façam a diferença.",
+    "formTitle": "Envie-nos uma mensagem",
+    "formDescription": "Preencha o formulário abaixo e entraremos em contacto consigo.",
+    "labelName": "Nome",
+    "placeholderName": "O seu nome completo",
+    "labelEmail": "Email",
+    "placeholderEmail": "o.seu.email@exemplo.com",
+    "labelSubject": "Assunto",
+    "placeholderSubject": "Sobre o que se trata?",
+    "labelMessage": "Mensagem",
+    "placeholderMessage": "Conte-nos mais sobre a sua questão...",
+    "loadingButton": "A Enviar...",
+    "submitButton": "Enviar Mensagem",
+    "statusSuccess": "Mensagem enviada! Brevemente entraremos em contacto.",
+    "statusError": "Ocorreu um erro ao enviar a mensagem.",
+    "statusConnectionError": "Não foi possível conectar ao servidor. Por favor, tente novamente mais tarde.",
+    "infoTitle": "Informações de Contacto",
+    "infoDescription": "Entre em contacto connosco diretamente através de qualquer um destes canais.",
+    "emailMainTitle": "Email Principal",
+    "emailCodirectorsTitle": "Emails Co-diretoras Artísticas",
+    "phonesTitle": "Telefones",
+    "socialsTitle": "Também nos podes encontrar aqui:",
+    "bottomNote": "Normalmente respondemos dentro de 24 horas em dias úteis."
+  },
+
+   "about": {
+    "heroTitle": "A Rafeira",
+    "heroSubtitle": "Estrutura de Criação artística dedicada a promover a criação artística, a reflexão sobre o setor e a sua sustentabilidade, o intercâmbio cultural e a democracia no acesso à fruição cultural.",
+    "historyTitle": "A Nossa História",
+    "historyP1": "A Rafeira - Estrutura de Criação nasce de uma visão partilhada e do compromisso de duas profissionais dinâmicas, envolvidas e militantes no setor da cultural. Fundada e co-dirigida por Andreia Galvão e Clara Passarinho em 2025, a Rafeira surge no ambiente contemporâneo cultural português com o objetivo de promover a criação artística, a reflexão sobre o setor e a sua sustentabilidade, o intercâmbio cultural e a democracia no acesso à fruição cultural. Ambas já vinham desenvolvendo projetos em conjunto desde 2023.",
+    "historyP2": "A estrutura assenta em quatro pilares fundamentais, que refletem o compromisso da Rafeira com um ecossistema cultural mais inclusivo, sustentável e participativo, promovendo práticas que envolvem diretamente artistas, públicos e comunidades.",
+    "pillarsTitle": "Os Nossos Pilares",
+    "pillar1Title": "Criação Artística",
+    "pillar1Desc": "Fomentar a expressão artística inovadora através de projetos colaborativos que transcendem limites criativos e exploram novos meios.",
+    "pillar2Title": "Formação",
+    "pillar2Desc": "Proporcionar programas educativos e workshops abrangentes que desenvolvam competências artísticas e nutram talentos emergentes.",
+    "pillar3Title": "Intercâmbios Culturais",
+    "pillar3Desc": "Construir pontes entre diversas comunidades artísticas e facilitar um diálogo e colaboração cultural significativos.",
+    "pillar4Title": "Defesa da Cultura",
+    "pillar4Desc": "Preservar e proteger o património cultural, defendendo o papel vital das artes na sociedade e no desenvolvimento comunitário.",
+    "cofoundersTitle": "As Co-Fundadoras",
+    "claraName": "Clara Passarinho",
+    "claraBioP1": "Artista portuguesa com licenciatura em Teatro – ramo de Atores – pela Escola Superior de Teatro e Cinema, e mestre em Encenação pela mesma instituição. Dirigiu a peça Nevou no País das Maravilhas, onde também foi responsável pela dramaturgia. Em 2023, venceu o concurso para jovens encenadores promovido pelo Baal17, onde dirigiu a criação Estrangeiras, baseada num texto de José Luís Peixoto. Além da encenação, Clara co-criou e foi intérprete no espetáculo Hotel Chronos, que esteve em residência artística no Largo Residências, em Lisboa, no fim de 2024. Fez parte do elenco de À Flor das Águas, Caim e Barbo, Salvar Gaia Rumo a Yod com o Teatro Estúdio Fontenova.",
+    "claraBioP2": "Em 2024, colaborou com o Yokohama Theatre Group e realizou uma pesquisa sobre Rakugo em Tóquio, com o apoio da Fundação Oriente. Além disso, é membro do Culture Action Europe, uma rede europeia dedicada ao setor cultural e criativo. Clara tem estado envolvida em vários projetos europeus, tendo escrito e participado em mais de 10 programas de mobilidade. É co-fundadora da Associação da Minha Rua, uma associação juvenil baseada em Caldas da Rainha. Fez assistência de produção no Festival Alecrim, um evento sobre ecologia e cultura organizado em parceria com a Casa do Jardim da Estrela (Um teatro em cada bairro) e apoiado pelo Instituto Marquês Valle Flor.",
+    "claraBioP3": "No ano seguinte, 2025, co-coordenou o projeto A Cidade que Queremos, financiado pela Fundação AMI, com o objetivo de levar uma performance/conferência às escolas da Amadora para jovens e crianças sobre cidades sustentáveis e realizar um festival de 3 dias na Cova da Moura com artistas locais e workshops. Foi convidada para encenar a nova criação do Núcleo de Teatro da Faculdade de Ciências e Tecnologias da Universidade NOVA. O espetáculo participou na competição do FATAL 2025 e recebeu o Prémio Cidade de Lisboa na categoria de espetáculo mais inovador. Paralelamente, concluiu a pós-graduação em Performance e Tecnologia Digital no Instituto de Teatro de Barcelona. Clara, em conjunto com Andreia Galvão, criou a estrutura de criação A Rafeira com o objetivo de promover a criação artística, a reflexão sobre o setor e a sua sustentabilidade, o intercâmbio cultural e a democracia no acesso à fruição cultural.",
+    "andreiaName": "Andreia Galvão",
+    "andreiaBioP1": "É licenciada em Ciências da Comunicação, com especialização em Cinema e Televisão pela Universidade NOVA de Lisboa, e mestre com distinção em Teatro – Artes Performativas pela Escola Superior de Teatro e Cinema. Fez Erasmus+ na Sorbonne Nouvelle (Paris 3) e completou formações adicionais na escola internacional de teatro Jacques Lecoq (Paris), bem como em técnicas como máscara neutra, Commedia dell’Arte e “Spoken English for Acting” na Royal Academy of Dramatic Art (RADA), em Londres. Frequentou ainda o curso de práticas de encenação no Teatro Meridional.",
+    "andreiaBioP2": "Trabalha como atriz, criadora e formadora. Estreou-se como co-criadora no espetáculo Hotel Chronos, que também co-escreveu. O texto dramatúrgico do espetáculo foi selecionado para o Ciclo de Novas Dramaturgias Portuguesas da companhia O Fim do Teatro, em parceria com a Reitoria da Universidade de Lisboa.",
+    "andreiaBioP3": "É co-fundadora de “A Rafeira” — uma estrutura de criação que organiza cursos e oficinas facilitados por si, direcionados a públicos adultos. O seu trabalho desenvolve-se na interseção entre criação artística e participação pública, com foco na capacitação crítica de cidadãos através das artes. Utiliza metodologias como teatro físico, escrita criativa, improvisação e pensamento coletivo, promovendo contextos de aprendizagem transformadores. Paralelamente, trabalha como jornalista freelancer. Colaborou com publicações como a revista Ítaca (do Teatro Nacional D. Maria II) e foi bolseira da Ciência Viva e da revista Gerador, com uma reportagem sobre teatro político. Em 2024, organizou o seu primeiro festival dedicado à ecologia e cultura, na Casa do Jardim da Estrela, em Lisboa, com o coletivo “Alecrim”, também fundado por si. Em 2025, organizou o seu segundo festival — A Cidade que Queremos — que decorreu entre a Cova da Moura e o Teatro de Alfornelos, juntando moradores, artistas e pensadores em torno de ideias para imaginar, construir e disputar coletivamente o espaço urbano. O festival reafirma a sua visão de um trabalho artístico profundamente comprometido com a transformação social."
+  },
+
+   "training": {
+    "headerTitle": "Formação",
+    "headerSubtitle": "Dedicamo-nos à formação e capacitação de profissionais da cultura, oferecendo cursos práticos e especializados que respondem às necessidades reais do setor. A nossa missão é empoderar artistas e agentes culturais com conhecimento técnico, jurídico e criativo essencial para o desenvolvimento das suas carreiras e projetos.",
+    "course1Title": "FUCK! O que é que um trabalhador da cultura tem de saber??",
+    "course1Subtitle": "Enquadramento Jurídico-Legal dos Profissionais do Espetáculo",
+    "course1InfoDate": "29 set & 6 out",
+    "course1InfoTime": "2h cada aula",
+    "course1InfoLocation": "ONLINE",
+    "course1InfoInstructor": "Sofia Leal",
+    "course1ModulesTitle": "Módulos:",
+    "course1Module1Title": "Quais os meus direitos e os meus deveres?",
+    "course1Module1List1": "Enquadramento legal dos profissionais da cultura",
+    "course1Module1List2": "Tipos de contratos",
+    "course1Module1List3": "Recibos verdes: Segurança Social e Finanças",
+    "course1Module2Title": "Onde me enquadro?",
+    "course1Module2List1": "Estatuto do Profissional da Cultura",
+    "course1Module2List2": "Organizações coletivas, representação e direitos",
+    "course1Quote": "Formação prática, clara, com espaço para perguntas reais. Se não percebes o que assinas, o que declaras ou o que pagas — este curso é para ti!",
+    "course1ImageAlt": "Pessoas em uma mesa de reunião, focadas e analisando documentos",
+    
+    "course2Title": "FUCK!!! COMO ARRANJAR DINHEIRO PARA A CRIAÇÃO ARTÍSTICA?",
+    "course2Subtitle": "Uma formação prática para artistas e agentes culturais que querem financiar os seus projetos sem vender a alma ao diabo",
+    "course2InfoDate": "5, 12, 19 & 26 mai",
+    "course2InfoTime": "19h30 - 22h30",
+    "course2InfoLocation": "ONLINE",
+    "course2ModulesTitle": "Módulos:",
+    "course2Module1": "Competir vs Colaborar em rede",
+    "course2Module2": "Ainda há dinheiro em Portugal para mim?",
+    "course2Module3": "Sugarbaby da Europa",
+    "course2Module4": "E se nada funcionar?",
+    "course2ImageAlt": "Duas pessoas trabalhando em conjunto e colaborando",
+    
+    "course3Title": "Rakugo | A Arte Japonesa de Contar Histórias",
+    "course3Subtitle": "Uma introdução prática e teórica ao Rakugo — arte narrativa tradicional japonesa — com foco em performance, humor e expressão vocal",
+    "course3InfoDate": "5 encontros com conteúdos históricos, técnicos e práticos",
+    "course3InfoLocation": "Museu do Oriente",
+    "course3Note": "Este curso resulta de uma investigação apoiada pela Fundação Oriente",
+    "course3ObjectivesTitle": "Objetivos:",
+    "course3Objective1": "Difundir o Rakugo em Portugal",
+    "course3Objective2": "Capacitar os participantes com técnicas narrativas",
+    "course3Objective3": "Estimular a experimentação performativa",
+    "course3Objective4": "Promover o intercâmbio artístico com o Japão",
+    "course3ImageAlt": "Ilustração de um ator de Rakugo em uma performance no palco",
+    
+    "buttonRegister": "Inscreve-te!",
+    "buttonMoreInfo": "Mais Informações",
+    "footerText": "© 2024 Formação - Coletivo Artístico. Todos os direitos reservados."
+  },
+
+  
+  "where":{
+   "wheretitle": "Onde Vamos Estar?",
+   "wheresubtitle": "Insights da nossa agenda com os nossos próximos eventos, apresentações e cursos.",
+   "whereloading":"Carregando próximos eventos..."
+
+  },
+
+    "think":{
+   "thinktitle":"Como Pensamos",
+   "thinksubtitle":"A nossa forma de estar, fazer e resistir no mundo.",
+   "thinkmsg1":"Acreditamos numa arte que dialoga com o território, com as memórias e com as urgências sociais.",
+   "thinkmsg2":"A prática artística não é neutra — é um gesto político, relacional e afetivo.",
+   "thinkmsg3":"Valorizamos a escuta, o tempo coletivo e a criação que parte de encontros reais.",
+   "thinkmsg4":"“Pensar é resistir. Criar é existir.”",
+   "thinknewsletter":"Receba nossas novidades!"
+  },
+
+  "cultureDefense": {
+    "headerTitle": "Defesa da Cultura",
+    "heroBadge": "A Rafeira • Coletivo Artístico",
+    "heroTitle": "Cultura como Campo de Ação Política",
+    "heroText1": "Em 2025, A Rafeira organizou a manifestação **'Não queremos viver num país de medo'**, em resposta à agressão sofrida pelo ator Aderito Lopes. A ação mobilizou pessoas em 12 cidades do país, unindo sindicatos, coletivos e cidadãos numa declaração pela liberdade e contra o medo.",
+    "heroText2": "A Rafeira acredita que a cultura é um campo de ação política e pretende abalar o setor, questionando a atual distribuição de recursos e contribuindo ativamente para a construção de um ecossistema cultural mais justo, transparente e sustentável.",
+    "projectsTitle": "Projetos e Ações",
+    "projectsSubtitle": "Iniciativas que materializam o nosso compromisso com a transformação do panorama cultural português",
+    "project1Title": "Não queremos viver num país de medo",
+    "project1Description": "Demonstração nacional organizada em resposta à agressão sofrida pelo ator Aderito Lopes, mobilizando 12 cidades em defesa da liberdade e contra o medo.",
+    "project1Type": "Demonstração",
+    "project2Title": "Produção",
+    "project2Description": "Iniciativa em Produção..",
+    "project2Type": "Fórum",
+    "project3Title": "Em Construção",
+    "project3Description": "Iniciativa em Produção..",
+    "project3Type": "Em Desenvolvimento..",
+    "statusRealized": "Realizado",
+    "statusInProgress": "Em curso",
+    "statusPlanned": "Planeado",
+    "ctaTitle": "Junta-te ao Movimento",
+    "ctaSubtitle": "A transformação cultural acontece através da ação coletiva. Participa na construção de um futuro mais justo para a cultura portuguesa.",
+    "buttonLearnMore": "Saber Mais",
+    "buttonContact": "Contactar",
+    "footerText": "© 2025 A Rafeira • Defesa da Cultura"
+  },
+
+
+    "artisticCreation": {
+    "headerTitle": "Criação Artística",
+    "headerSubtitle": "A Rafeira desenvolve projetos nas áreas do teatro, da dramaturgia e também da instalação com recurso a tecnologia, procurando cruzar linguagens e refletir criticamente sobre o presente.",
+    "placeholderImageAlt": "Imagem de pré-visualização do projeto",
+    "project1": {
+      "title": "Hotel Chronos",
+      "type": "Teatro",
+      "description": "A primeira criação da estrutura, um espetáculo sobre a urgência climática que cruza teatro, dramaturgia e tecnologia.",
+      "detailedDescription": "Hotel Chronos é a primeira criação da estrutura A Rafeira, um espetáculo que mergulha na temática da urgência climática. Através de uma abordagem inovadora, o projeto cruza linguagens do teatro, dramaturgia e o recurso à tecnologia para provocar uma reflexão crítica sobre o presente e o futuro do nosso planeta. A narrativa explora as consequências das ações humanas no ambiente, convidando o público a confrontar-se com a sua responsabilidade e a necessidade de mudança.",
+      "teamTitle": "Ficha Artística",
+      "teamMembers": [
+        { "role": "Co-Direção e Criação", "name": "Andreia Galvão" },
+        { "role": "Co-Direção e Criação", "name": "Clara Passarinho" },
+        { "role": "Dramaturgia", "name": "Clara Passarinho" },
+        { "role": "Cenografia", "name": "Nome do Cenógrafo" },
+        { "role": "Desenho de Luz", "name": "Nome do Designer de Luz" },
+        { "role": "Desenho de Som", "name": "Nome do Designer de Som" },
+        { "role": "Interpretação", "name": "Andreia Galvão" },
+        { "role": "Interpretação", "name": "Clara Passarinho" }
+      ],
+      "eventsTitle": "Datas dos Espetáculos",
+      "event1Date": "Novembro de 2024",
+      "event1Venue": "Largo Residências, Lisboa (Residência Artística)",
+      "event2Date": "Datas Futuras a Anunciar",
+      "event2Venue": "Locais Diversos"
+    },
+    "project2": {
+      "title": "Arrendar",
+      "type": "Dramaturgia",
+      "description": "(nós estamos neste momento a escrever e a trabalhar nesse texto)",
+      "detailedDescription": "projeto dramatúrgico",
+      "teamTitle": "Equipa de Produção",
+      "teamMembers": [
+        { "role": "Direção Artística", "name": "Equipa A Rafeira" }
+      ],
+      "eventsTitle": "Datas dos Espetáculos",
+      "event1Date": "Em desenvolvimento..",
+      "event1Venue": "Locais Diversos"
+    },
+    "project3": {
+      "title": "Em-Construção",
+      "type": "Instalação",
+      "description": "Esta página está em desenvolvimento, e está quase..",
+      "detailedDescription": "Em construção..",
+      "teamTitle": "Equipa de Produção",
+      "teamMembers": [
+        { "role": "Direção Artística", "name": "Equipa A Rafeira" },
+        { "role": "Design de Instalação", "name": "Nome do Designer" },
+        { "role": "Engenharia de Som", "name": "Nome do Engenheiro" }
+      ],
+      "eventsTitle": "Datas dos Espetáculos",
+      "event1Date": "Abril - Junho de 2025",
+      "event1Venue": "Jardins do Palácio de Cristal, Porto",
+      "event2Date": "Julho - Setembro de 2025",
+      "event2Venue": "Parque da Cidade, Lisboa"
+    },
+    "projectNotFound": "Projeto Não Encontrado",
+    "backToArtisticCreation": "Voltar para Criação Artística",
+    "aboutProject": "Sobre o Projeto",
+    "galleryTitle": "Galeria",
+    "videosTitle": "Vídeos"
+  },
+
+  
+   "publishing": {
+    "headerTitle": "Publicação, edição e traduções",
+    "introText": "Na Rafeira fazemos a dramaturgia do **Hotel Chronos**, e neste ano vamos desenvolver uma nova dramaturgia intitulada **“Arrendar”**. Paralelamente, estamos a preparar várias traduções de obras selecionadas, enriquecendo a nossa programação com vozes diversas e novas perspetivas.",
+    "visionTitle": "Nossa Visão Editorial",
+    "visionText": "O nosso objetivo é dar espaço a diferentes expressões artísticas, ampliar horizontes e valorizar a multiplicidade cultural. A publicação e tradução são ferramentas fundamentais para trazer novas narrativas ao público.",
+    "booksTitle": "Livros Traduzidos",
+    "bookPlaceholderTitle": "Em construção",
+    "bookPlaceholderAuthor": "Em construção",
+    "bookCoverAlt": "Capa do livro"
+  }
+}

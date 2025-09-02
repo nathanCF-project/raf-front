@@ -1,36 +1,41 @@
-// src/pages/WhatWeDo/ArtisticCreationPage.jsx
+// src/pages/WhatWeDo/CultureDefensePage.jsx
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../components/ui/card"
 import { Badge } from "../../components/ui/badge"
 import { Button } from "../../components/ui/button"
 import { Calendar, Users, Megaphone, Heart } from "lucide-react"
+import { useTranslation } from "react-i18next"
+
 
 export default function DefesaDaCultura() {
+
+      const { t } = useTranslation()
+
   const projects = [
     {
-      title: "Não queremos viver num país de medo",
+      title: t("cultureDefense.project1Title"),
       description:
-        "Demonstração nacional organizada em resposta à agressão sofrida pelo ator Aderito Lopes, mobilizando 12 cidades em defesa da liberdade e contra o medo.",
+        t("cultureDefense.project1Description"),
       date: "2025",
-      type: "Demonstração",
-      status: "Realizado",
+      type: t("cultureDefense.project1Type"),
+      status: t("cultureDefense.statusRealized"),
       icon: <Megaphone className="h-5 w-5" />,
     },
     {
-      title: "Fórum de Transparência Cultural",
+      title: t("cultureDefense.project2Title"),
       description:
-        "Iniciativa para questionar a atual distribuição de recursos culturais e promover maior transparência no setor.",
-      date: "Em desenvolvimento",
-      type: "Fórum",
-      status: "Em curso",
+        t("cultureDefense.project2Description"),
+      date: "2025",
+      type: t("cultureDefense.project2Type"),
+      status: t("cultureDefense.statusInProgress"),
       icon: <Users className="h-5 w-5" />,
     },
     {
-      title: "Rede de Coletivos Culturais",
+      title: t("cultureDefense.project3Title"),
       description:
-        "Construção de uma rede colaborativa entre sindicatos, coletivos e cidadãos para fortalecer o ecossistema cultural português.",
+        t("cultureDefense.project3Description"),
       date: "2025-2026",
-      type: "Parceria",
-      status: "Planeado",
+      type: t("cultureDefense.project3Type"),
+      status: t("cultureDefense.statusPlanned"),
       icon: <Heart className="h-5 w-5" />,
     },
   ]
@@ -40,7 +45,7 @@ export default function DefesaDaCultura() {
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-center text-slate-900">Defesa da Cultura</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-center text-slate-900">{t("cultureDefense.headerTitle")}</h1>
         </div>
       </header>
 
@@ -50,25 +55,20 @@ export default function DefesaDaCultura() {
           <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-8 md:p-12">
             <div className="text-center mb-8">
               <Badge variant="secondary" className="mb-4 text-sm font-medium">
-                A Rafeira • Coletivo Artístico
+                 {t("cultureDefense.heroBadge")}
               </Badge>
               <h2 className="text-xl md:text-2xl font-semibold text-slate-900 mb-6">
-                Cultura como Campo de Ação Política
+                {t("cultureDefense.heroTitle")}
               </h2>
             </div>
 
             <div className="prose prose-lg prose-slate max-w-none">
               <p className="text-slate-700 leading-relaxed text-base md:text-lg">
-                Em 2025, A Rafeira organizou a manifestação{" "}
-                <strong className="text-slate-900">'Não queremos viver num país de medo'</strong>, em resposta à
-                agressão sofrida pelo ator Aderito Lopes. A ação mobilizou pessoas em 12 cidades do país, unindo
-                sindicatos, coletivos e cidadãos numa declaração pela liberdade e contra o medo.
+                 {t("cultureDefense.heroText1")}
               </p>
 
               <p className="text-slate-700 leading-relaxed text-base md:text-lg mt-6">
-                A Rafeira acredita que a cultura é um campo de ação política e pretende abalar o setor, questionando a
-                atual distribuição de recursos e contribuindo ativamente para a construção de um ecossistema cultural
-                mais justo, transparente e sustentável.
+                 {t("cultureDefense.heroText2")}
               </p>
             </div>
           </div>
@@ -79,9 +79,9 @@ export default function DefesaDaCultura() {
       <section className="py-16 md:py-20 bg-white/50">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Projetos e Ações</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">{t("cultureDefense.projectsTitle")}</h2>
             <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-              Iniciativas que materializam o nosso compromisso com a transformação do panorama cultural português
+              {t("cultureDefense.projectsSubtitle")}
             </p>
           </div>
 
@@ -127,21 +127,20 @@ export default function DefesaDaCultura() {
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <div className="bg-slate-900 rounded-2xl p-8 md:p-12 text-white">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">Junta-te ao Movimento</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">{t("cultureDefense.ctaTitle")}</h2>
             <p className="text-slate-300 text-lg mb-8 max-w-2xl mx-auto">
-              A transformação cultural acontece através da ação coletiva. Participa na construção de um futuro mais
-              justo para a cultura portuguesa.
+               {t("cultureDefense.ctaSubtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="font-medium">
-                Saber Mais
+                {t("cultureDefense.buttonLearnMore")}
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="font-medium border-white text-white hover:bg-white hover:text-slate-900 bg-transparent"
               >
-                Contactar
+                {t("cultureDefense.buttonContact")}
               </Button>
             </div>
           </div>
@@ -151,7 +150,7 @@ export default function DefesaDaCultura() {
       {/* Footer */}
       <footer className="border-t bg-white py-8">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-slate-600">© 2025 A Rafeira • Defesa da Cultura</p>
+          <p className="text-slate-600">{t("cultureDefense.footerText")}</p>
         </div>
       </footer>
     </div>

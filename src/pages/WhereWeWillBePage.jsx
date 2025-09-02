@@ -4,8 +4,12 @@ import axios from "axios";
 // import EventFilter from "../components/EventFilter"; // Ative quando criar o componente de filtro
 import PublicEventList from "../components/Forms/PublicEventList";
 import API_BASE_URL from "../api/config";
+import { useTranslation } from 'react-i18next';
+
 
 export default function WhereWeWillBePage() {
+
+  const { t, i18n } = useTranslation();
   //const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -24,7 +28,7 @@ export default function WhereWeWillBePage() {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-[50vh] bg-gray-50">
-        <p className="text-lg text-gray-600">Carregando próximos eventos...</p>
+        <p className="text-lg text-gray-600">{t('where.whereloading')}</p>
       </div>
     );
   }
@@ -43,9 +47,9 @@ export default function WhereWeWillBePage() {
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <div className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">Onde Vamos Estar?</h1>
+        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">{t('where.wheretitle')}</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Insights da nossa agenda com os nossos próximos eventos, apresentações e cursos.
+          {t('where.wheresubtitle')}
         </p>
       </div>
 

@@ -12,7 +12,8 @@ import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Separator } from "../components/ui/separator";
 import { Textarea } from "../components/ui/textarea";
-import { Mail, Phone, MapPin, Send } from 'lucide-react'; // Ícones existentes
+import { Mail, Phone, MapPin, Send } from 'lucide-react'; 
+import { useTranslation } from 'react-i18next';
 
 import NewsletterSubscribe from '../components/Forms/NewsletterSubscribe';
 
@@ -43,6 +44,8 @@ export default function ContactPage() {
     }));
   };
 
+   const { t } = useTranslation();
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // Previne o comportamento padrão de recarregar a página
     setLoading(true);
@@ -69,12 +72,12 @@ export default function ContactPage() {
         // Limpar o formulário após o sucesso
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        setStatusMessage(data.error || 'Ocorreu um erro ao enviar a mensagem.');
+        setStatusMessage(data.error || t('contact.statusError'));
         setIsSuccess(false);
       }
     } catch (error) {
       console.error('Erro na requisição:', error);
-      setStatusMessage('Não foi possível conectar ao servidor. Por favor, tente novamente mais tarde.');
+      setStatusMessage(t('contact.statusConnectionError'));
       setIsSuccess(false);
     } finally {
       setLoading(false);
@@ -87,10 +90,10 @@ export default function ContactPage() {
         {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent mb-6">
-            Contactos
+            {t('contact.pageTitle')}
           </h1>
           <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Estamos por aqui para ouvir as tuas ideias, esclarecer dúvidas ou pensar juntos em parcerias e colaborações que façam a diferença.
+            {t('contact.pageIntro')}
           </p>
         </div>
 
@@ -100,10 +103,10 @@ export default function ContactPage() {
             <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm">
               <CardHeader className="pb-8">
                 <CardTitle className="text-2xl font-semibold text-slate-800">
-                  Envie-nos uma mensagem
+                   {t('contact.formTitle')}
                 </CardTitle>
                 <CardDescription className="text-slate-600">
-                  Preencha o formulário abaixo e entraremos em contacto consigo.
+                  {t('contact.formDescription')}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -112,11 +115,11 @@ export default function ContactPage() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="name" className="text-sm font-medium text-slate-700">
-                        Nome
+                         {t('contact.labelName')}
                       </Label>
                       <Input
                         id="name"
-                        placeholder="O seu nome completo"
+                        placeholder={t('contact.placeholderName')}
                         className="border-slate-200 focus:border-slate-400 focus:ring-slate-400"
                         value={formData.name}
                         onChange={handleChange}
@@ -125,12 +128,12 @@ export default function ContactPage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email" className="text-sm font-medium text-slate-700">
-                        Email
+                        {t('contact.labelEmail')}
                       </Label>
                       <Input
                         id="email"
                         type="email"
-                        placeholder="o.seu.email@exemplo.com"
+                        placeholder={t('contact.placeholderEmail')}
                         className="border-slate-200 focus:border-slate-400 focus:ring-slate-400"
                         value={formData.email}
                         onChange={handleChange}
@@ -140,11 +143,11 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="subject" className="text-sm font-medium text-slate-700">
-                      Assunto
+                      {t('contact.labelSubject')}
                     </Label>
                     <Input
                       id="subject"
-                      placeholder="Sobre o que se trata?"
+                      placeholder={t('contact.placeholderSubject')}
                       className="border-slate-200 focus:border-slate-400 focus:ring-slate-400"
                       value={formData.subject}
                       onChange={handleChange}
@@ -153,11 +156,11 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message" className="text-sm font-medium text-slate-700">
-                      Mensagem
+                      {t('contact.labelMessage')}
                     </Label>
                     <Textarea
                       id="message"
-                      placeholder="Conte-nos mais sobre a sua questão..."
+                      placeholder={t('contact.placeholderMessage')}
                       className="min-h-[120px] border-slate-200 focus:border-slate-400 focus:ring-slate-400 resize-none"
                       value={formData.message}
                       onChange={handleChange}
@@ -174,9 +177,9 @@ export default function ContactPage() {
                     className="w-full bg-slate-900 hover:bg-slate-800 text-white py-6 text-base font-medium transition-all duration-200 hover:shadow-lg"
                     disabled={loading} // Desabilita o botão enquanto envia
                   >
-                    {loading ? 'A Enviar...' : <>
+                    {loading ? t('contact.loadingButton') : <>
                       <Send className="w-4 h-4 mr-2" />
-                      Enviar Mensagem
+                      {t('contact.submitButton')}
                     </>}
                   </Button>
                 </form>
@@ -189,10 +192,10 @@ export default function ContactPage() {
             <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold text-slate-800">
-                  Informações de Contacto
+                   {t('contact.infoTitle')}
                 </CardTitle>
                 <CardDescription className="text-slate-600">
-                  Entre em contacto connosco diretamente através de qualquer um destes canais.
+                  {t('contact.infoDescription')}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -202,7 +205,7 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 text-slate-600" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-slate-800 mb-1">Email Principal</h3>
+                    <h3 className="font-medium text-slate-800 mb-1">{t('contact.emailMainTitle')}</h3>
                     <p className="text-slate-600">
                       <a href="mailto:arafeira.estruturadecriacao@gmail.com" className="hover:underline">arafeira.estruturadecriacao@gmail.com</a>
                     </p>
@@ -217,7 +220,7 @@ export default function ContactPage() {
                     <Mail className="w-5 h-5 text-slate-600" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-slate-800 mb-1">Emails Co-diretoras Artísticas</h3>
+                    <h3 className="font-medium text-slate-800 mb-1">{t('contact.emailCodirectorsTitle')}</h3>
                     <p className="text-slate-600">
                       <a href="mailto:clara.passarinho@gmail.com" className="hover:underline">clara.passarinho@gmail.com</a>
                     </p>
@@ -235,7 +238,7 @@ export default function ContactPage() {
                     <Phone className="w-5 h-5 text-slate-600" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-slate-800 mb-1">Telefones</h3>
+                    <h3 className="font-medium text-slate-800 mb-1">{t('contact.phonesTitle')}</h3>
                     <p className="text-slate-600">
                       <a href="tel:+351962185565" className="hover:underline">+351 962 185 565</a>
                     </p>
@@ -250,7 +253,7 @@ export default function ContactPage() {
             {/* Redes Sociais Card */}
             <Card className="shadow-xl border-0 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
               <CardContent className="p-6">
-                <h3 className="font-semibold text-lg mb-4">Também nos podes encontrar aqui:</h3>
+                <h3 className="font-semibold text-lg mb-4">{t('contact.socialsTitle')}</h3>
                 <div className="flex justify-center space-x-6">
                   {/* Instagram */}
                   <a href="https://www.instagram.com/arafeira.estruturadecriacao/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center text-slate-300 hover:text-white transition-colors">
@@ -271,7 +274,7 @@ export default function ContactPage() {
         {/* Bottom Section */}
         <div className="text-center mt-16">
           <p className="text-slate-500 text-sm">
-            Normalmente respondemos dentro de 24 horas em dias úteis.
+            {t('contact.bottomNote')}
           </p>
         </div>
       </div>
