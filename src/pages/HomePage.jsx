@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NewsletterSubscribe from '../components/Forms/NewsletterSubscribe';
 import heroImage from '/images/Hotel-Chronos3.jpg?url'; 
-import heroImage2 from '/images/chines1.jpg'; 
+import heroImage2 from '/images/clarahd.png'; 
 import HeroCarousel from './HeroCarousel'; 
 
 import { useTranslation } from 'react-i18next'; 

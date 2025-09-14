@@ -35,10 +35,10 @@ const projectsData = {
       "images/Hotel-Chronos3.jpg",
       // Adicione mais fotos da galeria
     ],
-    videos: [
+   /* videos: [
       "https://www.youtube.com/embed/YOUR_VIDEO_ID_1", // Substitua YOUR_VIDEO_ID_1 pelo ID do seu vídeo do YouTube
       // "https://www.youtube.com/embed/YOUR_VIDEO_ID_2",
-    ]
+    ] */
   },
   "projeto-instalacao-x": {
     title: "Em-Construção..",

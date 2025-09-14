@@ -53,10 +53,10 @@ function NewsletterSubscribe() {
   };
 
   return (
-    <section className="py-12 px-4 bg-gray-900 text-white"> {/* Fundo escuro igual ao v0.dev */}
+    <section className="py-12 px-4 bg-red-400 text-black"> {/* Fundo escuro igual ao v0.dev */}
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8">
-          <Mail className="h-16 w-16 text-red-400 mx-auto mb-6" /> {/* Ícone */}
+          <Mail className="h-16 w-16 text-black mx-auto mb-6" /> {/* Ícone */}
           <h2 className="text-4xl md:text-5xl font-bold mb-6">{t("newsletter.title")}</h2>
           
         </div>
@@ -68,11 +68,11 @@ function NewsletterSubscribe() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 bg-white text-gray-900 border-0 focus:ring-red-500 focus:border-amber-500" // Estilo Shadcn/Tailwind
+              className="flex-1 bg-white text-black border-0 focus:ring-black focus:border-black" // Estilo Shadcn/Tailwind
             />
             <Button
               type="submit"
-              className="bg-red-500 hover:bg-red-600 text-black font-semibold px-8" // Estilo Shadcn/Tailwind
+              className="bg-black hover:bg-gray-800 text-white font-semibold px-8" // Estilo Shadcn/Tailwind
             >
               {t("newsletter.button")}
             </Button>
@@ -82,7 +82,7 @@ function NewsletterSubscribe() {
               {message}
             </p>
           )}
-          <p className="text-sm text-gray-400 mt-4">
+          <p className="text-sm text-black mt-4">
              {t("newsletter.privacy")}
           </p>
         </div>

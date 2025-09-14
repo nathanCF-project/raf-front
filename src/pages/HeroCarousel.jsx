@@ -4,8 +4,8 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const images = [
-  { url: '/images/chines1.jpg', alt: 'Descrição da Imagem 1' },
-  { url: '/images/cronos6.jpg', alt: 'Descrição da Imagem 2' },
+  { url: '/images/clarahd.png', alt: 'Descrição da Imagem 1' },
+  { url: '/images/cronosinsta.png', alt: 'Descrição da Imagem 2' },
   { url: '/images/terceira.jpg', alt: 'Descrição da Imagem 3' },
 ];
 
