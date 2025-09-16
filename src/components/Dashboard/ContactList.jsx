@@ -70,7 +70,7 @@ function ContactList({ refreshTrigger,onEditContact }) {
       }
    
       //PARA TESTES LOCAIS!!!!
-     // const url = `http://localhost:3001/api/newsletter/contacts?${queryParams.toString()}`;
+      //const url = `http://localhost:3001/api/newsletter/contacts?${queryParams.toString()}`;
       const url = `${API_BASE_URL}/newsletter/contacts?${queryParams.toString()}`;
 
       // --- FIM DA CONSTRUÇÃO DA URL ---

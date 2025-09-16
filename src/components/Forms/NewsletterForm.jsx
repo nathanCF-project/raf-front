@@ -42,62 +42,71 @@ const NewsletterForm = () => {
         pricing_last_minute: '',
         promo_text: '',
         footer_logo_url: '',
+        additional_info: "[]", // como string JSON
+        custom_image_section_enabled: false,
+        custom_image_url: "",
+        custom_image_link: "",
+        custom_button_section_enabled: false,
+        custom_button_link: "",
+        custom_button_text: "",
     });
 
     const [message, setMessage] = useState('');
     const [isError, setIsError] = useState(false);
     const [loading, setLoading] = useState(true); // Estado para carregamento na edição
 
-    useEffect(() => {
-        if (!token) {
-            // Se não houver token, talvez redirecionar para o login ou mostrar uma mensagem
-            // Por enquanto, apenas para evitar requisições sem autenticação
-            setLoading(false);
-            return;
-        }
+      //novo useeffect
+              useEffect(() => {
+        if (id) {
 
-        if (id) { // Se um ID existe na URL, estamos em modo de edição
-            const fetchNewsletter = async () => {
-                setLoading(true);
-                setIsError(false);
-                setMessage('');
-                try {
-                    
-                    //PARA TESTES LOCAIS:
-                   // const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/${id}`, {
-                    const response = await axios.get(`${API_BASE_URL}/newsletter/admin/${id}`, {
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
-                    });
-                    setFormData(response.data); // Preenche o formulário com os dados existentes
-                } catch (err) {
-                    console.error('Erro ao carregar newsletter para edição:', err);
-                    setIsError(true);
-                    setMessage(err.response?.data?.error || 'Erro ao carregar dados da newsletter.');
-                } finally {
-                    setLoading(false);
-                }
-            };
-            fetchNewsletter();
+            //TESTES LOCAIS
+            //axios.get(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/${id}`, {
+            axios.get(`${API_BASE_URL}/newsletter/admin/${id}`, {
+    
+                headers: { Authorization: `Bearer ${token}` }
+            })
+            .then((res) => {
+                const data = res.data;
+                setFormData({
+                    ...data,
+                    // Garante que additional_info seja string JSON (mesmo se null/undefined no DB)
+                    additional_info: data.additional_info || "[]", 
+                    // Converte para boolean para os checkboxes
+                    custom_image_section_enabled: Boolean(data.custom_image_section_enabled),
+                    custom_button_section_enabled: Boolean(data.custom_button_section_enabled),
+                });
+            })
+            .catch((err) => {
+                console.error('Erro ao carregar newsletter:', err);
+                setIsError(true);
+                setMessage('Erro ao carregar os dados da newsletter.');
+            })
+            .finally(() => setLoading(false));
         } else {
-            setLoading(false); // Não estamos em modo de edição, não precisa carregar
-            // Opcional: Limpar formData se o componente for usado para "criar" após uma "edição"
-            // setFormData({ /* ...resetar para valores iniciais... */ });
+            setLoading(false); // Se não for edição, não precisa esperar
         }
-    }, [id, token]); // Dependências: ID e token
+    }, [id, token]); // Adicionado token às dependências se necessário
+
+
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        const { name, value, type, checked } = e.target;
+        // Lida com campos de input normais e textareas
+        if (type !== 'checkbox') {
+            setFormData({ ...formData, [name]: value });
+        } else {
+            // Lida com checkboxes
+            setFormData({ ...formData, [name]: checked });
+        }
     };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsError(false);
         setMessage('');
 
-        // Validação básica
+        // Validação básica (usando os campos obrigatórios que você definiu)
         if (!formData.title || !formData.subject || !formData.main_title || !formData.introduction_text || !formData.content_details_html) {
             setIsError(true);
             setMessage('Por favor, preencha todos os campos obrigatórios (Título Interno, Assunto, Título Principal, Texto de Introdução, Detalhes do Conteúdo).');
@@ -106,35 +115,34 @@ const NewsletterForm = () => {
 
         try {
             let res;
+            const requestBody = {
+                ...formData,
+                // Garante que os booleanos sejam enviados como strings "true"/"false" se o backend esperar,
+                // ou apenas como booleanos se o backend souber lidar. O código atual do backend converte para boolean, então está ok.
+                // Se precisar enviar como string:
+                // custom_image_section_enabled: formData.custom_image_section_enabled.toString(),
+                // custom_button_section_enabled: formData.custom_button_section_enabled.toString(),
+            };
+
             if (id) { // Modo de edição (PUT)
 
-                //PARA TESTES LOCAIS
-                //res = await axios.put(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/${id}`, { 
-                res = await axios.put(`${API_BASE_URL}/newsletter/admin/${id}`, {
-                    ...formData,
-                    // created_by não deve ser alterado em um PUT, assume-se que é o mesmo criador ou gerenciado pelo backend
-                    // Se o backend precisa do user.id para validação, envie-o.
-                    // Para um PUT, geralmente só se envia os dados a serem atualizados.
-                }, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                //TESTES LOCAIS
+                //res = await axios.put(`${import.meta.env.VITE_API_URL}/api/newsletter/${id}`, requestBody, {
+                 res = await axios.put(`${API_BASE_URL}/newsletter/${id}`, requestBody, {   
+                    headers: { Authorization: `Bearer ${token}` }
                 });
                 setMessage('Newsletter atualizada com sucesso!');
             } else { // Modo de criação (POST)
+                // Adiciona o `created_by` apenas na criação
+                requestBody.created_by = user.id; 
 
-                //para TESTES LOCAIS
-                //res = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/create`, {
-                res = await axios.post(`${API_BASE_URL}/newsletter/admin/create`, {
-                    ...formData,
-                    created_by: user.id // Definir o created_by do admin atual
-                }, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                //PARA TESTES LOCAIS
+               // res = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/create`, requestBody, {
+                res = await axios.post(`${API_BASE_URL}/newsletter/create`, requestBody, {
+                    headers: { Authorization: `Bearer ${token}` }
                 });
                 setMessage('Newsletter criada com sucesso!');
-                // Limpar o formulário após a criação (apenas para criação)
+                // Limpa o formulário após a criação bem-sucedida
                 setFormData({
                     title: '', subject: '', main_title: '', introduction_text: '',
                     cta_title: '', cta_description: '', cta_image_url: '',
@@ -143,8 +151,12 @@ const NewsletterForm = () => {
                     logistics_time: '', logistics_location: '', pricing_title: '',
                     pricing_early_bird: '', pricing_chill: '', pricing_last_minute: '',
                     promo_text: '', footer_logo_url: '',
+                    additional_info: "[]", // Reset para string vazia
+                    custom_image_section_enabled: false, custom_image_url: "", custom_image_link: "",
+                    custom_button_section_enabled: false, custom_button_link: "", custom_button_text: "",
                 });
             }
+            
             navigate('/admin/newsletters'); // Redireciona para a lista após sucesso
         } catch (err) {
             console.error('Erro ao salvar newsletter:', err);
@@ -160,6 +172,9 @@ const NewsletterForm = () => {
             </div>
         );
     }
+
+
+                    //res = await axios.put(`${API_BASE_URL}/newsletter/admin/${id}`, {
 
     return (
         <div className="container mx-auto p-4 md:p-6 lg:p-8">
@@ -271,6 +286,78 @@ const NewsletterForm = () => {
                         <p className="text-sm text-gray-500">Você pode usar tags HTML básicas para formatar o texto (ex: &lt;p&gt;, &lt;strong&gt;, &lt;em&gt;).</p>
                     </div>
                 </div>
+
+
+                                {/* Additional Info */}
+                <div className="md:col-span-2">
+                <label htmlFor="additional_info">Informações Adicionais (JSON)</label>
+                <textarea
+                    id="additional_info"
+                    name="additional_info"
+                    value={formData.additional_info}
+                    onChange={(e) => setFormData({ ...formData, additional_info: e.target.value })}
+                    placeholder='Ex: [{"title":"Info","content":"Detalhes"}]'
+                    className="w-full border p-2"
+                />
+                </div>
+
+                {/* Custom Image Section */}
+                <div>
+                <label>
+                    <input
+                    type="checkbox"
+                    checked={formData.custom_image_section_enabled}
+                    onChange={(e) =>
+                        setFormData({ ...formData, custom_image_section_enabled: e.target.checked })
+                    }
+                    />
+                    Habilitar seção de imagem personalizada
+                </label>
+                <input
+                    type="text"
+                    placeholder="URL da Imagem"
+                    value={formData.custom_image_url}
+                    onChange={(e) => setFormData({ ...formData, custom_image_url: e.target.value })}
+                    className="w-full border p-2 mt-2"
+                />
+                <input
+                    type="text"
+                    placeholder="Link da Imagem"
+                    value={formData.custom_image_link}
+                    onChange={(e) => setFormData({ ...formData, custom_image_link: e.target.value })}
+                    className="w-full border p-2 mt-2"
+                />
+                </div>
+
+                {/* Custom Button Section */}
+                <div>
+                <label>
+                    <input
+                    type="checkbox"
+                    checked={formData.custom_button_section_enabled}
+                    onChange={(e) =>
+                        setFormData({ ...formData, custom_button_section_enabled: e.target.checked })
+                    }
+                    />
+                    Habilitar botão personalizado
+                </label>
+                <input
+                    type="text"
+                    placeholder="Texto do botão"
+                    value={formData.custom_button_text}
+                    onChange={(e) => setFormData({ ...formData, custom_button_text: e.target.value })}
+                    className="w-full border p-2 mt-2"
+                />
+                <input
+                    type="text"
+                    placeholder="Link do botão"
+                    value={formData.custom_button_link}
+                    onChange={(e) => setFormData({ ...formData, custom_button_link: e.target.value })}
+                    className="w-full border p-2 mt-2"
+                />
+                </div>
+
+
 
                 {/* Seção de Logística */}
                 <div>

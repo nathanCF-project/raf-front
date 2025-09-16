@@ -78,7 +78,7 @@ function NewsletterSubscribe() {
             </Button>
           </form>
           {message && (
-            <p className={`mt-4 text-sm ${isError ? 'text-red-400' : 'text-green-400'} font-bold`}>
+            <p className={`mt-4 text-sm ${isError ? 'text-black' : 'text-green-400'} font-bold`}>
               {message}
             </p>
           )}

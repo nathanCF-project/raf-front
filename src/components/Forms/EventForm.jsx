@@ -91,7 +91,7 @@ function EventForm({ onFormSubmit, initialData = {}, onCancel }) {
                 // Atualizar evento existente
 
                 //para teste LOCAL
-                //response = await axios.put(`${import.meta.env.VITE_API_URL}/api/events/admin/${formData.id}`, eventDataToSend, config);
+               // response = await axios.put(`${import.meta.env.VITE_API_URL}/api/events/admin/${formData.id}`, eventDataToSend, config);
                 response = await axios.put(`${API_BASE_URL}/events/admin/${formData.id}`, eventDataToSend, config);
 
             } else {

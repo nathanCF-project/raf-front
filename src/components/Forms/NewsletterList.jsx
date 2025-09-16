@@ -60,7 +60,7 @@ const NewsletterList = () => {
         try {
 
             //PARA TESTES LOCAIS
-            //const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/newsletter/admin`, {
+           // const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/newsletter/admin`, {
              const response = await axios.get(`${API_BASE_URL}/newsletter/admin`, {
 
                 headers: {
@@ -111,7 +111,7 @@ const NewsletterList = () => {
             try {
 
                 //PARA TESTES LOCAIS
-            //  const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/${id}`, {
+                //const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/${id}`, {
                 const response = await axios.delete(`${API_BASE_URL}/newsletter/admin/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -169,7 +169,7 @@ const NewsletterList = () => {
 
         try {
            //PARA TESTES LOCAIS
-         // const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/schedule/${selectedNewsletterId}`, payload, {
+          //const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/admin/schedule/${selectedNewsletterId}`, payload, {
             const response = await axios.post(`${API_BASE_URL}/newsletter/admin/schedule/${selectedNewsletterId}`, payload, {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -247,6 +247,7 @@ const NewsletterList = () => {
                                 <TableHead className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Criado Em</TableHead>
                                 <TableHead className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Próximo Envio Agendado</TableHead>
                                 <TableHead className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ações</TableHead>
+                                <TableHead className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Informações Adicionais</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody className="bg-white divide-y divide-gray-200">
@@ -278,6 +279,49 @@ const NewsletterList = () => {
                                             </span>
                                         )}
                                     </TableCell>
+
+                                                                    {/* --- NOVA CÉLULA PARA INFORMAÇÕES ADICIONAIS --- */}
+                                    <TableCell className="px-6 py-4 text-sm text-gray-900">
+                                        {nl.additional_info ? (
+                                            <div>
+                                                {/* Tenta parsear o JSON. Se falhar, exibe a string bruta */}
+                                                {(() => {
+                                                    try {
+                                                        const infoArray = JSON.parse(nl.additional_info);
+                                                        if (Array.isArray(infoArray) && infoArray.length > 0) {
+                                                            return infoArray.map((info, index) => (
+                                                                <div key={index} className="mb-2">
+                                                                    <p className="font-semibold">{info.title || `Info Adicional ${index + 1}`}</p>
+                                                                    <p>{info.content}</p>
+                                                                    {info.imageUrl && <img src={info.imageUrl} alt="Info Adicional" className="max-w-20 h-auto mt-1" />}
+                                                                    {info.buttonLink && info.buttonText && (
+                                                                        <Button
+                                                                            variant="link"
+                                                                            size="sm"
+                                                                            className="p-0"
+                                                                            asChild // Para que o Button renderize como um link <a>
+                                                                        >
+                                                                            <a href={info.buttonLink} target="_blank" rel="noopener noreferrer">{info.buttonText}</a>
+                                                                        </Button>
+                                                                    )}
+                                                                </div>
+                                                            ));
+                                                        }
+                                                        return <p>Nenhuma informação adicional formatada.</p>;
+                                                    } catch (e) {
+                                                        console.error("Erro ao parsear additional_info:", e);
+                                                        return <p className="text-red-500">Erro ao exibir informações.</p>;
+                                                    }
+                                                })()}
+                                            </div>
+                                        ) : (
+                                            'Nenhuma'
+                                        )}
+                                    </TableCell>
+                                    {/* --- FIM DA NOVA CÉLULA --- */}
+
+
+
                                     <TableCell className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-2"> {/* Espaçamento entre botões */}
                                         <Link to={`/admin/newsletters/edit/${nl.id}`}>
                                             <Button variant="outline" size="sm">Editar</Button>

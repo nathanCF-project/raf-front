@@ -97,7 +97,7 @@ export default function AboutUs() {
       </section>
 
       {/* Co-founders Section */}
-      <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-50">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-red-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-16 text-center">{t('about.cofoundersTitle')}</h2>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">

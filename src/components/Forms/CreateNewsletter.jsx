@@ -11,6 +11,8 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'; // Para um layout mais estruturado
+import { Switch } from '../ui/switch';
+import { ScrollArea } from '../ui/scroll-area';
 
 import API_BASE_URL from '../../api/config';
 
@@ -41,15 +43,72 @@ const CreateNewsletter = () => {
         pricing_chill: '',
         pricing_last_minute: '',
         promo_text: '',
-        footer_logo_url: ''
+        footer_logo_url: '',
+        
+        // --- NOVOS CAMPOS PARA MÚLTIPLAS INFORMAÇÕES ADICIONAIS ---
+        additionalInfo: [{ // Um array de objetos para as informações adicionais
+            id: Date.now(), // ID único para cada item
+            title: '',
+            content: '',
+            imageUrl: '',
+            buttonLink: '',
+            buttonText: ''
+        }],
+        // --- NOVOS CAMPOS PARA SEÇÕES PERSONALIZADAS ---
+        customImageSectionEnabled: false,
+        customImageUrl: '',
+        customImageLink: '',
+        customButtonSectionEnabled: false,
+        customButtonLink: '',
+        customButtonText: ''
+
     });
 
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false); // Adicionar estado de loading para o botão
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+     const handleChange = (e) => {
+          const { name, value, type, checked } = e.target;
+        // Lida com campos genéricos (inputs, textareas) e checkboxes/switches
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: type === 'checkbox' || type === 'switch' ? checked : value
+        }));
+    };
+
+     // --- FUNÇÕES PARA ADICIONAR/REMOVER INFORMAÇÕES ADICIONAIS ---
+    const addAdditionalInfo = () => {
+        setFormData(prevState => ({
+            ...prevState,
+            additionalInfo: [
+                ...prevState.additionalInfo,
+                {
+                    id: Date.now(), // Novo ID único
+                    title: '',
+                    content: '',
+                    imageUrl: '',
+                    buttonLink: '',
+                    buttonText: ''
+                }
+            ]
+        }));
+    };
+
+    const removeAdditionalInfo = (idToRemove) => {
+        setFormData(prevState => ({
+            ...prevState,
+            additionalInfo: prevState.additionalInfo.filter(info => info.id !== idToRemove)
+        }));
+    };
+
+    const handleAdditionalInfoChange = (id, fieldName, value) => {
+        setFormData(prevState => ({
+            ...prevState,
+            additionalInfo: prevState.additionalInfo.map(info =>
+                info.id === id ? { ...info, [fieldName]: value } : info
+            )
+        }));
     };
 
     const handleSubmit = async (e) => {
@@ -59,27 +118,36 @@ const CreateNewsletter = () => {
         setError('');
 
         try {
-            const userId = user ? user.id : null;
-            if (!userId) {
-                setError('ID do usuário não disponível. Por favor, faça login novamente.');
-                setLoading(false); // Para o loading em caso de erro
-                return;
-            }
+    const userId = user?.id;
+    if (!userId) {
+      setError('ID do usuário não disponível. Por favor, faça login novamente.');
+      setLoading(false);
+      return;
+    }
 
-            const response = await axios.post(
+    // Prepara o array adicional como JSON
+    const additionalInfo = formData.additionalInfo
+      .filter(info => info.title || info.content);
 
-                //[PARA TESTES LOCAIS:]
-                //`${import.meta.env.VITE_API_URL}/api/newsletter/create`,
-                `${API_BASE_URL}/newsletter/create`,
+    const dataToSend = {
+      ...formData,
+      additional_info: JSON.stringify(additionalInfo), // 👈 usa snake_case
+      created_by: userId
+    };
 
-                { ...formData, created_by: userId },
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                }
-            );
-            setMessage(response.data.message);
+    const response = await axios.post(
+
+       // TESTES LOCAIS
+      //`${import.meta.env.VITE_API_URL}/api/newsletter/create`,
+      `${API_BASE_URL}/newsletter/create`,
+
+      dataToSend,
+      {
+        headers: { Authorization: `Bearer ${token}` }
+      }
+    );
+
+    setMessage(response.data.message);
             // Limpar formulário após sucesso
             setFormData({
                 title: '', subject: '', content: '', html_content: '',
@@ -87,7 +155,11 @@ const CreateNewsletter = () => {
                 cta_button_text: '', cta_button_link: '', content_section_title: '', content_details_html: '',
                 logistics_title: '', logistics_dates: '', logistics_time: '', logistics_location: '',
                 pricing_title: '', pricing_early_bird: '', pricing_chill: '', pricing_last_minute: '',
-                promo_text: '', footer_logo_url: ''
+                promo_text: '', footer_logo_url: '', 
+                // Resetar novos campos também
+                additionalInfo: [{ id: Date.now(), title: '', content: '', imageUrl: '', buttonLink: '', buttonText: '' }],
+                customImageSectionEnabled: false, customImageUrl: '', customImageLink: '',
+                customButtonSectionEnabled: false, customButtonLink: '', customButtonText: ''
             });
 
         } catch (err) {
@@ -99,6 +171,7 @@ const CreateNewsletter = () => {
     };
 
     return (
+          <ScrollArea className="h-[80vh]">
         <div className="container mx-auto p-4 md:p-6 lg:p-8"> {/* Container centralizado e responsivo */}
             <Card className="max-w-4xl mx-auto shadow-lg"> {/* Usar Card para agrupar o formulário */}
                 <CardHeader>
@@ -178,6 +251,153 @@ const CreateNewsletter = () => {
                             <Textarea id="content_details_html" name="content_details_html" value={formData.content_details_html} onChange={handleChange} rows="6" />
                         </div>
 
+                           {/* --- Seção de Múltiplas Informações Adicionais --- */}
+                            <h3 className="text-2xl font-semibold border-b pb-2 mb-4 mt-8">Informações Adicionais (Flexível)</h3>
+                            {formData.additionalInfo.map((info, index) => (
+                                <div key={info.id} className="border p-4 rounded-md bg-gray-50 relative mb-4">
+                                    <h4 className="text-lg font-medium mb-3">Informação Adicional #{index + 1}</h4>
+                                    {formData.additionalInfo.length > 1 && ( // Botão de remover só se houver mais de um item
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            onClick={() => removeAdditionalInfo(info.id)}
+                                            className="absolute top-2 right-2"
+                                            type="button" // Important for form buttons
+                                        >
+                                            Remover
+                                        </Button>
+                                    )}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div className="md:col-span-2"> {/* Título ocupa toda a linha */}
+                                            <Label htmlFor={`additionalInfoTitle-${info.id}`}>Título:</Label>
+                                            <Input
+                                                type="text"
+                                                id={`additionalInfoTitle-${info.id}`}
+                                                name="title"
+                                                value={info.title}
+                                                onChange={(e) => handleAdditionalInfoChange(info.id, 'title', e.target.value)}
+                                            />
+                                        </div>
+                                        <div className="md:col-span-2"> {/* Conteúdo ocupa toda a linha */}
+                                            <Label htmlFor={`additionalInfoContent-${info.id}`}>Conteúdo:</Label>
+                                            <Textarea
+                                                id={`additionalInfoContent-${info.id}`}
+                                                name="content"
+                                                value={info.content}
+                                                onChange={(e) => handleAdditionalInfoChange(info.id, 'content', e.target.value)}
+                                                rows="4"
+                                            />
+                                        </div>
+                                        <div>
+                                            <Label htmlFor={`additionalInfoImageUrl-${info.id}`}>URL da Imagem (Opcional):</Label>
+                                            <Input
+                                                type="url"
+                                                id={`additionalInfoImageUrl-${info.id}`}
+                                                name="imageUrl"
+                                                value={info.imageUrl}
+                                                onChange={(e) => handleAdditionalInfoChange(info.id, 'imageUrl', e.target.value)}
+                                            />
+                                        </div>
+                                        <div>
+                                            <Label htmlFor={`additionalInfoButtonLink-${info.id}`}>Link do Botão (Opcional):</Label>
+                                            <Input
+                                                type="url"
+                                                id={`additionalInfoButtonLink-${info.id}`}
+                                                name="buttonLink"
+                                                value={info.buttonLink}
+                                                onChange={(e) => handleAdditionalInfoChange(info.id, 'buttonLink', e.target.value)}
+                                            />
+                                        </div>
+                                        <div>
+                                            <Label htmlFor={`additionalInfoButtonText-${info.id}`}>Texto do Botão (Opcional):</Label>
+                                            <Input
+                                                type="text"
+                                                id={`additionalInfoButtonText-${info.id}`}
+                                                name="buttonText"
+                                                value={info.buttonText}
+                                                onChange={(e) => handleAdditionalInfoChange(info.id, 'buttonText', e.target.value)}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                            <Button type="button" variant="outline" onClick={addAdditionalInfo} className="w-full mt-2">
+                                Adicionar Mais Uma Informação Adicional
+                            </Button>
+
+                            {/* --- Seção Personalizada de Imagem com Link --- */}
+                            <h3 className="text-2xl font-semibold border-b pb-2 mb-4 mt-8">Seção de Imagem com Link</h3>
+                            <div className="flex items-center space-x-2 mb-4">
+                                <Switch
+                                    id="customImageSectionEnabled"
+                                    name="customImageSectionEnabled"
+                                    checked={formData.customImageSectionEnabled}
+                                    onCheckedChange={(checked) => setFormData(prev => ({ ...prev, customImageSectionEnabled: checked }))}
+                                />
+                                <Label htmlFor="customImageSectionEnabled">Habilitar Seção de Imagem com Link</Label>
+                            </div>
+                            {formData.customImageSectionEnabled && (
+                                <div className="space-y-4 border p-4 rounded-md bg-gray-50">
+                                    <div>
+                                        <Label htmlFor="customImageUrl">URL da Imagem:</Label>
+                                        <Input
+                                            type="url"
+                                            id="customImageUrl"
+                                            name="customImageUrl"
+                                            value={formData.customImageUrl}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                    <div>
+                                        <Label htmlFor="customImageLink">Link da Imagem:</Label>
+                                        <Input
+                                            type="url"
+                                            id="customImageLink"
+                                            name="customImageLink"
+                                            value={formData.customImageLink}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* --- Seção Personalizada de Botão com Link --- */}
+                            <h3 className="text-2xl font-semibold border-b pb-2 mb-4 mt-8">Seção de Botão com Link</h3>
+                            <div className="flex items-center space-x-2 mb-4">
+                                <Switch
+                                    id="customButtonSectionEnabled"
+                                    name="customButtonSectionEnabled"
+                                    checked={formData.customButtonSectionEnabled}
+                                    onCheckedChange={(checked) => setFormData(prev => ({ ...prev, customButtonSectionEnabled: checked }))}
+                                />
+                                <Label htmlFor="customButtonSectionEnabled">Habilitar Seção de Botão com Link</Label>
+                            </div>
+                            {formData.customButtonSectionEnabled && (
+                                <div className="space-y-4 border p-4 rounded-md bg-gray-50">
+                                    <div>
+                                        <Label htmlFor="customButtonText">Texto do Botão:</Label>
+                                        <Input
+                                            type="text"
+                                            id="customButtonText"
+                                            name="customButtonText"
+                                            value={formData.customButtonText}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                    <div>
+                                        <Label htmlFor="customButtonLink">Link do Botão:</Label>
+                                        <Input
+                                            type="url"
+                                            id="customButtonLink"
+                                            name="customButtonLink"
+                                            value={formData.customButtonLink}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                </div>
+                            )}
+
+
                         {/* Seção de Logística */}
                         <h4 className="text-xl font-semibold mt-6 mb-3">Seção de Logística</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -241,6 +461,7 @@ const CreateNewsletter = () => {
                 </CardContent>
             </Card>
         </div>
+        </ScrollArea>
     );
 };
 
