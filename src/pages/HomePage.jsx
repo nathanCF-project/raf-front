@@ -18,33 +18,28 @@ import { Palette, Users, Calendar, BookOpen, ArrowRight, Mail } from "lucide-rea
 
 const acoes = [
   {
-    title: 'Criação Artística',
+    key: 'actions.creation',
     icon: Palette,
-    description: 'Apoio a artistas no desenvolvimento de sua arte através de projetos colaborativos, espaços de estúdio e residências criativas.',
     link: '/what-we-do/artistic-creation',
   },
   {
-    title: 'Formação',
+    key: 'actions.training',
     icon: BookOpen,
-    description: 'Programas educacionais abrangentes para nutrir talentos e compartilhar conhecimento em diversas disciplinas artísticas.',
     link: '/what-we-do/training',
   },
   {
-    title: 'Intercâmbios Culturais',
+    key: 'actions.exchanges',
     icon: Users,
-    description: 'Construindo pontes entre artistas e comunidades através de programas de extensão e iniciativas colaborativas.',
     link: 'what-we-do/cultural-exchanges',
   },
   {
-    title: 'Defesa da Cultura',
+    key: 'actions.defense',
     icon: Calendar,
-    description: 'Curadoria de exposições, performances e festivais que celebram diversas expressões culturais e inovação artística.',
     link: '/what-we-do/culture-defense',
   },
   {
-    title: 'Publicação, edição e traduções',
+    key: 'actions.publication', // <--- Chave para o 5º item
     icon: Mail,
-    description: 'Dramaturgia do Hotel Chronos, projeto “Arrendar” e traduções de obras selecionadas.',
     link: '/what-we-do/translation',
   },
   
@@ -101,29 +96,31 @@ const HomePage = () => {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">{t('home.whatWeDoTitle')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 justify-items-center">
-          {acoes.map((item, i) => (
-            <Link
-              key={i}
-              to={item.link}
-              className="no-underline text-gray-900 hover:text-red-600 w-full max-w-sm"
-            >
-              <Card className="text-center hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-between">
-                <CardHeader>
-                  <div className="mx-auto w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                    <item.icon className="h-8 w-8 text-red-600" />
-                  </div>
-                  <CardTitle className="text-xl font-bold">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-gray-600">
-                    {item.description}
-                  </CardDescription>
-                  <p className="mt-4 text-red-600 font-semibold">
-                     {t('home.knowMore')} <ArrowRight className="inline-block ml-1 h-4 w-4" />
-                  </p>
-                </CardContent>
-              </Card>
-            </Link>
+           {acoes.map((item) => ( // Usamos 'item' em vez de 'item, i' agora que temos chaves
+                <Link
+                key={item.key} // Use a key da ação para o key do React
+                to={item.link}
+                className="no-underline text-gray-900 hover:text-red-600 w-full max-w-sm"
+                >
+                <Card className="text-center hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-between">
+                    <CardHeader>
+                    <div className="mx-auto w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <item.icon className="h-8 w-8 text-red-600" />
+                    </div>
+                    {/* AQUI ESTÁ A CHAVE: Usar a chave do item para buscar o título traduzido */}
+                    <CardTitle className="text-xl font-bold">{t(`home.${item.key}.title`)}</CardTitle> 
+                    </CardHeader>
+                    <CardContent>
+                    <CardDescription className="text-gray-600">
+                        {/* E aqui buscar a descrição traduzida */}
+                        {t(`home.${item.key}.description`)} 
+                    </CardDescription>
+                    <p className="mt-4 text-red-600 font-semibold">
+                        {t('home.knowMore')} <ArrowRight className="inline-block ml-1 h-4 w-4" />
+                    </p>
+                    </CardContent>
+                </Card>
+                </Link>
           ))}
         </div>
       </div>

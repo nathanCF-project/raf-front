@@ -138,10 +138,38 @@ const [formData, setFormData] = useState({
 
            {/* Contato e Mini Formulário */}
           <div>
-            <h6 className="text-xl font-bold uppercase mb-4 text-gray-200">{t("footer.quickContact")}</h6>
-            <p className="text-gray-400 text-sm mb-2">Email: <a href="mailto:arafeira.estruturadecriacao@gmail.com" className="hover:underline">arafeira.estruturadecriacao@gmail.com</a></p>
-            <p className="text-gray-400 text-sm mb-2">Instagram: <a href="https://www.instagram.com/arafeira.estruturadecriacao/" target="_blank" rel="noopener noreferrer" className="hover:underline">@arafeira.estruturadecriacao</a></p>
-            <p className="text-gray-400 text-sm mb-4">Telefones: <a href="tel:+351962185565" className="hover:underline">+351 962 185 565</a> / <a href="tel:+351961200611" className="hover:underline">+351 961 200 611</a></p>
+             <h6 className="text-xl font-bold uppercase mb-4 text-gray-200">{t("footer.quickContact")}</h6>
+            <p className="text-gray-400 text-sm mb-2">
+                Email: <a 
+                            href="mailto:arafeira.estruturadecriacao@gmail.com" 
+                            className="text-gray-400 hover:!text-red-400 transition-colors"
+                        >
+                            arafeira.estruturadecriacao@gmail.com
+                        </a>
+            </p>
+            <p className="text-gray-400 text-sm mb-2">
+                Instagram: <a 
+                                href="https://www.instagram.com/arafeira.estruturadecriacao/" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="text-gray-400 hover:!text-red-400 transition-colors"
+                            >
+                                @arafeira.estruturadecriacao
+                            </a>
+            </p>
+            <p className="text-gray-400 text-sm mb-4">
+                Telefones: <a 
+                                href="tel:+351962185565" 
+                                className="text-gray-400 hover:!text-red-400 transition-colors"
+                            >
+                                +351 962 185 565
+                            </a> / <a 
+                                href="tel:+351961200611" 
+                                className="text-gray-400 hover:!text-red-400 transition-colors"
+                            >
+                                +351 961 200 611
+                            </a>
+            </p>
 
             {/* Mini Formulário de Contacto */}
             <h6 className="text-lg font-bold uppercase mb-3 text-gray-200">{t("footer.quickMessage")}</h6>

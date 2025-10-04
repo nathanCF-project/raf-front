@@ -3,7 +3,7 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 // Remova a importação de '/src/components/Styles/Custom.css' se você está migrando para Tailwind/Shadcn UI
 // import '/src/components/Styles/Custom.css'; 
-
+import ScrollToTop from './utils/ScrollToTop'; 
 import './translation/i18n';
 
 // Importações de componentes de autenticação e dashboard
@@ -64,6 +64,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 function App() {
     return (
         <Router>
+             <ScrollToTop /> 
             <AuthProvider> {/* O AuthProvider deve envolver todo o conteúdo que precisa do contexto de autenticação */}
                 <div className="flex flex-col min-h-screen"> {/* Classes Tailwind para layout */}
                     <Header /> {/* O Header agora não precisa de isAuthenticated, onLogout, userRole props, ele pode pegar do useAuth diretamente */}

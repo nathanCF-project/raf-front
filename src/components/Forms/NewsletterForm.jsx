@@ -137,7 +137,7 @@ const NewsletterForm = () => {
                 requestBody.created_by = user.id; 
 
                 //PARA TESTES LOCAIS
-               // res = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/create`, requestBody, {
+                //res = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/create`, requestBody, {
                 res = await axios.post(`${API_BASE_URL}/newsletter/create`, requestBody, {
                     headers: { Authorization: `Bearer ${token}` }
                 });

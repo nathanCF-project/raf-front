@@ -22,24 +22,28 @@
     "featuredCourseSchedule": "HOURS:",
     "featuredCourseMonths": "10.30 to 13.30 | 18 October, 5pm to 9pm",
     "featuredCourseButton": "Register here",
-    "actions": [
-      {
+    "actions": {
+      "creation": {
         "title": "Artistic Creation",
-        "description": "Supporting artists in developing their art through collaborative projects, studio spaces, and creative residencies."
+        "description": "Support for artists in the development of their art through collaborative projects, studio spaces, and creative residencies."
       },
-      {
-        "title": "Training",
-        "description": "Comprehensive educational programs to nurture talent and share knowledge in various artistic disciplines."
+      "training": {
+        "title": "Training & Education",
+        "description": "Comprehensive educational programs to nurture talent and share knowledge across various artistic disciplines."
       },
-      {
+      "exchanges": {
         "title": "Cultural Exchanges",
         "description": "Building bridges between artists and communities through outreach programs and collaborative initiatives."
       },
-      {
-        "title": "Culture Advocacy",
+      "defense": {
+        "title": "Cultural Advocacy",
         "description": "Curating exhibitions, performances, and festivals that celebrate diverse cultural expressions and artistic innovation."
+      },
+      "publication": {
+        "title": "Publication, Editing, and Translations",
+        "description": "Dramaturgy of Hotel Chronos, the 'Arrendar' project, and translations of selected works."
       }
-    ]
+    }
   },
 
    "footer": {
@@ -237,63 +241,74 @@
     "headerTitle": "Artistic Creation",
     "headerSubtitle": "A Rafeira develops projects in the areas of theater, dramaturgy, and also installation using technology, seeking to cross languages and critically reflect on the present.",
     "placeholderImageAlt": "Project preview image",
-    "project1": {
-      "title": "Hotel Chronos",
-      "type": "Theater",
-      "description": "The first creation of the collective, a show about climate urgency that crosses theater, dramaturgy, and technology.",
-      "detailedDescription": "Hotel Chronos is the first creation of the A Rafeira collective, a show that delves into the theme of climate urgency. Through an innovative approach, the project crosses the languages of theater, dramaturgy, and the use of technology to provoke a critical reflection on the present and future of our planet. The narrative explores the consequences of human actions on the environment, inviting the audience to confront their responsibility and the need for change.",
-      "teamTitle": "Artistic Team",
-      "teamMembers": [
-        { "role": "Co-Direction and Creation", "name": "Andreia Galvão" },
-        { "role": "Co-Direction and Creation", "name": "Clara Passarinho" },
-        { "role": "Dramaturgy", "name": "Clara Passarinho" },
-        { "role": "Scenography", "name": "Name of the Scenographer" },
-        { "role": "Lighting Design", "name": "Name of the Lighting Designer" },
-        { "role": "Sound Design", "name": "Name of the Sound Designer" },
-        { "role": "Performance", "name": "Andreia Galvão" },
-        { "role": "Performance", "name": "Clara Passarinho" }
-      ],
-      "eventsTitle": "Show Dates",
-      "event1Date": "November 2024",
-      "event1Venue": "Largo Residências, Lisbon (Artistic Residency)",
-      "event2Date": "Future Dates to be Announced",
-      "event2Venue": "Various Locations"
-    },
-    "project2": {
-      "title": "Arrendar",
-      "type": "Dramaturgy",
-      "description": "(we are currently writing and working on this text)",
-      "detailedDescription": "dramaturgical project",
-      "teamTitle": "Production Team",
-      "teamMembers": [
-        { "role": "Artistic Direction", "name": "A Rafeira Team" }
-      ],
-      "eventsTitle": "Show Dates",
-      "event1Date": "Under development..",
-      "event1Venue": "Various Locations"
-    },
-    "project3": {
-      "title": "Under Construction",
-      "type": "Installation",
-      "description": "This page is under development, and it's almost ready..",
-      "detailedDescription": "Under construction..",
-      "teamTitle": "Production Team",
-      "teamMembers": [
-        { "role": "Artistic Direction", "name": "A Rafeira Team" },
-        { "role": "Installation Design", "name": "Name of the Designer" },
-        { "role": "Sound Engineering", "name": "Name of the Engineer" }
-      ],
-      "eventsTitle": "Show Dates",
-      "event1Date": "April - June 2025",
-      "event1Venue": "Jardins do Palácio de Cristal, Porto",
-      "event2Date": "July - September 2025",
-      "event2Venue": "Parque da Cidade, Lisbon"
-    },
-    "projectNotFound": "Project Not Found",
-    "backToArtisticCreation": "Back to Artistic Creation",
-    "aboutProject": "About the Project",
+
+     "projects": {
+      "hotelChronos": {
+        "title": "Hotel Chronos",
+        "year": "2024",
+        "type": "Theatre",
+        "description": "The structure's first creation, a performance about climate urgency that intersects theatre, dramaturgy, and technology.",
+      "detailedDescription": "Hotel Chronos is a show that delves into the anxiety caused by the crisis and the imminent climate catastrophe. In a hotel at the end of the world, two women religiously take care of its management, as if this practice could attract clientele. But no one has arrived for years. One of them begins to question the absurd routine, while the other insists on maintaining it, terrified by the emptiness that change can bring. Time passes and, at the back of the hotel, the watchmaker tries to repair the clock…",
+        "team": [
+          { "roleKey": "interpretationCoCreation", "name": "Clara Passarinho, Andreia Galvão and Carla Madeira" },
+          { "roleKey": "dramaturgy", "name": "Andreia Galvão e Bárbara Soares" },
+          { "roleKey": "soundDesign", "name": "Clara Passarinho" },
+          { "roleKey": "soundVideoOperation", "name": "Vicente Silvestre" },
+          { "roleKey": "photography", "name": "Daniel Silva" }
+        ],
+        "events": [
+          { "date": "May 2024", "venue": "Hostel Saint Jordi" }
+        ]
+      },
+      "arrendar": {
+        "title": "To Rent (Arrendar)",
+        "year": "2025",
+        "type": "Dramaturgy",
+        "description": "(we are currently writing and working on this text)",
+      "detailedDescription": "We are currently writing and working on this text",
+        "team": [
+           { "roleKey": "dramaturgyResearch", "name": "Team A Rafeira" },
+          { "roleKey": "culturalConsultancy", "name": "Consultant Name" }
+        ],
+        "events": []
+        
+      },
+      "emConstrucao": {
+        "title": "Under-Construction",
+        "year": "2025",
+        "type": "Installation",
+        "description": "This page is under development, and it's almost finished..",
+      "detailedDescription": "A text that addresses the narratives to be written.",
+        "team": [
+         { "roleKey": "dramaturgyResearch", "name": "Team A Rafeira" },
+          { "roleKey": "culturalConsultancy", "name": "Consultant Name" }
+        ],
+        "events": [
+          { "date": "September 2025", "venue": "Staged Reading" }
+        ]
+      }
+    }
+  },
+
+   "projectPage": {
+    "notFoundTitle": "Project Not Found",
+    "backLink": "Back to Artistic Creation",
+    "aboutTitle": "About the Project",
     "galleryTitle": "Gallery",
-    "videosTitle": "Videos"
+    "videosTitle": "Videos",
+    "teamTitle": "Artistic Team",
+    "eventsTitle": "Performance Dates",
+    "roles": {
+      "interpretationCoCreation": "Performance and Co-creation",
+      "dramaturgy": "Dramaturgy",
+      "soundDesign": "Sound Design",
+      "soundVideoOperation": "Sound and Video Operation",
+      "photography": "Photography",
+      "artisticDirection": "Artistic Direction",
+      "installationDesign": "Installation Design",
+      "dramaturgyResearch": "Dramaturgy and Research",
+      "culturalConsultancy": "Cultural Consultancy"
+    }
   },
 
    "publishing": {
@@ -305,8 +320,73 @@
     "bookPlaceholderTitle": "Under construction",
     "bookPlaceholderAuthor": "Under construction",
     "bookCoverAlt": "Book cover"
+  },
+
+     "siteName": "A Rafeira Logo",
+  "menu": {
+    "toggleNav": "Toggle navigation menu",
+    "close": "Close",
+    "logout": "Logout"
+  },
+  "nav": {
+    "generalInfo": "General Information",
+    "whatWeDo": "What We Do?",
+    "howWeThink": "How We Think",
+    "whoWeAre": "Who We Are",
+    "whereWeWillBe": "Where We Will Be?",
+    "contact": "Contact",
+    "adminDashboard": "Admin Dashboard"
+  },
+  "subnav": {
+    "artisticCreation": "Artistic Creation",
+    "training": "Training",
+    "culturalExchanges": "Cultural Exchanges",
+    "cultureDefense": "Culture Advocacy",
+    "publicationTranslation": "Publication and Translations"
+  },
+
+   "eventCategories": {
+    "espetaculo": "Performance",
+    "oficina": "Workshop",
+    "debate": "Debate",
+    "residência": "Residency",
+    "outro": "Other"
+  },
+
+  "where2": {
+    "whereloading": "Loading activities...",
+    "wheretitle": "Where will we be?",
+    "wheresubtitle": "Here you can find our calendar of public activities: performances, workshops, debates, and other initiatives we are involved in.",
+    
+    "list": {
+      "loading": "Loading events...",
+      "noResultsFilter": "No events found with the applied filters.",
+      "noEvents": "No public events available at the moment.",
+      "title": "Calendar/List of Upcoming Public Activities ({{count}} Total Events)",
+      "type": "Type",
+      "location": "Location",
+      "date": "Date",
+      "at": "at",
+      "moreInfo": "More Information"
+    },
+    
+    "filters": {
+      "searchLabel": "Search by Title/Description",
+      "searchPlaceholder": "Title or Description",
+      "categoryLabel": "Event Type",
+      "categoryAll": "All",
+      "locationLabel": "Location",
+      "locationPlaceholder": "City, Country, etc.",
+      "startDateLabel": "Start Date",
+      "endDateLabel": "End Date",
+      "clearFilters": "Clear Filters"
+    },
+    
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "pageOf": "Page {{currentPage}} of {{totalPages}}"
+    }
   }
-
-
 
 }

@@ -60,7 +60,7 @@ const NewsletterList = () => {
         try {
 
             //PARA TESTES LOCAIS
-           // const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/newsletter/admin`, {
+           //const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/newsletter/admin`, {
              const response = await axios.get(`${API_BASE_URL}/newsletter/admin`, {
 
                 headers: {

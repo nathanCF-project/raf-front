@@ -7,10 +7,12 @@ import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Button } from '../ui/button';
 import API_BASE_URL from '../../api/config';
+import { useTranslation } from 'react-i18next';
 
 const ITEMS_PER_PAGE = 10; // Define quantos itens serão exibidos por página
 
 function PublicEventList() {
+    const { t } = useTranslation();
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -143,14 +145,14 @@ function PublicEventList() {
         boxSizing: 'border-box',
     };
 
-    if (loading) return <p style={{ textAlign: 'center', margin: '20px' }}>Carregando eventos...</p>;
+    if (loading) return <p style={{ textAlign: 'center', margin: '20px' }}>{t('where2.list.loading')}</p>;
     if (error) return <p style={{ textAlign: 'center', margin: '20px', color: 'red' }}>{error}</p>;
 
     if (totalEventsCount === 0 && (searchQuery || filterCategory || filterLocation || filterStartDate || filterEndDate)) {
-        return <p style={{ textAlign: 'center', margin: '20px' }}>Nenhum evento encontrado com os filtros aplicados.</p>;
+        return <p style={{ textAlign: 'center', margin: '20px' }}>{t('where2.list.noResultsFilter')}</p>;
     }
     if (totalEventsCount === 0) {
-        return <p style={{ textAlign: 'center', margin: '20px' }}>Nenhum evento público disponível no momento.</p>;
+        return <p style={{ textAlign: 'center', margin: '20px' }}>{t('where2.list.noEvents')}</p>;
     }
 
     return (
@@ -164,51 +166,54 @@ function PublicEventList() {
             backgroundColor: '#fff',
             overflowX: 'auto'
         }}>
-            <h3 style={{ textAlign: 'center', marginBottom: '20px' }}>Calendário/Lista de Atividades Públicas Futuras ({totalEventsCount} Eventos no Total)</h3>
+            <h3 style={{ textAlign: 'center', marginBottom: '20px' }}>{t('where2.list.title', { count: totalEventsCount })}</h3>
 
             {/* --- SEÇÃO DE FILTROS E BUSCA --- */}
             <div style={filterSectionStyle}>
                 <div style={filterGroupStyle}>
-                    <label htmlFor="search" style={filterLabelStyle}>Buscar por Título/Descrição:</label>
+                    <label htmlFor="search" style={filterLabelStyle}>{t('where2.filters.searchLabel')}:</label>
                     <input
                         type="text"
                         id="search"
                         value={searchQuery}
                         onChange={(e) => { setCurrentPage(1); setSearchQuery(e.target.value); }}
-                        placeholder="Título ou Descrição"
+                        placeholder={t('where2.filters.searchPlaceholder')}
                         style={filterInputStyle}
                     />
                 </div>
-
+                    
+                     {/* Tipo de Evento (Categoria) */}
                 <div style={filterGroupStyle}>
-                    <label htmlFor="filterCategory" style={filterLabelStyle}>Tipo de Evento:</label>
+                    <label htmlFor="filterCategory" style={filterLabelStyle}>{t('where2.filters.categoryLabel')}:</label>
                     <select
                         id="filterCategory"
                         value={filterCategory}
                         onChange={(e) => { setCurrentPage(1); setFilterCategory(e.target.value); }}
                         style={filterInputStyle}
                     >
-                        <option value="">Todas</option>
+                        <option value="">{t('where2.filters.categoryAll')}</option>
                         {eventCategories.map(cat => (
-                            <option key={cat} value={cat}>{cat}</option>
+                            <option key={cat} value={cat}>{t(`eventCategories.${cat.toLowerCase().replace(/á/g, 'a').replace(/â/g, 'a')}`)}</option>
                         ))}
                     </select>
                 </div>
-
+                    
+                      {/* Local */}
                 <div style={filterGroupStyle}>
-                    <label htmlFor="filterLocation" style={filterLabelStyle}>Local:</label>
+                    <label htmlFor="filterLocation" style={filterLabelStyle}>{t('where2.filters.locationLabel')}:</label>
                     <input
                         type="text"
                         id="filterLocation"
                         value={filterLocation}
                         onChange={(e) => { setCurrentPage(1); setFilterLocation(e.target.value); }}
-                        placeholder="Cidade, País, etc."
+                        placeholder={t('where2.filters.locationPlaceholder')}
                         style={filterInputStyle}
                     />
                 </div>
 
+                 {/* Data Início */}
                 <div style={filterGroupStyle}>
-                    <label htmlFor="filterStartDate" style={filterLabelStyle}>Data Início:</label>
+                    <label htmlFor="filterStartDate" style={filterLabelStyle}>{t('where2.filters.startDateLabel')}:</label>
                     <input
                         type="date"
                         id="filterStartDate"
@@ -218,8 +223,9 @@ function PublicEventList() {
                     />
                 </div>
 
+                  {/* Data Fim */}
                 <div style={filterGroupStyle}>
-                    <label htmlFor="filterEndDate" style={filterLabelStyle}>Data Fim:</label>
+                    <label htmlFor="filterEndDate" style={filterLabelStyle}>{t('where2.filters.endDateLabel')}:</label>
                     <input
                         type="date"
                         id="filterEndDate"
@@ -250,7 +256,7 @@ function PublicEventList() {
                             marginTop: '10px'
                         }}
                     >
-                        Limpar Filtros
+                        {t('where2.filters.clearFilters')}
                     </button>
                 )}
             </div>
@@ -273,14 +279,14 @@ function PublicEventList() {
                         )}
                         <h4 style={{ fontSize: '1.2em', fontWeight: 'bold', marginBottom: '5px' }}>{event.title}</h4>
                         <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '5px' }}>
-                            <strong>Tipo:</strong> {event.category}
+                            <strong>{t('where2.list.type')}:</strong> {event.category}
                         </p>
                         <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '5px' }}>
-                            <strong>Local:</strong> {event.location}
+                            <strong>{t('where2.list.location')}:</strong> {event.location}
                         </p>
                         <p style={{ fontSize: '0.9em', color: '#666', marginBottom: '10px' }}>
-                            <strong>Data:</strong> {new Date(event.event_date).toLocaleDateString()}
-                            {event.event_time && ` às ${event.event_time}`}
+                            <strong>{t('where2.list.date')}:</strong> {new Date(event.event_date).toLocaleDateString()}
+                            {event.event_time && ` ${t('where2.list.at')} ${event.event_time}`}
                             {/* If you have end_date, add it here */}
                         </p>
                         <p style={{ fontSize: '0.9em', marginBottom: '10px', flexGrow: 1 }}>
@@ -302,7 +308,7 @@ function PublicEventList() {
                                         marginRight: '10px'
                                     }}
                                 >
-                                    Mais Informações
+                                    {t('where2.list.moreInfo')}
                                 </a>
                             )}
                             {/* Add other links like tickets if separate fields exist */}
@@ -314,11 +320,11 @@ function PublicEventList() {
 
             <div style={{ marginTop: '20px', textAlign: 'center' }}>
                 <button onClick={handlePreviousPage} disabled={currentPage === 1} style={{ padding: '8px 15px', marginRight: '10px', backgroundColor: '#808080', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
-                    Anterior
+                    {t('where2.pagination.previous')}
                 </button>
-                <span>Página {currentPage} de {totalPages}</span>
+                <span>{t('where2.pagination.pageOf', { currentPage, totalPages })}</span>
                 <button onClick={handleNextPage} disabled={currentPage === totalPages} style={{ padding: '8px 15px', marginLeft: '10px', backgroundColor: '#808080', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
-                    Próxima
+                     {t('where2.pagination.next')}
                 </button>
             </div>
         </div>

@@ -121,14 +121,14 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  /* Reset links */
+  /* Reset links 
   a {
     @apply text-inherit no-underline;
     color: inherit;
   text-decoration: none;
   }
 
-  /* Opcional: hover global para links */
+  /* Opcional: hover global para links 
   a:hover {
     @apply hover:text-primary;
   }

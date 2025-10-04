@@ -22,24 +22,27 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/s
 import { Menu, X } from "lucide-react";
 
 
-const navLinks = [
-    { name: 'Informações Gerais', path: '/' },
-    { name: 'O que fazemos?', path: '/' }, // Link principal para o dropdown
-    { name: 'Como pensamos', path: '/how-we-think' },
-    { name: 'Quem somos', path: '/who-we-are' },
-    { name: 'Onde vamos estar?', path: '/where-we-will-be' },
-    { name: 'Contactos', path: '/contact' },
+const navLinkKeys = [
+    { key: 'nav.generalInfo', path: '/' },
+    { key: 'nav.whatWeDo', path: '/' }, // Link principal para o dropdown
+    { key: 'nav.howWeThink', path: '/how-we-think' },
+    { key: 'nav.whoWeAre', path: '/who-we-are' },
+    { key: 'nav.whereWeWillBe', path: '/where-we-will-be' },
+    { key: 'nav.contact', path: '/contact' },
 ];
 
-const subLinks = [
-  { name: 'Criação Artística', path: '/what-we-do/artistic-creation' },
-  { name: 'Formação', path: '/what-we-do/training' },
-  { name: 'Intercâmbios Culturais', path: '/what-we-do/cultural-exchanges' },
-  { name: 'Defesa da Cultura', path: '/what-we-do/culture-defense' },
-  { name: 'Publicação e Traduções', path: 'what-we-do/translation' },
+const subLinkKeys = [
+    { key: 'subnav.artisticCreation', path: '/what-we-do/artistic-creation' },
+    { key: 'subnav.training', path: '/what-we-do/training' },
+    { key: 'subnav.culturalExchanges', path: '/what-we-do/cultural-exchanges' },
+    { key: 'subnav.cultureDefense', path: '/what-we-do/culture-defense' },
+    { key: 'subnav.publicationTranslation', path: 'what-we-do/translation' },
 ];
 
 const Header = () => {
+
+    const { t } = useTranslation();
+
     const { isAuthenticated, user, logout } = useAuth();
     const navigate = useNavigate();
 
@@ -54,10 +57,15 @@ const Header = () => {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo e Nome - Visível em todas as telas */}
                     <div className="flex-shrink-0 flex items-center">
-                        <Link to="/" className="flex items-center space-x-2">
-                            <img src={logo} alt="Logo A Rafeira" className="h-15 w-auto" />
-                            <span className="text-xl font-bold text-rafeira-red font-amatic uppercase tracking-wider">A Rafeira</span>
-                        </Link>
+                        <Link 
+                          to="/" 
+                          className="flex items-center space-x-2 transition-colors duration-200" 
+                          // Adiciona a cor de hover ao link para o nome (span)
+                          // Se a cor for para ser fixa 'text-rafeira-red', não adicione hover aqui
+                      >
+                          <img src={logo} alt="Logo A Rafeira" className="h-15 w-auto" />
+                          <span className="text-xl font-bold font-amatic uppercase tracking-wider text-rafeira-red hover:text-red-400">A Rafeira</span>
+                      </Link>
                     </div>
 
                     {/* Menu Trigger (Ícone do Hambúrguer) - Visível em todas as telas */}
@@ -67,23 +75,20 @@ const Header = () => {
                                 <Button
                                     variant="ghost"
                                     size="sm"
-                                    className="p-2 text-rafeira-red hover:text-red-400"
+                                    className="p-2 !text-rafeira-red hover:!text-red-400"
                                 >
                                     <Menu className="h-6 w-6" />
-                                    <span className="sr-only">Toggle navigation menu</span>
+                                    <span className="sr-only">{t('menu.toggleNav')}</span>
                                 </Button>
                             </SheetTrigger>
-                            <SheetContent side="right" className="bg-black text-white border-gray-800 w-full p-8 md:p-12">
-                                <SheetClose asChild>
-                                    <Button
-                                        variant="ghost"
-                                        size="sm"
-                                        className="absolute top-4 right-4 text-gray-200 hover:text-rafeira-red"
-                                    >
-                                        <X className="h-6 w-6" />
-                                        <span className="sr-only">Fechar</span>
-                                    </Button>
-                                </SheetClose>
+                            <SheetContent
+                                    side="right"
+                                    className="
+                                      bg-black text-white border-gray-800 w-full p-8 md:p-12
+                                      [&_[data-radix-sheet-close]]:hidden
+                                    "
+                                  >
+                                    <SheetClose asChild>…</SheetClose>
                                 
                                 <div className="flex flex-col items-start h-full">
                                     <Link className="flex items-center gap-2 mb-10" to="/">
@@ -93,28 +98,37 @@ const Header = () => {
                                     
                                     <nav className="flex-1 overflow-auto">
                                         <ul className="space-y-4">
-                                            {navLinks.map((link) => (
-                                                <li key={link.name}>
-                                                    <SheetClose asChild>
-                                                        <NavLink
-                                                            to={link.path}
-                                                            className={({ isActive }) => `text-3xl font-amatic uppercase tracking-wider transition-colors duration-200 ${isActive ? 'text-rafeira-red font-bold' : 'text-gray-200 hover:text-red-400'}`}
-                                                        >
-                                                            {link.name}
-                                                        </NavLink>
-                                                    </SheetClose>
-                                                    {link.name === 'O que fazemos?' && (
+                                            {navLinkKeys.map((link) => (
+                                                <li key={link.key}>
+                                                    <NavLink
+                                                        to={link.path}
+                                                        className={({ isActive }) =>
+                                                            `pointer-events-auto text-3xl font-amatic uppercase tracking-wider transition-colors duration-200 ${
+                                                                isActive 
+                                                                    ? 'text-red-600 font-bold'
+                                                                    : 'text-gray-200 hover:text-red-400'
+                                                            }`
+                                                        }
+                                                    >
+                                                        {t(link.key)} {/* <--- Usar t() com a chave */}
+                                                    </NavLink>
+                                                   
+                                                    {link.key === 'nav.whatWeDo' && (
                                                         <ul className="mt-2 pl-6 space-y-2">
-                                                            {subLinks.map((subLink) => (
-                                                                <li key={subLink.name}>
-                                                                    <SheetClose asChild>
-                                                                        <NavLink
-                                                                            to={subLink.path}
-                                                                            className={({ isActive }) => `text-xl font-amatic uppercase tracking-wider transition-colors duration-200 ${isActive ? 'text-rafeira-red font-bold' : 'text-gray-400 hover:text-red-400'}`}
-                                                                        >
-                                                                            {subLink.name}
-                                                                        </NavLink>
-                                                                    </SheetClose>
+                                                            
+                                                            {subLinkKeys.map((subLink) => (
+                                                                <li key={subLink.key}>
+                                                                    <NavLink
+                                                                        to={subLink.path}
+                                                                        className={({ isActive }) =>
+                                                                            `text-xl font-amatic uppercase tracking-wider transition-colors duration-200 
+                                                                            ${isActive 
+                                                                                ? 'text-red-400 font-bold' 
+                                                                                : 'text-gray-300 hover:text-red-400'}`
+                                                                        }
+                                                                    >
+                                                                        {t(subLink.key)}
+                                                                    </NavLink>
                                                                 </li>
                                                             ))}
                                                         </ul>
@@ -123,14 +137,14 @@ const Header = () => {
                                             ))}
                                             {isAuthenticated && user?.role === 'admin' && (
                                                 <li>
-                                                    <SheetClose asChild>
+                                                    
                                                         <NavLink
                                                             to="/admin/dashboard"
-                                                            className={({ isActive }) => `text-3xl font-amatic uppercase tracking-wider transition-colors duration-200 ${isActive ? 'text-rafeira-red font-bold' : 'text-gray-200 hover:text-red-400'}`}
+                                                            className={({ isActive }) => `text-3xl font-amatic uppercase tracking-wider transition-colors duration-200 ${isActive ? 'text-red-600 font-bold' : 'text-gray-200 hover:text-red-400'}`}
                                                         >
-                                                            Admin Dashboard
+                                                             {t('nav.adminDashboard')}
                                                         </NavLink>
-                                                    </SheetClose>
+                                                   
                                                 </li>
                                             )}
                                         </ul>
@@ -145,7 +159,7 @@ const Header = () => {
                                                     className="w-full text-xl font-amatic uppercase tracking-wider text-rafeira-red hover:text-white hover:bg-rafeira-red/20"
                                                     onClick={handleLogout}
                                                 >
-                                                    Sair
+                                                     {t('menu.logout')}
                                                 </Button>
                                             </SheetClose>
                                         </div>

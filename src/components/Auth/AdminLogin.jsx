@@ -29,7 +29,7 @@ function AdminLogin() {
       const res = await fetch(
 
         // PARA TESTES LOCAIS 
-       // `${import.meta.env.VITE_API_URL}/api/auth/login`,
+        //`${import.meta.env.VITE_API_URL}/api/auth/login`,
 
         `${API_BASE_URL}/auth/login`,
         {

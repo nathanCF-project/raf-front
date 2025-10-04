@@ -22,24 +22,28 @@
     "featuredCourseSchedule": "HORAS:",
     "featuredCourseMonths": "10.30 às 13.30 | 18 Outubro, 17.00 às 21.00",
     "featuredCourseButton": "Inscreva-te aqui",
-    "actions": [
-      {
+     "actions": {
+      "creation": {
         "title": "Criação Artística",
         "description": "Apoio a artistas no desenvolvimento de sua arte através de projetos colaborativos, espaços de estúdio e residências criativas."
       },
-      {
+      "training": {
         "title": "Formação",
         "description": "Programas educacionais abrangentes para nutrir talentos e compartilhar conhecimento em diversas disciplinas artísticas."
       },
-      {
+      "exchanges": {
         "title": "Intercâmbios Culturais",
         "description": "Construindo pontes entre artistas e comunidades através de programas de extensão e iniciativas colaborativas."
       },
-      {
+      "defense": {
         "title": "Defesa da Cultura",
         "description": "Curadoria de exposições, performances e festivais que celebram diversas expressões culturais e inovação artística."
+      },
+      "publication": { 
+        "title": "Publicação, edição e traduções",
+        "description": "Dramaturgia do Hotel Chronos, projeto “Arrendar” e traduções de obras selecionadas."
       }
-    ]
+    }
   },
 
    "footer": {
@@ -238,63 +242,74 @@
     "headerTitle": "Criação Artística",
     "headerSubtitle": "A Rafeira desenvolve projetos nas áreas do teatro, da dramaturgia e também da instalação com recurso a tecnologia, procurando cruzar linguagens e refletir criticamente sobre o presente.",
     "placeholderImageAlt": "Imagem de pré-visualização do projeto",
-    "project1": {
-      "title": "Hotel Chronos",
-      "type": "Teatro",
-      "description": "A primeira criação da estrutura, um espetáculo sobre a urgência climática que cruza teatro, dramaturgia e tecnologia.",
-      "detailedDescription": "Hotel Chronos é a primeira criação da estrutura A Rafeira, um espetáculo que mergulha na temática da urgência climática. Através de uma abordagem inovadora, o projeto cruza linguagens do teatro, dramaturgia e o recurso à tecnologia para provocar uma reflexão crítica sobre o presente e o futuro do nosso planeta. A narrativa explora as consequências das ações humanas no ambiente, convidando o público a confrontar-se com a sua responsabilidade e a necessidade de mudança.",
-      "teamTitle": "Ficha Artística",
-      "teamMembers": [
-        { "role": "Co-Direção e Criação", "name": "Andreia Galvão" },
-        { "role": "Co-Direção e Criação", "name": "Clara Passarinho" },
-        { "role": "Dramaturgia", "name": "Clara Passarinho" },
-        { "role": "Cenografia", "name": "Nome do Cenógrafo" },
-        { "role": "Desenho de Luz", "name": "Nome do Designer de Luz" },
-        { "role": "Desenho de Som", "name": "Nome do Designer de Som" },
-        { "role": "Interpretação", "name": "Andreia Galvão" },
-        { "role": "Interpretação", "name": "Clara Passarinho" }
-      ],
-      "eventsTitle": "Datas dos Espetáculos",
-      "event1Date": "Novembro de 2024",
-      "event1Venue": "Largo Residências, Lisboa (Residência Artística)",
-      "event2Date": "Datas Futuras a Anunciar",
-      "event2Venue": "Locais Diversos"
-    },
-    "project2": {
-      "title": "Arrendar",
-      "type": "Dramaturgia",
-      "description": "(nós estamos neste momento a escrever e a trabalhar nesse texto)",
-      "detailedDescription": "projeto dramatúrgico",
-      "teamTitle": "Equipa de Produção",
-      "teamMembers": [
-        { "role": "Direção Artística", "name": "Equipa A Rafeira" }
-      ],
-      "eventsTitle": "Datas dos Espetáculos",
-      "event1Date": "Em desenvolvimento..",
-      "event1Venue": "Locais Diversos"
-    },
-    "project3": {
-      "title": "Em-Construção",
-      "type": "Instalação",
-      "description": "Esta página está em desenvolvimento, e está quase..",
-      "detailedDescription": "Em construção..",
-      "teamTitle": "Equipa de Produção",
-      "teamMembers": [
-        { "role": "Direção Artística", "name": "Equipa A Rafeira" },
-        { "role": "Design de Instalação", "name": "Nome do Designer" },
-        { "role": "Engenharia de Som", "name": "Nome do Engenheiro" }
-      ],
-      "eventsTitle": "Datas dos Espetáculos",
-      "event1Date": "Abril - Junho de 2025",
-      "event1Venue": "Jardins do Palácio de Cristal, Porto",
-      "event2Date": "Julho - Setembro de 2025",
-      "event2Venue": "Parque da Cidade, Lisboa"
-    },
-    "projectNotFound": "Projeto Não Encontrado",
-    "backToArtisticCreation": "Voltar para Criação Artística",
-    "aboutProject": "Sobre o Projeto",
+     
+    "projects": {
+      "hotelChronos": {
+        "title": "Hotel Chronos",
+        "year": "2024", 
+        "type": "Teatro",
+        "description": "A primeira criação da estrutura, um espetáculo sobre a urgência climática que cruza teatro, dramaturgia e tecnologia.",
+        "detailedDescription": "Hotel Chronos é um espetáculo que mergulha na ansiedade provocada pela crise e pela iminente catástrofe climática. Num hotel no fim do mundo, duas mulheres cuidam religiosamente da sua gestão, como se essa prática pudesse atrair clientela. Mas há anos que ninguém chega. Uma delas começa a questionar a rotina absurda, enquanto a outra insiste em mantê-la, aterrorizada pelo vazio que a mudança pode trazer. O tempo passa e, no fundo do hotel, o relojoeiro tenta consertar o relógio…",
+        "team": [
+          { "roleKey": "interpretationCoCreation", "name": "Clara Passarinho, Andreia Galvão e Carla Madeira" },
+          { "roleKey": "dramaturgy", "name": "Andreia Galvão e Bárbara Soares" },
+          { "roleKey": "soundDesign", "name": "Clara Passarinho" },
+          { "roleKey": "soundVideoOperation", "name": "Vicente Silvestre" },
+          { "roleKey": "photography", "name": "Daniel Silva" }
+        ],
+        "events": [
+          { "date": "Maio de 2024", "venue": "Hostel Saint Jordi" }
+        ]
+      },
+      "arrendar": { 
+        "title": "Arrendar", 
+        "year": "2025",
+        "type": "Dramaturgia",
+        "description": "(nós estamos neste momento a escrever e a trabalhar nesse texto)",
+        "detailedDescription": "projeto dramatúrgico em andamento...",
+        "team": [
+          { "roleKey": "artisticDirection", "name": "Equipa A Rafeira" },
+          { "roleKey": "installationDesign", "name": "Nome do Designer" } 
+        ],
+        "events": []
+      },
+      "emConstrucao": { 
+        "title": "Em-Construção",
+        "year": "2025",
+        "type": "Instalação",
+        "description": "Esta pagina esta em desenvolvimento, e está quase..",
+        "detailedDescription": "Em contrução..",
+        "team": [
+          { "roleKey": "dramaturgyResearch", "name": "Equipa A Rafeira" },
+          { "roleKey": "culturalConsultancy", "name": "Nome do Consultor" }
+        ],
+        "events": [
+          { "date": "Setembro de 2020", "venue": "Leitura Encenada" }
+        ]
+      }
+    }
+  },
+  
+  "projectPage": {
+    "notFoundTitle": "Projeto Não Encontrado",
+    "backLink": "Voltar para Criação Artística",
+    "aboutTitle": "Sobre o Projeto",
     "galleryTitle": "Galeria",
-    "videosTitle": "Vídeos"
+    "videosTitle": "Vídeos",
+    "teamTitle": "Ficha Artística",
+    "eventsTitle": "Datas dos Espetáculos",
+    "roles": {
+      "interpretationCoCreation": "Interpretação e co-criação",
+      "dramaturgy": "Dramaturgia",
+      "soundDesign": "Sonoplastia",
+      "soundVideoOperation": "Operação de som e vídeo",
+      "photography": "Fotografia",
+      "artisticDirection": "Direção Artística",
+      "installationDesign": "Design de Instalação",
+      "dramaturgyResearch": "Dramaturgia e Pesquisa",
+      "culturalConsultancy": "Consultoria Cultural"
+     
+    }
   },
 
   
@@ -307,5 +322,73 @@
     "bookPlaceholderTitle": "Em construção",
     "bookPlaceholderAuthor": "Em construção",
     "bookCoverAlt": "Capa do livro"
+  },
+
+"siteName": "Logo A Rafeira",
+  "menu": {
+    "toggleNav": "Alternar menu de navegação",
+    "close": "Fechar",
+    "logout": "Sair"
+  },
+  "nav": {
+    "generalInfo": "Informações Gerais",
+    "whatWeDo": "O que fazemos?",
+    "howWeThink": "Como pensamos",
+    "whoWeAre": "Quem somos",
+    "whereWeWillBe": "Onde vamos estar?",
+    "contact": "Contactos",
+    "adminDashboard": "Painel de Administração"
+  },
+  "subnav": {
+    "artisticCreation": "Criação Artística",
+    "training": "Formação",
+    "culturalExchanges": "Intercâmbios Culturais",
+    "cultureDefense": "Defesa da Cultura",
+    "publicationTranslation": "Publicação e Traduções"
+  },
+
+    "eventCategories": {
+    "espetaculo": "Espetáculo",
+    "oficina": "Oficina",
+    "debate": "Debate",
+    "residência": "Residência",
+    "outro": "Outro"
+  },
+
+  "where2": {
+    "whereloading": "A carregar atividades...",
+    "wheretitle": "Onde vamos estar?",
+    "wheresubtitle": "Aqui pode encontrar o nosso calendário de atividades públicas: espetáculos, oficinas, debates e outras iniciativas em que estamos envolvidos.",
+    
+    "list": {
+      "loading": "A carregar eventos...",
+      "noResultsFilter": "Nenhum evento encontrado com os filtros aplicados.",
+      "noEvents": "Nenhum evento público disponível no momento.",
+      "title": "Calendário/Lista de Atividades Públicas Futuras ({{count}} Eventos no Total)",
+      "type": "Tipo",
+      "location": "Local",
+      "date": "Data",
+      "at": "às",
+      "moreInfo": "Mais Informações"
+    },
+    
+    "filters": {
+      "searchLabel": "Buscar por Título/Descrição",
+      "searchPlaceholder": "Título ou Descrição",
+      "categoryLabel": "Tipo de Evento",
+      "categoryAll": "Todas",
+      "locationLabel": "Local",
+      "locationPlaceholder": "Cidade, País, etc.",
+      "startDateLabel": "Data Início",
+      "endDateLabel": "Data Fim",
+      "clearFilters": "Limpar Filtros"
+    },
+    
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Próxima",
+      "pageOf": "Página {{currentPage}} de {{totalPages}}"
+    }
   }
+
 }

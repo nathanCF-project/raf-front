@@ -13,7 +13,7 @@ export default function FormacaoPage() {
   const { t } = useTranslation(); 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-slate-100">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="container mx-auto px-4 py-8">
