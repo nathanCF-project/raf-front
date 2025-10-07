@@ -52,6 +52,7 @@ const NewsletterList = () => {
     const [scheduledDateTime, setScheduledDateTime] = useState('');
     const [scheduleType, setScheduleType] = useState('once'); // 'once', 'daily', 'weekly', 'monthly', 'custom_interval'
     const [scheduleInterval, setScheduleInterval] = useState(1); // Para custom_interval ou outros
+    const [disabledButtons, setDisabledButtons] = useState({});
 
     const fetchNewsletters = async () => {
         setLoading(true);
@@ -61,7 +62,7 @@ const NewsletterList = () => {
 
             //PARA TESTES LOCAIS
            //const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/newsletter/admin`, {
-             const response = await axios.get(`${API_BASE_URL}/newsletter/admin`, {
+            const response = await axios.get(`${API_BASE_URL}/newsletter/admin`, {
 
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -86,23 +87,37 @@ const NewsletterList = () => {
         if (window.confirm('Tem certeza que deseja ENVIAR esta newsletter para todos os assinantes?')) {
             setMessage('');
             setError('');
+
+                    // desativa temporariamente
+            setDisabledButtons(prev => ({ ...prev, [id]: true }));
+
             try {
-                
-                //PARA TESTES LOCAIS
-                //const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/newsletter/send/${id}`, {}, {
-                const response = await axios.post(`${API_BASE_URL}/newsletter/send/${id}`, {}, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-                setMessage(response.data.message);
-                fetchNewsletters(); // Recarregar a lista para atualizar o status
+            const response = await axios.post(
+            //TESTES LOCAIS
+               // `${import.meta.env.VITE_API_URL}/api/newsletter/send/${id}`,
+                `${API_BASE_URL}/newsletter/send/${id}`,
+                {},
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+            setMessage(response.data.message);
+            fetchNewsletters();
             } catch (err) {
-                console.error('Erro ao enviar newsletter:', err);
-                setError(err.response?.data?.error || 'Erro ao enviar newsletter.');
+            console.error('Erro ao enviar newsletter:', err);
+            setError(err.response?.data?.error || 'Erro ao enviar newsletter.');
+            } finally {
+            // reativa após 5 segundos
+            setTimeout(() => {
+                setDisabledButtons(prev => {
+                const updated = { ...prev };
+                delete updated[id];
+                return updated;
+                });
+            }, 5000);
             }
         }
-    };
+        };
+
+     //const response = await axios.post(`${API_BASE_URL}/newsletter/send/${id}`, {}, {
 
     const handleDeleteNewsletter = async (id, title) => {
         if (window.confirm(`Tem certeza que deseja DELETAR a newsletter "${title}"? Esta ação é irreversível.`)) {
@@ -327,12 +342,12 @@ const NewsletterList = () => {
                                             <Button variant="outline" size="sm">Editar</Button>
                                         </Link>
                                         <Button
-                                            onClick={() => handleSendNewsletter(nl.id)}
-                                            variant="secondary"
-                                            size="sm"
-                                            disabled={nl.status === 'sent'}
+                                        onClick={() => handleSendNewsletter(nl.id)}
+                                        variant="secondary"
+                                        size="sm"
+                                        disabled={disabledButtons[nl.id]} // só desativa temporariamente
                                         >
-                                            Enviar Agora
+                                        Enviar Agora
                                         </Button>
                                         <Button
                                             onClick={() => handleShowScheduleModal(nl.id)}

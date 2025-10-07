@@ -5,9 +5,9 @@ import { Link, useNavigate } from "react-router-dom"; // Importe useNavigate
 import { useAuth } from "./AuthContext"; // Importe useAuth
 
 // Componentes Shadcn UI
-import { Button } from '@/components/ui/button'; // Use alias aqui
-import { Input } from '@/components/ui/input';   // Use alias aqui
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Use alias aqui
+import { Button } from '@/components/ui/button'; //  alias 
+import { Input } from '@/components/ui/input';   // alias 
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // alias aqui
 
 import API_BASE_URL from "../../api/config";
 

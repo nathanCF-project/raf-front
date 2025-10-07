@@ -115,9 +115,9 @@ function AdminDashboard() {
                         </Button>
 
                         <Link to="/admin/subscribers">
-                            <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2">
-                                Gerenciar Assinantes / Exportar/Importar (Em breve)
-                            </Button>
+                        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2">
+                            Gerenciar Assinantes
+                        </Button>
                         </Link>
                         <Link to="/admin/newsletters/create">
                             <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2">

@@ -1,7 +1,7 @@
 // my-react-app/src/App.jsx
 import React from 'react';
 import { HashRouter as Router, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
-// Remova a importação de '/src/components/Styles/Custom.css' se você está migrando para Tailwind/Shadcn UI
+// /src/components/Styles/Custom.css' ( somenteTailwind/Shadcn UI)
 // import '/src/components/Styles/Custom.css'; 
 import ScrollToTop from './utils/ScrollToTop'; 
 import './translation/i18n';
@@ -13,15 +13,16 @@ import AdminRegister from './components/Auth/AdminRegister';
 import CreateNewsletter from './components/Forms/CreateNewsletter'; 
 import NewsletterList from './components/Forms/NewsletterList';
 import NewsletterForm from './components/Forms/NewsletterForm';
+import SubscriberList from './components/Forms/SubscribersList';
 
 // Importações de layout
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 
-// Importação do AuthContext
+ // Importação do AuthContext
 import { AuthProvider, useAuth } from './components/Auth/AuthContext'; 
 
-// Importações das páginas (mantenha todas as suas páginas)
+   // Importações das páginas (mantenha todas as suas páginas)
 import HomePage from './pages/HomePage';
 import WhatWeDoPage from './pages/WhatWeDoPage';
 import ArtisticCreationPage from './pages/WhatWeDo/ArtisticCreationPage';
@@ -54,13 +55,13 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 
     if (allowedRoles && user && !allowedRoles.includes(user.role)) {
         // Redireciona se o usuário não tiver a role permitida
-        return <Navigate to="/access-denied" replace />; // página para acesso negado (você precisaria criar esta página)
+        return <Navigate to="/access-denied" replace />; // página para acesso negado 
     }
 
     return children;
 };
 
-// Mova todo o conteúdo da sua antiga AppContent diretamente para dentro da função App
+
 function App() {
     return (
         <Router>
@@ -73,8 +74,7 @@ function App() {
                         <Routes>
                             {/* Rotas Públicas */}
                             <Route path="/" element={<HomePage />} />
-                            {/* Ajuste o path="/subscribe" se HomePage já tiver o NewsletterSubscribe */}
-                            {/* Se você tiver uma página separada para a newsletter, mantenha esta rota */}
+                            
                             {/* <Route path="/subscribe" element={<NewsletterSubscribe />} /> */}
                             
                             {/* Rotas de Autenticação */}
@@ -115,8 +115,17 @@ function App() {
                                 }
                             />
 
+                            <Route
+                                path="/admin/subscribers"
+                                element={
+                                    <ProtectedRoute roles={['admin']}>
+                                    <SubscriberList />
+                                    </ProtectedRoute>
+                                }
+                                />
+
                             {/* Rotas para o Menu Principal (Páginas estáticas/informacionais) */}
-                            {/* Remova a rota /about se a HomePage já serve como a seção "Sobre" */}
+                            
                             {/* <Route path="/about" element={<HomePage />} /> */} 
                             <Route path="/what-we-do" element={<WhatWeDoPage />} />
                             <Route path="/what-we-do/artistic-creation" element={<ArtisticCreationPage />} />
@@ -135,10 +144,10 @@ function App() {
 
 
                             {/* Rotas de fallback */}
-                            {/* Se você tiver uma página NotFoundPage, use-a. Se não, o Navigate to "/" é um bom fallback */}
+                            {/*NotFoundPage. porenquanto nao ha, entao o Navigate to "/" é um bom fallback */}
                             <Route path="/access-denied" element={<div>Acesso Negado. Você não tem permissão para ver esta página.</div>} />
                             <Route path="*" element={<NotFoundPage />} /> {/* Rota para 404 - Mantenha por último */}
-                            {/* Se você não tem NotFoundPage, pode usar: <Route path="*" element={<Navigate to="/" replace />} /> */}
+                            {/*  <Route path="*" element={<Navigate to="/" replace />} /> */}
                         </Routes>
                     </main>
                     <Footer />

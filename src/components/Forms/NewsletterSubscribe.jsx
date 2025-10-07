@@ -21,9 +21,8 @@ function NewsletterSubscribe() {
     setIsError(false);
 
     try {
-      // ATENÇÃO: Verifique o URL do seu backend.
-      // Se você está rodando localmente, 'http://localhost:3001/api/newsletter/subscribe' está ok.
-      // Para produção, isso precisará ser alterado para o URL do seu servidor real.
+      // ATENÇÃO: Verifique o URL do backend.
+      // Se está rodando localmente, 'http://localhost:3001/api/newsletter/subscribe' .
 
       //PARA TESTES LOCAIS!!!
       //const response = await fetch('http://localhost:3001/api/newsletter/subscribe', {

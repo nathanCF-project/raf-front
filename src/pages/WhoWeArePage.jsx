@@ -1,15 +1,11 @@
-//src/pages/WhoWeArePage.jsx (ou onde quer que você queira colocar este componente)
+//src/pages/WhoWeArePage.jsx 
 
 import React from 'react'; // Importar React é uma boa prática
 import { Mail } from "lucide-react"; // Para o ícone de e-mail
 
 import { useTranslation } from 'react-i18next';
 
-// É importante que o componente Image seja do 'react' para aplicações SPA (Single Page Application)
-// Se você está usando Next.js, 'next/image' é o correto.
-// Como estamos em um projeto React padrão, usaremos um <img> tag simples por enquanto,
-// ou uma biblioteca de imagem otimizada para React se for necessário.
-// Para este exemplo, usaremos <img> e você pode substituir as `src` pelas suas imagens.
+// componente Image seja do 'react' para aplicações SPA (Single Page Application)
 
 export default function AboutUs() {
 

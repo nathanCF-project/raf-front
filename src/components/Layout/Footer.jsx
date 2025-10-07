@@ -1,7 +1,7 @@
 // src/components/Layout/Footer.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from "../ui/button"; // Assumindo que você tem esses componentes Shadcn
+import { Button } from "../ui/button"; // componentes Shadcn
 import { Input } from "../ui/input";
 import { Label } from "../ui/label"; // Para o Label do input
 import { Textarea } from "../ui/textarea"; // Para a mensagem curta
@@ -44,10 +44,9 @@ const [formData, setFormData] = useState({
     setLoading(true);
     setStatusMessage('');
 
-    // Para o footer, podemos pré-definir o nome e o assunto,
-    // já que não teremos inputs dedicados a eles, mas o backend espera.
-    // Ou adaptar o backend para aceitar menos campos para esta rota específica.
-    // Por enquanto, vamos enviar o nome como "Contacto do Footer" e um assunto.
+    // DEPOIS-Para o footer, podemos pré-definir o nome e o assunto,
+    
+    // Por enquanto, enviar o nome como "Contacto do Footer" e um assunto.
     const fullFormData = {
       name: 'Contacto Rápido (Footer)', // Nome fixo
       email: formData.email,

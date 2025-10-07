@@ -117,11 +117,13 @@ const NewsletterForm = () => {
             let res;
             const requestBody = {
                 ...formData,
-                // Garante que os booleanos sejam enviados como strings "true"/"false" se o backend esperar,
-                // ou apenas como booleanos se o backend souber lidar. O código atual do backend converte para boolean, então está ok.
-                // Se precisar enviar como string:
-                // custom_image_section_enabled: formData.custom_image_section_enabled.toString(),
-                // custom_button_section_enabled: formData.custom_button_section_enabled.toString(),
+                additional_info: formData.additional_info || "[]",
+            custom_image_section_enabled: formData.custom_image_section_enabled ? 1 : 0,
+            custom_image_url: formData.custom_image_url,
+            custom_image_link: formData.custom_image_link,
+            custom_button_section_enabled: formData.custom_button_section_enabled ? 1 : 0,
+            custom_button_link: formData.custom_button_link,
+            custom_button_text: formData.custom_button_text,
             };
 
             if (id) { // Modo de edição (PUT)

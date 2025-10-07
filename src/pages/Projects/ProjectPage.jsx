@@ -1,6 +1,6 @@
 // my-react-app/src/pages/ProjectPage.jsx
 
-// "use client" - Remova esta linha, é específica para Next.js App Router.
+// "use client" - específica para Next.js App Router.
 import React from 'react'; // Boa prática
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";

@@ -132,7 +132,13 @@ const CreateNewsletter = () => {
     const dataToSend = {
       ...formData,
       additional_info: JSON.stringify(additionalInfo), // 👈 usa snake_case
-      created_by: userId
+      created_by: userId,
+      custom_image_section_enabled: formData.customImageSectionEnabled ? 1 : 0,
+      custom_image_url: formData.customImageUrl,
+      custom_image_link: formData.customImageLink,
+      custom_button_section_enabled: formData.customButtonSectionEnabled ? 1 : 0,
+      custom_button_link: formData.customButtonLink,
+      custom_button_text: formData.customButtonText,
     };
 
     const response = await axios.post(

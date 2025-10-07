@@ -1,7 +1,7 @@
 // src/pages/WhatWeDo/WhereWeWillBePage.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import EventFilter from "../components/EventFilter"; // Ative quando criar o componente de filtro
+// import EventFilter from "../components/EventFilter"; 
 import PublicEventList from "../components/Forms/PublicEventList";
 import API_BASE_URL from "../api/config";
 import { useTranslation } from 'react-i18next';
@@ -14,7 +14,7 @@ export default function WhereWeWillBePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Adicionando um pequeno delay para simular carregamento, se desejar testar o estado de loading.
+  // pequeno delay para simular carregamento, se desejar testar o estado de loading.
   useEffect(() => {
     // Apenas para simular o carregamento inicial da página antes de renderizar o PublicEventList
     const timer = setTimeout(() => {

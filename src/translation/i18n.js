@@ -6,7 +6,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import translationEN from './en/translation.json';
 import translationPT from './pt/translation.json';
 
-// Importando traduções (exemplo com inglês e português)
+// Importando traduções dos json(exemplo com inglês e português)
 const resources = {
    en: {
     translation: translationEN

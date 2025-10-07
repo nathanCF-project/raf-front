@@ -5,10 +5,10 @@
       "@/*": ["./src/*"]
     },
     "jsx": "react-jsx", // Importante: isso permite que o TypeScript entenda JSX
-    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Adicione libs essenciais para o browser
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // libs essenciais para o browser
     "module": "ESNext",
     "skipLibCheck": true,
-    "moduleResolution": "bundler", // Ou "node" dependendo da sua versão do Vite/Node
+    "moduleResolution": "bundler", // Ou "node" dependendo daversão do Vite/Node
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -18,5 +18,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"], // Inclua também arquivos TS para o shadcn/ui
+  "include": ["src", "src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"], // Incluearquivos TS para o shadcn/ui
 }

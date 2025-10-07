@@ -11,20 +11,20 @@ import { useTranslation } from "react-i18next";
 const projects = [
    {
     id: "hotel-chronos",
-    key: "hotelChronos", // <--- Chave no JSON
+    key: "hotelChronos", // Chave no JSON
     year: "2024",
     image: "images/cronosinsta2.jpg",
   },
   {
     id: "projeto-instalacao-x",
-    key: "arrendar", // <--- Chave no JSON
+    key: "arrendar", 
     year: "2025",
     image: "images/fixing.png",
   },
   
   {
     id: "peca-dramaturgica-y",
-    key: "emConstrucao", // <--- Chave no JSON
+    key: "emConstrucao", 
     year: "2025",
     image: "images/fixing.png",
   }
