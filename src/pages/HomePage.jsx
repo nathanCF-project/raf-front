@@ -72,58 +72,78 @@ const HomePage = () => {
       </HeroCarousel>
 
       {/* Sobre Nós Section (adaptada) */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900">{t('home.aboutTitle')}</h2>
-          <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto">
-             {t('home.aboutText')}
+          <section
+        className="relative flex items-center justify-center text-center min-h-[90vh] md:min-h-[100vh] px-6 bg-fixed bg-center bg-cover"
+        style={{
+          backgroundImage: "url('/images/Hotel-Chronos3.jpg')", // troque por outra se quiser
+        }}
+      >
+        {/* Overlay em degradê vermelho-translúcido para legibilidade e estilo */}
+        <div className="absolute inset-0 bg-gradient-to-b from-red-900/65 via-red-800/20 to-black/70"></div>
+
+        {/* Conteúdo principal */}
+        <div className="relative z-10 max-w-4xl mx-auto text-white drop-shadow-lg">
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 uppercase tracking-wide">
+            {t('home.aboutTitle')}
+          </h2>
+          <p className="text-lg md:text-2xl mb-12 leading-relaxed max-w-3xl mx-auto text-gray-100">
+            {t('home.aboutText')}
           </p>
+
           <Link to="/who-we-are">
             <Button
-              variant="outline"
               size="lg"
-              className="border-amber-500 text-red-600 hover:bg-amber-50 bg-transparent"
+              className="bg-red-600/90 hover:bg-red-700 text-white font-semibold px-10 py-4 text-lg rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             >
-               {t('home.aboutButton')}
-              <ArrowRight className="ml-2 h-5 w-5" />
+              {t('home.aboutButton')}
+              <ArrowRight className="ml-3 h-6 w-6 inline-block" />
             </Button>
           </Link>
         </div>
+
+        {/* Sutil overlay adicional no rodapé para blend mais suave com próxima seção */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
       </section>
 
-      {/* O que fazemos Section (mantido do novo design com suas informações) */}
-       <section className="py-20 px-4">
+          {/* O que fazemos Section (com degrade vermelho elegante) */}
+    <section className="relative py-28 px-6 bg-gradient-to-b from-red-50 via-white to-red-100">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">{t('home.whatWeDoTitle')}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 justify-items-center">
-           {acoes.map((item) => ( // Usamos 'item' em vez de 'item, i' agora que temos chaves
-                <Link
-                key={item.key} // Use a key da ação para o key do React
-                to={item.link}
-                className="no-underline text-gray-900 hover:text-red-600 w-full max-w-sm"
-                >
-                <Card className="text-center hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-between">
-                    <CardHeader>
-                    <div className="mx-auto w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                        <item.icon className="h-8 w-8 text-red-600" />
-                    </div>
-                    {/* AQUI ESTÁ A CHAVE: Usar a chave do item para buscar o título traduzido */}
-                    <CardTitle className="text-xl font-bold">{t(`home.${item.key}.title`)}</CardTitle> 
-                    </CardHeader>
-                    <CardContent>
-                    <CardDescription className="text-gray-600">
-                        {/* E aqui buscar a descrição traduzida */}
-                        {t(`home.${item.key}.description`)} 
-                    </CardDescription>
-                    <p className="mt-4 text-red-600 font-semibold">
-                        {t('home.knowMore')} <ArrowRight className="inline-block ml-1 h-4 w-4" />
-                    </p>
-                    </CardContent>
-                </Card>
-                </Link>
+        <h2 className="text-5xl md:text-6xl font-bold text-center mb-20 text-gray-900 tracking-tight">
+          {t('home.whatWeDoTitle')}
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 justify-items-center">
+          {acoes.map((item) => (
+            <Link
+              key={item.key}
+              to={item.link}
+              className="w-full max-w-sm no-underline group"
+            >
+              <Card className="text-center border-0 bg-white/80 backdrop-blur-sm hover:bg-white hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden flex flex-col justify-between h-full">
+                <CardHeader>
+                  <div className="mx-auto w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <item.icon className="h-10 w-10 text-red-600" />
+                  </div>
+                  <CardTitle className="text-2xl font-semibold text-gray-900 mb-2">
+                    {t(`home.${item.key}.title`)}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-700 leading-relaxed mb-6">
+                    {t(`home.${item.key}.description`)}
+                  </CardDescription>
+                  <p className="text-red-600 font-semibold group-hover:text-red-700 transition-colors">
+                    {t('home.knowMore')} <ArrowRight className="inline-block ml-1 h-4 w-4" />
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>
+
+      {/* Overlay decorativo no rodapé da seção */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-red-200/60 to-transparent pointer-events-none"></div>
     </section>
 
       {/* Em Destaque (Featured Course) Section (adaptada) */}
