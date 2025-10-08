@@ -9,11 +9,13 @@ export default function Component() {
     const { t } = useTranslation()
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="bg-neutral-50">
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         {/* Header */}
         <header className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-light text-neutral-800 mb-4">{t("culturalExchanges.title")}</h1>
+          <h1 className="text-4xl md:text-5xl font-light text-neutral-800 mb-4">
+            {t("culturalExchanges.title")}
+          </h1>
           <div className="w-24 h-px bg-neutral-300 mx-auto"></div>
         </header>
 
@@ -29,14 +31,22 @@ export default function Component() {
         </section>
 
         {/* Future Projects Section */}
-        <section className="text-center">
-          <h2 className="text-2xl md:text-3xl font-light text-neutral-800 mb-8">{t("culturalExchanges.futureProjects")}</h2>
+        <section className="text-center mb-16">
+          <h2 className="text-2xl md:text-3xl font-light text-neutral-800 mb-8">
+            {t("culturalExchanges.futureProjects")}
+          </h2>
           <div className="py-12">
-            <p className="text-lg text-neutral-500 italic font-light">{t("culturalExchanges.futureProjectsDesc")}</p>
+            <p className="text-lg text-neutral-500 italic font-light">
+              {t("culturalExchanges.futureProjectsDesc")}
+            </p>
           </div>
         </section>
       </div>
-          <NewsletterSubscribe/>
+
+      {/* Newsletter section encostando no footer */}
+      <div className="mt-0">
+        <NewsletterSubscribe />
+      </div>
     </div>
-  )
+  );
 }

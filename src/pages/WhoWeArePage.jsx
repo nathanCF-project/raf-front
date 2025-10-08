@@ -25,16 +25,28 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Biography Section */}
-      <section className="py-16 md:py-24 px-4 md:px-6 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 text-center">{t('about.historyTitle')}</h2>
+      {/* Biography Section with Background Image */}
+      <section
+        className="relative py-16 md:py-24 px-4 md:px-6 bg-center bg-cover bg-fixed"
+        style={{
+          backgroundImage: "url('/images/Hotel-Chronos3.jpg')", // caminho da tua imagem (ex: public/images/about-bg.jpg)
+        }}
+      >
+        {/* Overlay translúcido para legibilidade */}
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-sm"></div>
+
+        {/* Conteúdo */}
+        <div className="relative max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 text-center">
+            {t('about.historyTitle')}
+          </h2>
+
           <div className="prose prose-lg prose-gray max-w-none">
             <p className="text-lg leading-relaxed text-gray-700 mb-6">
               {t('about.historyP1')}
             </p>
             <p className="text-lg leading-relaxed text-gray-700 mb-6">
-               {t('about.historyP2')}
+              {t('about.historyP2')}
             </p>
           </div>
         </div>
