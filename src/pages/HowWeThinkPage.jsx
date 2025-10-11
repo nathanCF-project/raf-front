@@ -11,57 +11,49 @@ export default function HowWeThinkPage() {
     const { t, i18n } = useTranslation();
   
   return (
-    <div className="container mx-auto px-4 py-8 md:py-12">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-          {t('think.thinktitle')}
+      <div className="min-h-screen bg-gradient-to-b from-white via-red-50/30 to-white">
+      {/* Hero Section */}
+      <section className="text-center py-24 px-6 max-w-5xl mx-auto">
+        <h1 className="text-4xl md:text-6xl font-light text-gray-900 mb-6">
+          {t("think.title")}
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          {t('think.thinksubtitle')}
+        <div className="w-20 h-[2px] bg-red-300 mx-auto mb-8"></div>
+        <p className="text-lg md:text-xl text-gray-700 font-light leading-relaxed max-w-3xl mx-auto">
+          {t("think.subtitle")}
         </p>
-      </div>
+      </section>
 
-      <div className="max-w-3xl mx-auto"> {/* Centraliza o conteúdo e limita a largura */}
-        {/* Bloco de citação 1 */}
-        <blockquote className="border-l-4 border-gray-900 bg-gray-50 p-4 pl-6 mb-6 rounded-md shadow-sm italic text-gray-700">
-          <p className="mb-0">
-            {t('think.thinkmsg1')}
-          </p>
-        </blockquote>
+      {/* Main Text Section */}
+      <section className="max-w-4xl mx-auto px-6 md:px-8 pb-24 text-gray-800">
+        <div className="space-y-8 text-lg leading-relaxed">
+          <p>{t("think.p1")}</p>
+          <p>{t("think.p2")}</p>
+          <p>{t("think.p3")}</p>
+          <p>{t("think.p4")}</p>
+          <p>{t("think.p5")}</p>
+        </div>
 
-        {/* Bloco de citação 2 */}
-        <blockquote className="border-l-4 border-amber-500 bg-amber-50 p-4 pl-6 mb-6 rounded-md shadow-sm italic text-amber-800">
-          <p className="mb-0">
-            {t('think.thinkmsg2')}
-          </p>
-        </blockquote>
-
-        {/* Bloco de citação 3 */}
-        <blockquote className="border-l-4 border-blue-600 bg-blue-50 p-4 pl-6 mb-6 rounded-md shadow-sm italic text-blue-800">
-          <p className="mb-0">
-            {t('think.thinkmsg3')}
-          </p>
-        </blockquote>
-
-        <div className="mt-10 text-center text-gray-600">
-          <p className="italic text-xl mb-2"> {/* Aumenta o tamanho da fonte para a citação final */}
-            {t('think.thinkmsg4')}
-          </p>
-          <p className="font-semibold text-lg"> {/* Aumenta o tamanho da fonte para o autor */}
-            — A Rafeira
+        {/* Destaque Final */}
+        <div className="mt-16 bg-red-100/60 border-l-4 border-red-500 p-6 rounded-md shadow-sm">
+          <p className="italic text-lg text-gray-800 leading-relaxed">
+            {t("think.highlight")}
           </p>
         </div>
-      </div>
+      </section>
 
-
-<br /><br />
-      {/* Seção para o formulário de NewsletterSubscribe */}
-      <div className="mt-20 mb-8 bg-gray-50 p-6 rounded-lg shadow-inner max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
-          {t('think.thinknewsletter')}
-        </h2>
-        <NewsletterSubscribe />
-      </div>
+      <section className="py-24 bg-gradient-to-b from-red-50 to-white border-t border-red-100">
+  <div className="max-w-2xl mx-auto text-center px-6">
+    <div className="bg-white/80 backdrop-blur-sm shadow-md rounded-2xl p-10 border border-red-100">
+      <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-6">
+        {t("think.newsletter")}
+      </h2>
+      <p className="text-gray-600 mb-8">
+        {t("think.newsletter2")}
+      </p>
+      <NewsletterSubscribe />
+    </div>
+  </div>
+</section>
     </div>
   );
 }

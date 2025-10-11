@@ -103,10 +103,13 @@ export default function FormacaoPage() {
                     </p>
                   </div>
 
-                  <Button asChild className="w-full bg-slate-900 hover:bg-slate-800">
-                      <a href="https://forms.gle/mMKRsWULCGz9cRG56" target="_blank" rel="noopener noreferrer">{t('training.buttonRegister')}</a>
-
+                  <div className="space-y-1 text-center">
+                  <Button asChild disabled className="w-full bg-blue-900 hover:bg-blue-700">
+                    <a href="https://forms.gle/mMKRsWULCGz9cRG56" 
+                    target="_blank" rel="noopener noreferrer"> {t('training.buttonRegister')}</a>
                   </Button>
+                  <p className="text-xs text-slate-500 italic">{t('training.courseEnded')}</p>
+                </div>
                 </CardContent>
               </div>
             </div>
@@ -172,10 +175,12 @@ export default function FormacaoPage() {
                     </ol>
                   </div>
 
-                  <Button asChild className="w-full bg-slate-900 hover:bg-slate-800">
-                      <a href="https://forms.gle/mMKRsWULCGz9cRG56"target="_blank" rel="noopener noreferrer">{t('training.buttonRegister')}</a>
-
+                  <div className="space-y-1 text-center">
+                  <Button asChild disabled className="w-full bg-pink-600 hover:bg-pink-700 cursor-not-allowed">
+                    <a href="#" onClick={(e) => e.preventDefault()}>{t('training.buttonRegister')}</a>
                   </Button>
+                  <p className="text-xs text-slate-500 italic">{t('training.courseEnded')}</p>
+                </div>
                 </CardContent>
               </div>
             </div>
@@ -243,8 +248,8 @@ export default function FormacaoPage() {
                     </ul>
                   </div>
 
-                  <div className="space-y-2">
-                    <Button asChild className="w-full bg-slate-900 hover:bg-slate-800">
+                  <div className="space-y-2 text-center">
+                    <Button asChild className="w-full bg-purple-900 hover:bg-slate-800">
                         <a href="https://www.bol.pt/Comprar/Bilhetes/159761-rakugo_a_arte_japonesa_de_contar_historias_curso-museu_do_oriente/"
                         target="_blank" rel="noopener noreferrer">
                         {t('training.buttonRegister')}</a>
@@ -255,6 +260,7 @@ export default function FormacaoPage() {
                         {t('training.buttonMoreInfo')}</a>
 
                     </Button>
+                    <p className="text-xs text-slate-500 italic">{t('training.courseEnded')}</p>
                   </div>
                 </CardContent>
               </div>
@@ -266,7 +272,7 @@ export default function FormacaoPage() {
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-8 mt-16">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-slate-400">© 2024 Formação - Coletivo Artístico. Todos os direitos reservados.</p>
+          <p className="text-slate-400">{t('training.footerText')}</p>
         </div>
       </footer>
     </div>

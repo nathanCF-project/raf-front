@@ -188,6 +188,7 @@
     "course3ImageAlt": "Illustration of a Rakugo actor performing on stage",
     
     "buttonRegister": "Register!",
+    "courseEnded": "(Already held)",
     "buttonMoreInfo": "More Information",
     "footerText": "© 2024 Training - Artistic Collective. All rights reserved."
   },
@@ -199,16 +200,18 @@
 
   },
 
-  "think":{
-   "thinktitle":"How We Think",
-   "thinksubtitle":"Our way of being, doing and resisting in the world.",
-   "thinkmsg1":"We believe in art that dialogues with the territory, with memories and with social emergencies.",
-   "thinkmsg2":"Artistic practice is not neutral — it is a political, relational and affective gesture.",
-   "thinkmsg3":"We value listening, collective time and creation that comes from real encounters.",
-   "thinkmsg4":"'To think is to resist. To create is to exist.'",
-   "thinknewsletter":"Receive our news!"
-   
-  },
+  "think": {
+  "title": "How We Think at Rafeira",
+  "subtitle": "Our way of seeing the world, culture and the collective.",
+  "p1": "At Rafeira, we look at the world as a beautiful blend of diversities — human, cultural and emotional. We believe culture should reflect this plurality. To be 'rafeira' is to celebrate the coexistence of differences, the crossing of paths, and curiosity as forms of beauty and resistance.",
+  "p2": "We see culture as a living organism — made of people, memories, languages and gestures. It is a space in constant transformation, reflecting and following the changes of society. To accompany these changes means to continually rethink how we create, fund and share culture.",
+  "p3": "Social, political and environmental contexts evolve — and with them, so must our models of organisation and creation. We must question hierarchies, review practices, and imagine fairer, more horizontal and participatory structures. At Rafeira, we seek to keep this movement alive — to observe time, listen to it and respond with new ways of acting and thinking together.",
+  "p4": "We want to help shift from a closed, Eurocentric and elitist cultural model to an open, plural and dynamic cultural ecosystem that embraces all voices. To achieve this, we integrate contributions from traditional expressions to contemporary practices, from popular knowledge that lives in our streets to performing arts that emerge across continents.",
+  "p5": "We believe culture is an act of enjoyment, sharing and participation. It should be accessible and close to everyone, without symbolic or material barriers. We want to value and make visible the work of those who make culture every day — diverse, creative and dignified professions that are essential for social cohesion, inclusion and collective formation.",
+  "highlight": "Cultural work is a pillar of democracy — an exercise in citizenship. Through it we build shared meaning, imagine futures, and give shape to our collective life.",
+  "newsletter": "Receive our news!",
+  "newsletter2": "Subscribe to our newsletter and follow what we do."
+},
 
    "cultureDefense": {
     "headerTitle": "Culture Advocacy",
@@ -313,7 +316,7 @@
 
    "publishing": {
     "headerTitle": "Publishing, Editing, and Translations",
-    "introText": "At A Rafeira, we create the dramaturgy for **Hotel Chronos**, and this year we will develop a new dramaturgy titled **“Arrendar”**. At the same time, we are preparing several translations of selected works, enriching our programming with diverse voices and new perspectives.",
+    "introText": "At A Rafeira, we create the dramaturgy for Hotel Chronos, and this year we will develop a new dramaturgy titled “Arrendar”. At the same time, we are preparing several translations of selected works, enriching our programming with diverse voices and new perspectives.",
     "visionTitle": "Our Editorial Vision",
     "visionText": "Our goal is to provide a space for different artistic expressions, broaden horizons, and value cultural multiplicity. Publishing and translation are fundamental tools for bringing new narratives to the public.",
     "booksTitle": "Translated Books",

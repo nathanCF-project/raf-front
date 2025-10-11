@@ -188,6 +188,7 @@
     "course3ImageAlt": "Ilustração de um ator de Rakugo em uma performance no palco",
     
     "buttonRegister": "Inscreve-te!",
+    "courseEnded": "(Já decorreu)",
     "buttonMoreInfo": "Mais Informações",
     "footerText": "© 2024 Formação - Coletivo Artístico. Todos os direitos reservados."
   },
@@ -200,15 +201,18 @@
 
   },
 
-    "think":{
-   "thinktitle":"Como Pensamos",
-   "thinksubtitle":"A nossa forma de estar, fazer e resistir no mundo.",
-   "thinkmsg1":"Acreditamos numa arte que dialoga com o território, com as memórias e com as urgências sociais.",
-   "thinkmsg2":"A prática artística não é neutra — é um gesto político, relacional e afetivo.",
-   "thinkmsg3":"Valorizamos a escuta, o tempo coletivo e a criação que parte de encontros reais.",
-   "thinkmsg4":"“Pensar é resistir. Criar é existir.”",
-   "thinknewsletter":"Fica a par das nossas novidades!"
-  },
+    "think": {
+  "title": "Como pensamos na Rafeira",
+  "subtitle": "O nosso olhar sobre o mundo, a cultura e o comum.",
+  "p1": "N’A Rafeira olhamos para o mundo como uma bonita mistura de diversidades — humanas, culturais e afetivas. Acreditamos que a cultura deve ser um reflexo dessa pluralidade. Ser “rafeira” é celebrar a convivência entre diferenças, o cruzamento de caminhos e a curiosidade como formas de beleza e de resistência.",
+  "p2": "Pensamos que a cultura é um organismo vivo — feito de pessoas, memórias, linguagens e gestos. É um espaço em constante transformação, que reflete e acompanha as mudanças da sociedade. Acreditamos que acompanhar essas mudanças implica repensar continuamente as formas de fazer, financiar e partilhar cultura.",
+  "p3": "Os contextos sociais, políticos e ambientais transformam-se, e com eles devem transformar-se também os nossos modelos de organização e criação. É necessário questionar hierarquias, rever práticas e imaginar estruturas mais justas, horizontais e participativas. Na Rafeira, procuramos manter esse movimento vivo — observar o tempo, escutá-lo e responder-lhe com novas formas de agir e de pensar o comum.",
+  "p4": "Queremos contribuir para a passagem de um modelo cultural fechado, eurocêntrico e elitista para um ecossistema cultural aberto, plural e dinâmico, onde cabem todas as vozes. Para isso, procuramos integrar todos os contributos: das expressões tradicionais às práticas contemporâneas, dos saberes populares que habitam as nossas ruas às artes performativas que nascem noutros continentes.",
+  "p5": "Acreditamos que a cultura é um ato de fruição, partilha e participação. Deve ser acessível e próxima de todas as pessoas, sem barreiras simbólicas ou materiais. Queremos dar visibilidade e valor ao trabalho de quem faz cultura todos os dias — profissões diversas, criativas e dignas, essenciais para a coesão social, a integração e a formação coletiva.",
+  "highlight": "O trabalho cultural é um pilar da democracia — um exercício de cidadania. É através dele que construímos sentido comum, imaginamos futuros e damos corpo à vida em comum.",
+  "newsletter": "Fica a par das nossas novidades!",
+  "newsletter2":"Subscreve a nossa newsletter e acompanha o que fazemos."
+},
 
   "cultureDefense": {
     "headerTitle": "Defesa da Cultura",
@@ -221,7 +225,7 @@
     "project1Title": "Não queremos viver num país de medo",
     "project1Description": "Demonstração nacional organizada em resposta à agressão sofrida pelo ator Aderito Lopes, mobilizando 12 cidades em defesa da liberdade e contra o medo.",
     "project1Type": "Concentração",
-    "project2Title": "Produção",
+    "project2Title": "Em Produção..",
     "project2Description": "Iniciativa em Produção..",
     "project2Type": "Fórum",
     "project3Title": "Em Construção",
@@ -315,7 +319,7 @@
   
    "publishing": {
     "headerTitle": "Publicação, edição e traduções",
-    "introText": "Na Rafeira fazemos a dramaturgia do **Hotel Chronos**, e neste ano vamos desenvolver uma nova dramaturgia intitulada **“Arrendar”**. Paralelamente, estamos a preparar várias traduções de obras selecionadas, enriquecendo a nossa programação com vozes diversas e novas perspetivas.",
+    "introText": "Na Rafeira fazemos a dramaturgia do Hotel Chronos, e neste ano vamos desenvolver uma nova dramaturgia intitulada “Arrendar”. Paralelamente, estamos a preparar várias traduções de obras selecionadas, enriquecendo a nossa programação com vozes diversas e novas perspetivas.",
     "visionTitle": "Nossa Visão Editorial",
     "visionText": "O nosso objetivo é dar espaço a diferentes expressões artísticas, ampliar horizontes e valorizar a multiplicidade cultural. A publicação e tradução são ferramentas fundamentais para trazer novas narrativas ao público.",
     "booksTitle": "Livros Traduzidos",

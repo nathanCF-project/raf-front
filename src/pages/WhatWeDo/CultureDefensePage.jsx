@@ -29,7 +29,7 @@ export default function DefesaDaCultura() {
       status: t("cultureDefense.statusInProgress"),
       icon: <Users className="h-5 w-5" />,
     },
-    {
+  /* {
       title: t("cultureDefense.project3Title"),
       description:
         t("cultureDefense.project3Description"),
@@ -37,7 +37,7 @@ export default function DefesaDaCultura() {
       type: t("cultureDefense.project3Type"),
       status: t("cultureDefense.statusPlanned"),
       icon: <Heart className="h-5 w-5" />,
-    },
+    }, */
   ]
 
   return (
@@ -85,7 +85,7 @@ export default function DefesaDaCultura() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
+           <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-2">
             {projects.map((project, index) => (
               <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-slate-200 bg-white">
                 <CardHeader className="pb-4">
